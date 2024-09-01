@@ -54,13 +54,16 @@ export default function PersonPage() {
 
   return (
     <div className=" flex justify-center items-center text-white">
-      <div className="relative" onClick={onClickNext}>
+      <div className="relative">
         <Image
           className="z-30 w-300 h-200"
           src={personBox}
           alt="introBackground"
         />
-        <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
+        <p
+          onClick={onClickNext}
+          className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]"
+        >
           {textArray[progress].text}
         </p>
         <Button hasButton={textArray[progress].hasButton} />

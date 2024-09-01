@@ -9,7 +9,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <Header />
       <Image
         src={personBackground}
-        // pt=[48] is equivalent to padding-top: 48px
         className="object-fill -z-10"
         alt="introBackground"
         fill
