@@ -16,16 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
-        {/* <Image
-          src={backgroundImage}
-          alt="backgroundImage"
-          fill
-          style={{ objectFit: "fill" }}
-        /> */}
-
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

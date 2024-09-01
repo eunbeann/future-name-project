@@ -9,6 +9,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
         src={introBackground}
         alt="introBackground"
         fill
+        draggable="false"
       />
       <div className="relative z-10">{children}</div>
     </div>

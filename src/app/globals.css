@@ -6,6 +6,14 @@ body {
   /* background-image: "/src/app/assets/image/basicBackground.png"; */
 }
 
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none; /* 텍스트 선택 및 호출 비활성화 (iOS) */
+  -webkit-tap-highlight-color: transparent; /* 탭 하이라이트 색상 제거 (iOS) */
+  user-select: none; /* 사용자가 텍스트를 선택할 수 없도록 설정 (모던 브라우저 지원) */
+  pointer-events: none; /* 클릭 이벤트 비활성화 */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
