@@ -1,3 +1,4 @@
+import { Dialog } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
 import { TouchButton } from "../MotionButton";
 
@@ -9,9 +10,11 @@ export default function Button({ hasButton }: ButtonProps) {
   const router = useRouter();
   if (hasButton === 1) {
     return (
-      <TouchButton className="absolute left-[102px] top-[560px] border-2 border-1 text-[35px] text-[#02FE00] border-[#02FE00] w-[620px] py-4 hover:bg-[#02FE00] hover:text-black">
-        입력하기
-      </TouchButton>
+      <Dialog.Trigger asChild>
+        <div className="absolute left-[102px] top-[560px] border-2 border-1 text-[35px] text-[#02FE00] border-[#02FE00] w-[620px] py-4 hover:bg-[#02FE00] hover:text-[#000000]">
+          입력하기?
+        </div>
+      </Dialog.Trigger>
     );
   }
 
@@ -19,7 +22,7 @@ export default function Button({ hasButton }: ButtonProps) {
     return (
       <div className="absolute left-[75px] top-[560px] text-[35px]  w-[700px] py-4">
         <div className="flex justify-center gap-[45px]">
-          <TouchButton className="px-[95px] border-2 text-[#02FE00] border-[#02FE00] hover:bg-[#02FE00] hover:text-black">
+          <TouchButton className="px-[95px] border-2 text-[#02FE00] border-[#02FE00] hover:bg-[#02FE00] hover:text-[#000000]">
             끝내기
           </TouchButton>
           <TouchButton

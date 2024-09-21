@@ -6,8 +6,11 @@ export default function ListPage() {
   ));
 
   return (
-    <div className="px-[54px] flex flex-col flex-wrap h-[88vh] w-[100vw] overflow-x-auto scrollbar-hide border-r-2 ">
-      {personCards}
-    </div>
+    <>
+      <div> </div>
+      <div className="px-[54px] flex flex-col flex-wrap h-[88vh] w-[100vw] overflow-x-auto scrollbar-hide border-r-2 ">
+        {personCards}
+      </div>
+    </>
   );
 }

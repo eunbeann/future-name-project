@@ -12,7 +12,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        PixterDisplay: ["PixterDisplay", "Pixter-Display"], // 'CustomFont'는 @font-face에서 정의한 이름입니다.
+        PixterDisplay: ["PixterDisplay", "Pixter-Display"],
+        DungGeunMo: ["DungGeunMo", "DungGeunMo"],
       },
     },
     keyframes: {

@@ -26,7 +26,7 @@ export default function Header() {
   const meridiem = thisHour >= 12 ? "PM" : "AM";
 
   return (
-    <div className="flex justify-between w-[100vw] bg-black z-50 px-[29px] py-[12px] text-white">
+    <div className="flex justify-between w-[100vw] bg-black z-50 px-[29px] py-[12px] text-[#ffffff]">
       <div>FUTURE NAMING CENTER</div>
       <div className="flex gap-[26px]">
         <p>2100</p>

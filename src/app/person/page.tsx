@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState } from "react";
 import TypingText from "../common/TypingText";
 import Button from "./components/Button";
-import { TouchButton } from "./MotionButton";
 
 export default function PersonPage() {
   const [progress, SetProgress] = useState(0);
@@ -31,7 +30,7 @@ export default function PersonPage() {
   const textArray: TextArrayType[] = [
     {
       hasButton: 0,
-      text: "안안녕하세요. 퓨처네이밍센터에 \n 오신 것을 환영합니다.",
+      text: "안안녕하세요. \n  퓨처네이밍센터에 오신 것을 환영합니다.",
     },
     {
       hasButton: 0,
@@ -60,30 +59,33 @@ export default function PersonPage() {
   ];
 
   return (
-    <div className=" flex justify-center items-center text-white">
-      <div className="relative">
-        <Image
-          className="z-30 w-300 h-200"
-          src={personBox}
-          alt="introBackground"
-        />
-        <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
-          <TypingText
-            onComplete={handleComplete}
-            speed={100}
-            text={textArray[progress].text}
+    <>
+      <div className=" flex justify-center items-center text-white">
+        <div className="relative">
+          <Image
+            className="z-30 w-300 h-200"
+            src={personBox}
+            alt="introBackground"
           />
-        </p>
-        <Button hasButton={textArray[progress].hasButton} />
-        {textArray[progress].hasButton === 0 && (
-          <TouchButton
+          <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
+            <TypingText
+              onComplete={handleComplete}
+              speed={100}
+              text={textArray[progress].text}
+            />
+          </p>
+          <Button hasButton={textArray[progress].hasButton} />
+
+          {/* {textArray[progress].hasButton === 0 && ( */}
+          <div
             onClick={onClickNext}
-            className="absolute right-[80px] bottom-[90px] "
+            className="absolute left-[36%] bottom-[3.6rem] w-[18rem] h-[4.7rem] text-[#02FE00] text-[25px] border-2 border-[#02FE00] text-center pt-[1.1rem]"
           >
-            Next
-          </TouchButton>
-        )}
+            확인
+          </div>
+          {/* )} */}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
