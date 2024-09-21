@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 interface TypingTextProps {
   text: string;
   speed?: number;
-  onComplete?: () => void; // onComplete 콜백 추가
+  onComplete?: () => void;
 }
 const TypingText = ({ text, speed = 100, onComplete }: TypingTextProps) => {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
-    setDisplayedText(""); // 텍스트 초기화
+    setDisplayedText("");
     let index = 0;
     const addNextChar = () => {
       if (index < text.length - 1) {
@@ -28,10 +28,10 @@ const TypingText = ({ text, speed = 100, onComplete }: TypingTextProps) => {
   }, [text, speed, onComplete]);
 
   return (
-    <>
+    <span className="whitespace-pre-wrap">
       {displayedText}
       <span className="animate-blink">|</span>
-    </>
+    </span>
   );
 };
 
