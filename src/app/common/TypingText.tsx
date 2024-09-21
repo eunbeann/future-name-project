@@ -1,29 +1,43 @@
+// src/app/common/TypingText.jsx
+
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
 interface TypingTextProps {
   text: string;
   speed?: number;
   onComplete?: () => void;
 }
+interface TypingTextProps {
+  text: string;
+  speed?: number;
+  onComplete?: () => void;
+}
+
 const TypingText = ({ text, speed = 100, onComplete }: TypingTextProps) => {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
     setDisplayedText("");
     let index = 0;
+    let timeoutId: NodeJS.Timeout | undefined;
+
     const addNextChar = () => {
       if (index < text.length - 1) {
         setDisplayedText((prev) => prev + text[index]);
         index++;
-        setTimeout(addNextChar, speed);
+        timeoutId = setTimeout(addNextChar, speed);
+      } else if (onComplete) {
+        onComplete();
       }
     };
-    setTimeout(addNextChar, speed);
+
+    timeoutId = setTimeout(addNextChar, speed);
 
     return () => {
-      index = text.length;
+      clearTimeout(timeoutId);
+      setDisplayedText(text); // 클린업 시 텍스트를 완성
     };
   }, [text, speed, onComplete]);
 
@@ -35,4 +49,4 @@ const TypingText = ({ text, speed = 100, onComplete }: TypingTextProps) => {
   );
 };
 
-export default TypingText;
+export default memo(TypingText);
