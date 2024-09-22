@@ -1,7 +1,7 @@
 "use client";
 
 import archiveIcon from "@/app/assets/icon/archiveIcon.png";
-import helloIcon from "@/app/assets/icon/HelloIcon.png";
+import helloIcon from "@/app/assets/icon/helloIcon.png";
 import renameIcon from "@/app/assets/icon/renamingIcon.png";
 import introBackground from "@/app/assets/image/mainBg.png";
 import Image from "next/image";
