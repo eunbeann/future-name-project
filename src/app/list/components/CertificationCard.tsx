@@ -28,7 +28,9 @@ export default function CertificationCard({
           src={certification}
           alt="certification"
         />
-        <p className="absolute top-[288px] right-[145px] text-white">{id}</p>
+        <p className="absolute top-[291px] right-[145px] text-sm text-white">
+          {id}
+        </p>
         <p className="absolute top-[322px] right-[125px] text-xs text-white">
           2100.{formattedDate}
         </p>
