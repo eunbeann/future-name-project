@@ -11,9 +11,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      cursor: {
+        custom: 'url("/path/to/your-cursor.png"), auto',
+      },
       fontFamily: {
-        PixterDisplay: ["PixterDisplay", "Pixter-Display"],
-        DungGeunMo: ["DungGeunMo", "DungGeunMo"],
+        "pixter-display": ["Pixter Display", "sans-serif"],
+        // DungGeunMo: ["DungGeunMo", "DungGeunMo"],
       },
     },
     keyframes: {

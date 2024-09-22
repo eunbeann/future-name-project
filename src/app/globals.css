@@ -10,9 +10,24 @@ img {
   pointer-events: none;
 }
 
+@font-face {
+  font-family: "Pixter-Display";
+  src: url("/public/fonts/PixterDisplay.ttf") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  /* @apply Pixter-Display; */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .font-Pixter-Display {
+    font-family: "Pixter-Display", sans-serif;
   }
 }
 
