@@ -3,19 +3,20 @@ import personBox from "@/app/assets/image/personBox.png";
 import Image from "next/image";
 import ClientRecoilRoot from "../common/ClientRecoilRoot";
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ClientRecoilRoot>
-      <div>
+      <div className="relative min-h-screen flex justify-center items-center">
         <Image
           src={personBackground}
-          className="object-fill -z-10"
+          className="object-cover -z-10"
           alt="introBackground"
-          fill
+          layout="fill"
           priority={true}
         />
-        <div className="relative z-10 w-full h-full top-[300px]">
-          <div className=" flex justify-center items-center text-white">
+
+        <div className="relative z-10">
+          <div className="flex justify-center items-center text-white">
             <div className="relative">
               <Image
                 className="z-30 w-300 h-200"
