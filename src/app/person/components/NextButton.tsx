@@ -1,6 +1,8 @@
+// NextButton.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
+import React, { memo } from "react";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
 
@@ -8,7 +10,9 @@ interface NextButtonProps {
   action?: () => void;
 }
 
-export default function NextButton({ action }: NextButtonProps) {
+const NextButton: React.FC<NextButtonProps> = ({ action }) => {
+  console.log("NextButton 렌더링");
+
   const router = useRouter();
   const [step, setStep] = useRecoilState(stepNumbers);
 
@@ -31,4 +35,6 @@ export default function NextButton({ action }: NextButtonProps) {
       확인
     </button>
   );
-}
+};
+
+export default memo(NextButton);
