@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "./common/Header";
-import TaskBar from "./common/TaskBar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +20,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
-        <TaskBar />
       </body>
     </html>
   );

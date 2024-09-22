@@ -8,15 +8,13 @@ import { useRecoilValue } from "recoil";
 import { userName } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
 
-interface UserName {
-  lastName: string;
-  firstName: string;
-}
-
 interface UserNamesType {
   id: number;
-  futureName: string;
-  date: string; // localStorage는 Date 객체를 저장할 수 없으므로 문자열로 저장
+  firstName: string;
+  lastName: string;
+  futureFirstName: string;
+  futureLastName: string;
+  date: string;
 }
 
 export default function Sixth() {
@@ -43,12 +41,16 @@ export default function Sixth() {
     setIsComplete(true);
   };
 
-  const newName = convertToUnicode(`${name.lastName}${name.firstName}`);
+  const uniFistName = convertToUnicode(name.firstName);
+  const uniLastName = convertToUnicode(name.lastName);
 
   const saveNameInArray = () => {
     const newEntry: UserNamesType = {
       id: Date.now(),
-      futureName: newName,
+      firstName: name.firstName,
+      lastName: name.lastName,
+      futureFirstName: uniFistName,
+      futureLastName: uniLastName,
       date: new Date().toISOString(),
     };
 
@@ -63,7 +65,7 @@ export default function Sixth() {
         <TypingText
           onComplete={handleComplete}
           speed={100}
-          text={`변변환이 완료되었습니다! \n 당신의 새로운 이름은 \n  [${newName}]입니다.`}
+          text={`변변환이 완료되었습니다! \n 당신의 새로운 이름은 \n  [${uniLastName}${uniFistName}]입니다.`}
         />
       </p>
 

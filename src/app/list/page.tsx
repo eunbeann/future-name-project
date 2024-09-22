@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import CertificationCard from "./components/CertificationCard";
 import PersonCard, { PersonCardProps } from "./components/PersonCard";
 
 const ListPage: React.FC = () => {
   const [users, setUsers] = useState<PersonCardProps[]>([]);
+  const [hoveredUserId, setHoveredUserId] = useState<number | null>(null);
 
   useEffect(() => {
     const storedUsers = localStorage.getItem("userNames");
@@ -27,12 +29,29 @@ const ListPage: React.FC = () => {
       <div className="grid grid-rows-3 w-1/3 gap-[8px] relative z-10 p-4">
         {users.length > 0 ? (
           users.map((user, key) => (
-            <PersonCard
+            <div
               key={key}
-              id={key}
-              futureName={user.futureName}
-              date={user.date}
-            />
+              onMouseEnter={() => setHoveredUserId(key)}
+              onMouseLeave={() => setHoveredUserId(null)}
+              className="relative"
+            >
+              <PersonCard
+                id={key + 1}
+                futureFirstName={user.futureFirstName}
+                futureLastName={user.futureLastName}
+                date={user.date}
+              />
+              {hoveredUserId === key && (
+                <CertificationCard
+                  id={key + 1}
+                  date={user.date}
+                  firstName={user.firstName || ""}
+                  lastName={user.lastName || ""}
+                  newFirstName={user.futureFirstName}
+                  newLastName={user.futureLastName}
+                />
+              )}
+            </div>
           ))
         ) : (
           <p>No users available.</p>
