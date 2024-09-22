@@ -11,11 +11,22 @@ interface userNameType {
   firstName: string;
 }
 
+export interface userNamesType {
+  id: number;
+  futureName: string;
+  date: Date;
+}
+
 export const userName = atom<userNameType>({
   key: "userName",
   default: {
     lastName: "",
     firstName: "",
   },
-  effects_UNSTABLE: [localStorageEffect<userNameType>("userName")],
+});
+
+export const userNames = atom<userNamesType[]>({
+  key: "userNames",
+  default: [],
+  effects_UNSTABLE: [localStorageEffect<userNamesType[]>("userNames")],
 });

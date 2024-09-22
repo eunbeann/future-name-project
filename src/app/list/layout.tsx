@@ -1,12 +1,11 @@
+import fncIcon from "@/app/assets/icon/fncLogo.png";
 import listBackground from "@/app/assets/image/listBackground.png";
 import Image from "next/image";
-import Header from "../common/Header";
-import TaskBar from "../common/TaskBar";
+import ClientRecoilRoot from "../common/ClientRecoilRoot";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* <div className="bg-gradient-to-b from-black to-blue-700 mix-blend-lighten h-[100vh]"> */}
       <Image
         className="fixed bottom-0 w-full h-[100vh] -z-50"
         src={listBackground}
@@ -14,10 +13,14 @@ export default function layout({ children }: { children: React.ReactNode }) {
         priority={true}
         draggable="false"
       />
-      <Header />
-      <div className="relative z-10">{children}</div>
-      <TaskBar />
-      {/* </div> */}
+      <div className="relative z-10">
+        <ClientRecoilRoot>{children}</ClientRecoilRoot>
+      </div>
+      <Image
+        className="fixed bottom-[90px] right-5 w-[230px] h-[190px] -z-50"
+        src={fncIcon}
+        alt="logoIcon"
+      />
     </>
   );
 }

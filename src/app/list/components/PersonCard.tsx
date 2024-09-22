@@ -1,15 +1,22 @@
-export default function PersonCard() {
-  const person = {
-    id: 3,
-    name: "g791 h802 i913",
-    createTime: "15:30 AM",
-  };
+import useFormattedTime from "@/hooks/useFormattedTime";
+
+export interface PersonCardProps {
+  id: number;
+  futureName: string;
+  date: Date;
+}
+
+export default function PersonCard({ id, futureName, date }: PersonCardProps) {
+  const time = useFormattedTime(date.toString());
+  const padId = String(id).padStart(3, "0");
 
   return (
-    <div className="W-1/3 flex text-white text-[25px] pr-[30px] mr-[30px] border-r-2 border-[#031DDF] hover:bg-white hover:text-[#031DDF]">
-      <p className="mr-[27px] text-[#ffffff]">{person.id}</p>
-      <p className="mr-[110px] text-[#ffffff]">{`<${person.name}>`}</p>
-      <p className="text-[#031DDF]">{person.createTime}</p>
+    <div className="flex justify-between text-white hover:bg-white hover:text-[#031DDF]">
+      <div className="flex">
+        <p className="mr-[24px] text-[#ffffff]">{padId}</p>
+        <p className="text-[#ffffff]">{`<${futureName}>`}</p>
+      </div>
+      <p className="text-[#031DDF]">{time}</p>
     </div>
   );
 }

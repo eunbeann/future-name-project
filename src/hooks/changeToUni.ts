@@ -7,7 +7,7 @@ export function convertToUnicode(str: string): string {
   return Array.from(str)
     .map((char) => {
       const code = char.charCodeAt(0).toString(16).toUpperCase();
-      return `\\u${code.padStart(4, "0")}`;
+      return `${code.padStart(4, "0")}`;
     })
-    .join("");
+    .join(" ");
 }

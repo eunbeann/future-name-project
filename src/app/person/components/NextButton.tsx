@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
 
@@ -8,10 +9,15 @@ interface NextButtonProps {
 }
 
 export default function NextButton({ action }: NextButtonProps) {
+  const router = useRouter();
   const [step, setStep] = useRecoilState(stepNumbers);
 
   const onClickButton = () => {
-    setStep(step + 1);
+    if (step !== 7) {
+      setStep(step + 1);
+    } else {
+      router.push("/list");
+    }
     if (action) {
       action();
     }

@@ -1,3 +1,5 @@
+"use client";
+
 import TypingText from "@/app/common/TypingText";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -9,6 +11,7 @@ export default function First() {
   const handleComplete = () => {
     setIsComplete(true);
   };
+
   return (
     <div>
       <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] text-center w-[760px]">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRecoilValue } from "recoil";
-import { stepNumbers, userName } from "./atoms/atoms";
+import { stepNumbers } from "./atoms/atoms";
 import Fifth from "./steps/Fifth";
 import First from "./steps/First";
 import Fourth from "./steps/Fourth";
@@ -22,9 +22,6 @@ const stepComponents = {
 
 export default function PersonPage() {
   const step = useRecoilValue(stepNumbers) as keyof typeof stepComponents;
-  const userNames = useRecoilValue(userName);
-
-  console.log(userNames);
 
   return <div>{stepComponents[step]}</div>;
 }
