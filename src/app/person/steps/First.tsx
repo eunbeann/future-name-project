@@ -1,12 +1,10 @@
 "use client";
 
 import TypingText from "@/app/common/TypingText";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import NextButton from "../components/NextButton";
 
 export default function First() {
-  const router = useRouter();
   const [isComplete, setIsComplete] = useState(false);
   const handleComplete = () => {
     setIsComplete(true);
@@ -14,7 +12,7 @@ export default function First() {
 
   return (
     <div>
-      <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] text-center w-[760px]">
+      <p className="absolute left-9 top-[420px] text-[#02FE00] text-[35px] text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
           speed={100}
