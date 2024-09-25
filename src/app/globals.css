@@ -26,9 +26,9 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  .font-Pixter-Display {
+  /* .font-Pixter-Display {
     font-family: "Pixter-Display", sans-serif;
-  }
+  } */
 }
 
 @keyframes blink {

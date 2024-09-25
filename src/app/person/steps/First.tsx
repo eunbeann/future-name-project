@@ -1,14 +1,15 @@
 "use client";
 
 import TypingText from "@/app/common/TypingText";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import NextButton from "../components/NextButton";
 
 export default function First() {
   const [isComplete, setIsComplete] = useState(false);
-  const handleComplete = () => {
+
+  const handleComplete = useCallback(() => {
     setIsComplete(true);
-  };
+  }, []);
 
   return (
     <div>

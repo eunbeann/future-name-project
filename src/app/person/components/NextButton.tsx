@@ -1,8 +1,7 @@
-// NextButton.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
-import React, { memo } from "react";
+import React, { memo, useCallback } from "react";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
 
@@ -16,21 +15,19 @@ const NextButton: React.FC<NextButtonProps> = ({ action }) => {
   const router = useRouter();
   const [step, setStep] = useRecoilState(stepNumbers);
 
-  const onClickButton = () => {
+  const onClickButton = useCallback(() => {
     if (step !== 7) {
-      setStep(step + 1);
-    } else {
-      router.push("/list");
+      setStep((prevStep) => prevStep + 1);
     }
     if (action) {
       action();
     }
-  };
+  }, [step, setStep, action]);
 
   return (
     <button
       onClick={onClickButton}
-      className="absolute left-[36%] bottom-[3.6rem] w-[18rem] h-[4.7rem] text-[#02FE00] text-[25px] border-2 border-[#02FE00] text-center  cursor-pointer"
+      className="absolute left-[36%] bottom-[3.6rem] w-[18rem] h-[4.7rem] text-[#02FE00] text-[25px] border-2 border-[#02FE00] text-center cursor-pointer"
     >
       확인
     </button>

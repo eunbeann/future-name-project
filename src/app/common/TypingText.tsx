@@ -1,14 +1,7 @@
-// src/app/common/TypingText.jsx
-
 "use client";
 
 import { memo, useEffect, useState } from "react";
 
-interface TypingTextProps {
-  text: string;
-  speed?: number;
-  onComplete?: () => void;
-}
 interface TypingTextProps {
   text: string;
   speed?: number;
@@ -37,7 +30,7 @@ const TypingText = ({ text, speed = 100, onComplete }: TypingTextProps) => {
 
     return () => {
       clearTimeout(timeoutId);
-      setDisplayedText(text); // 클린업 시 텍스트를 완성
+      // setDisplayedText(text) 제거
     };
   }, [text, speed, onComplete]);
 
