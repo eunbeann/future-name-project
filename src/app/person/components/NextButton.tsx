@@ -27,7 +27,7 @@ const NextButton: React.FC<NextButtonProps> = ({ action }) => {
   return (
     <button
       onClick={onClickButton}
-      className="absolute left-[36%] bottom-[3.6rem] w-[18rem] h-[4.7rem] text-[#02FE00] text-[25px] border-2 border-[#02FE00] text-center cursor-pointer"
+      className="absolute left-[32%] bottom-[3.6rem] w-[18rem] h-[4.7rem] text-[#02FE00] text-[25px] border-2 border-[#02FE00] text-center cursor-pointer"
     >
       확인
     </button>
