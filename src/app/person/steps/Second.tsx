@@ -1,24 +1,46 @@
+import rightArrow from "@/app/assets/icon/rightArrow.png";
 import TypingText from "@/app/common/TypingText";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import NextButton from "../components/NextButton";
+import Image from "next/image";
+import { useCallback, useState } from "react";
+import { useRecoilState } from "recoil";
+import { stepNumbers } from "../atoms/atoms";
 
 export default function Second() {
-  const router = useRouter();
+  const [step, setStep] = useRecoilState(stepNumbers);
   const [isComplete, setIsComplete] = useState(false);
   const handleComplete = () => {
     setIsComplete(true);
   };
+
+  const onClickButton = useCallback(() => {
+    if (step !== 8) {
+      setStep((prevStep) => prevStep + 1);
+    }
+  }, [step, setStep]);
+
   return (
     <div>
       <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
-          text={`퓨퓨처네이밍센터는 미래의 유행할 이름을 미리 지어보는 가상의 작명소입니다.\n당신의 고유한 이름을 인공지능 기술을 통해 특별한 \n 코드 이름으로 변환해 드리겠습니다.`}
+          text={`퓨이름은 시대에 따라 다르게 사용되었습니다.\n과거에는 사회적, 문화적 의미를 담았지만,\n지금은 그런 의미는 없습니다.\n이름은 이제 시스템의 일부일 뿐입니다.`}
         />
       </p>
 
-      <NextButton />
+      {/* <NextButton /> */}
+      <button
+        className="absolute left-[36%] bottom-[3.6rem] rounded-[13px] text-[#ffffff] border-2 border-[#ffffff] text-center cursor-pointer"
+        onClick={onClickButton}
+      >
+        <div className="flex items-center py-2">
+          <Image
+            className="w-[5px] h-[13px] mr-[56px] ml-[35px]"
+            src={rightArrow}
+            alt="rightArrow"
+          />
+          <p className="mr-[70px]">미래의 이름은 어떻게 변하나요?</p>
+        </div>
+      </button>
     </div>
   );
 }

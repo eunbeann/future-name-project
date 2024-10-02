@@ -34,7 +34,7 @@ export default function Fourth() {
       <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
-          text={`확확인했습니다! 이름을 입력해주세요.`}
+          text={`성을 입력하십시오. 이 작업은 과거의 흔적을 반영하는 절차일 뿐입니다. 데이터 수집을 완료하겠습니다.`}
         />
       </p>
 

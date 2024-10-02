@@ -12,7 +12,7 @@ const NextButton = ({ action }: NextButtonProps) => {
   const [step, setStep] = useRecoilState(stepNumbers);
 
   const onClickButton = useCallback(() => {
-    if (step !== 7) {
+    if (step !== 8) {
       setStep((prevStep) => prevStep + 1);
     }
     if (action) {

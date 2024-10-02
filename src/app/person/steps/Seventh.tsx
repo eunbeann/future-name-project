@@ -1,51 +1,74 @@
+// Sixth.tsx
+"use client";
+
 import TypingText from "@/app/common/TypingText";
-import CertificationCard from "@/app/list/components/CertificationCard";
-import { PersonCardProps } from "@/app/list/components/PersonCard";
+import { convertToUnicode } from "@/hooks/changeToUni";
 import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { userName } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
+
+interface UserNamesType {
+  id: number;
+  firstName: string;
+  lastName: string;
+  futureFirstName: string;
+  futureLastName: string;
+  date: string;
+}
 
 export default function Seventh() {
   const [isComplete, setIsComplete] = useState(false);
-  const [showCertification, setShowCertification] = useState(false);
-
-  const handleComplete = () => {
-    setIsComplete(true);
-  };
-
-  const [names, setNames] = useState<PersonCardProps[]>([]);
-  const lastUser = names.length > 0 && names[names.length - 1];
+  const name = useRecoilValue(userName);
+  const [names, setNames] = useState<UserNamesType[]>([]);
 
   useEffect(() => {
     const storedNames = localStorage.getItem("userNames");
     if (storedNames) {
       try {
-        const parsedNames: PersonCardProps[] = JSON.parse(storedNames);
+        const parsedNames: UserNamesType[] = JSON.parse(storedNames);
         setNames(parsedNames);
       } catch (error) {
-        console.error("로컬스토리지에서 userNames를 파싱 실패", error);
+        console.error(
+          "로컬스토리지에서 userNames를 파싱하는 데 실패했습니다:",
+          error
+        );
       }
     }
   }, []);
+
+  const handleComplete = () => {
+    setIsComplete(true);
+  };
+
+  const uniFistName = convertToUnicode(name.firstName);
+  const uniLastName = convertToUnicode(name.lastName);
+
+  const saveNameInArray = () => {
+    const newEntry: UserNamesType = {
+      id: Date.now(),
+      firstName: name.firstName,
+      lastName: name.lastName,
+      futureFirstName: uniFistName,
+      futureLastName: uniLastName,
+      date: new Date().toISOString(),
+    };
+
+    const updatedNames = [...names, newEntry];
+    setNames(updatedNames);
+    localStorage.setItem("userNames", JSON.stringify(updatedNames));
+  };
 
   return (
     <div>
       <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
-          text={`개개명신청서를 받으시겠습니까?`}
+          text={`변변환이 완료되었습니다! \n 당신의 새로운 이름은 \n  [${uniLastName}${uniFistName}]입니다.`}
         />
       </p>
-      {showCertification && lastUser && (
-        <CertificationCard
-          id={names.length}
-          date={lastUser.date}
-          firstName={lastUser.firstName || ""}
-          lastName={lastUser.lastName || ""}
-          newFirstName={lastUser.futureFirstName}
-          newLastName={lastUser.futureLastName}
-        />
-      )}
-      <NextButton action={() => setShowCertification(true)} />
+
+      <NextButton action={saveNameInArray} />
     </div>
   );
 }

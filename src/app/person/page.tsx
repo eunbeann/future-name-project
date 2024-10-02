@@ -2,6 +2,7 @@
 
 import { useRecoilValue } from "recoil";
 import { stepNumbers } from "./atoms/atoms";
+import Eight from "./steps/Eight";
 import Fifth from "./steps/Fifth";
 import First from "./steps/First";
 import Fourth from "./steps/Fourth";
@@ -18,6 +19,7 @@ const stepComponents = {
   5: <Fifth />,
   6: <Sixth />,
   7: <Seventh />,
+  8: <Eight />,
 };
 
 export default function PersonPage() {
