@@ -2,7 +2,7 @@ import TypingText from "@/app/common/TypingText";
 import CertificationCard from "@/app/list/components/CertificationCard";
 import { PersonCardProps } from "@/app/list/components/PersonCard";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
 
@@ -30,12 +30,6 @@ export default function Eight() {
       }
     }
   }, []);
-
-  const onClickButton = useCallback(() => {
-    if (step !== 8) {
-      setStep((prevStep) => prevStep + 1);
-    }
-  }, [step, setStep]);
 
   return (
     <div>

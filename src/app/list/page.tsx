@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import IdentifyCard from "./components/IdentifyCard";
 import PersonCard, { PersonCardProps } from "./components/PersonCard";
 
 const ListPage: React.FC = () => {
@@ -40,8 +41,8 @@ const ListPage: React.FC = () => {
                 futureLastName={user.futureLastName}
                 date={user.date}
               />
-              {/* {hoveredUserId === key && (
-                <CertificationCard
+              {hoveredUserId === key && (
+                <IdentifyCard
                   id={key + 1}
                   date={user.date}
                   firstName={user.firstName || ""}
@@ -49,7 +50,7 @@ const ListPage: React.FC = () => {
                   newFirstName={user.futureFirstName}
                   newLastName={user.futureLastName}
                 />
-              )} */}
+              )}
             </div>
           ))
         ) : (
