@@ -16,7 +16,6 @@ export default function First() {
       <p className="absolute left-9 top-[420px] text-[#02FE00] text-[35px] text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
-          speed={100}
           text={`안안녕하세요. \n 퓨처네이밍센터에 오신 것을 환영합니다.`}
         />
       </p>

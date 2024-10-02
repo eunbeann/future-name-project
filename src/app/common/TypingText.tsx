@@ -1,38 +1,39 @@
 "use client";
 
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 
 interface TypingTextProps {
   text: string;
-  speed?: number;
   onComplete?: () => void;
 }
 
-const TypingText = ({ text, speed = 100, onComplete }: TypingTextProps) => {
+const TypingText = ({ text, onComplete }: TypingTextProps) => {
   const [displayedText, setDisplayedText] = useState("");
+  const timeoutRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     setDisplayedText("");
     let index = 0;
-    let timeoutId: NodeJS.Timeout | undefined;
 
     const addNextChar = () => {
       if (index < text.length - 1) {
         setDisplayedText((prev) => prev + text[index]);
         index++;
-        timeoutId = setTimeout(addNextChar, speed);
+        timeoutRef.current = window.setTimeout(addNextChar, 100);
       } else if (onComplete) {
         onComplete();
       }
     };
 
-    timeoutId = setTimeout(addNextChar, speed);
+    timeoutRef.current = window.setTimeout(addNextChar, 100);
 
     return () => {
-      clearTimeout(timeoutId);
-      // setDisplayedText(text) 제거
+      if (timeoutRef.current !== undefined) {
+        console.log("Clearing timeout:", timeoutRef.current);
+        clearTimeout(timeoutRef.current);
+      }
     };
-  }, [text, speed, onComplete]);
+  }, [text, onComplete]);
 
   return (
     <span className="whitespace-pre-wrap">

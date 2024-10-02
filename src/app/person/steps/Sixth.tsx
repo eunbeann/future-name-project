@@ -42,6 +42,7 @@ export default function Sixth() {
   };
 
   const uniFistName = convertToUnicode(name.firstName);
+  console.log("uniFistName", uniFistName);
   const uniLastName = convertToUnicode(name.lastName);
 
   const saveNameInArray = () => {
@@ -59,12 +60,14 @@ export default function Sixth() {
     localStorage.setItem("userNames", JSON.stringify(updatedNames));
   };
 
+  console.log("uniLastName", uniLastName);
+  console.log("uniFistName", uniFistName);
+
   return (
     <div>
       <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
-          speed={100}
           text={`변변환이 완료되었습니다! \n 당신의 새로운 이름은 \n  [${uniLastName}${uniFistName}]입니다.`}
         />
       </p>

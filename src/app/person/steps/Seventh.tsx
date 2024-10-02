@@ -22,10 +22,7 @@ export default function Seventh() {
         const parsedNames: PersonCardProps[] = JSON.parse(storedNames);
         setNames(parsedNames);
       } catch (error) {
-        console.error(
-          "로컬스토리지에서 userNames를 파싱하는 데 실패했습니다:",
-          error
-        );
+        console.error("로컬스토리지에서 userNames를 파싱 실패", error);
       }
     }
   }, []);
@@ -35,7 +32,6 @@ export default function Seventh() {
       <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
         <TypingText
           onComplete={handleComplete}
-          speed={100}
           text={`개개명신청서를 받으시겠습니까?`}
         />
       </p>
