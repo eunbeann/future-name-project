@@ -1,4 +1,4 @@
-"use client"; // 클라이언트 컴포넌트로 설정
+"use client";
 
 import fncIcon from "@/app/assets/icon/fncLogo.png";
 import listBackground from "@/app/assets/image/listBackground.png";
