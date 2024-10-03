@@ -1,9 +1,8 @@
-import rightArrow from "@/app/assets/icon/rightArrow.png";
 import TypingText from "@/app/common/TypingText";
-import Image from "next/image";
 import { useCallback, useState } from "react";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
+import NextButton from "../components/NextButton";
 
 export default function Second() {
   const [step, setStep] = useRecoilState(stepNumbers);
@@ -27,8 +26,8 @@ export default function Second() {
         />
       </p>
 
-      {/* <NextButton /> */}
-      <button
+      <NextButton />
+      {/* <button
         className="absolute left-[36%] bottom-[3.6rem] rounded-[13px] text-[#ffffff] border-2 border-[#ffffff] text-center cursor-pointer"
         onClick={onClickButton}
       >
@@ -40,7 +39,7 @@ export default function Second() {
           />
           <p className="mr-[70px]">미래의 이름은 어떻게 변하나요?</p>
         </div>
-      </button>
+      </button> */}
     </div>
   );
 }
