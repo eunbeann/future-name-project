@@ -1,8 +1,8 @@
-import TypingText from "@/app/common/TypingText";
 import CertificationCard from "@/app/list/components/CertificationCard";
 import { PersonCardProps } from "@/app/list/components/PersonCard";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
 
@@ -33,10 +33,12 @@ export default function Eight() {
 
   return (
     <div>
-      <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
-        <TypingText
-          onComplete={handleComplete}
-          text={`개개명신청서를 받으시겠습니까?`}
+      <p className="absolute left-9 top-[380px] text-[#02FE00] text-[32px] text-center w-[760px]">
+        <TypeAnimation
+          sequence={["개명신청서를 받으시겠습니까?"]}
+          wrapper="span"
+          speed={5}
+          style={{ display: "inline-block", whiteSpace: "pre-line" }}
         />
       </p>
       {showCertification && lastUser && (

@@ -1,9 +1,9 @@
 // Sixth.tsx
 "use client";
 
-import TypingText from "@/app/common/TypingText";
 import { convertToUnicode } from "@/hooks/changeToUni";
 import { useEffect, useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 import { useRecoilValue } from "recoil";
 import { userName } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
@@ -65,11 +65,14 @@ export default function Sixth() {
 
   return (
     <div>
-      <p className="absolute left-9 top-[400px] text-[#02FE00] text-[35px] whitespace-pre-line text-center w-[760px]">
-        <TypingText
-          onComplete={handleComplete}
-          // text={`변변환이 완료되었습니다! \n 당신의 새로운 이름은 \n  [${uniLastName} ${uniFistName}]입니다.`}
-          text={`이름 분석 중... 결과 도출 중... \n이름은 과거와 미래를 잇는 데이터입니다.\n변환을 시작합니다.`}
+      <p className="absolute left-9 top-[380px] text-[#02FE00] text-[32px] text-center w-[760px]">
+        <TypeAnimation
+          sequence={[
+            "이름 분석 중... 결과 도출 중... \n이름은 과거와 미래를 잇는 데이터입니다.\n변환을 시작합니다.",
+          ]}
+          wrapper="span"
+          speed={5}
+          style={{ display: "inline-block", whiteSpace: "pre-line" }}
         />
       </p>
 
