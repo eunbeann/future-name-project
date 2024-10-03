@@ -51,11 +51,14 @@ export default function CertificationCard({
           src={certification}
           alt="certification"
         />
-        <p className="absolute top-[291px] right-[145px] text-sm text-white">
+        <p className="absolute top-[293px] right-[145px] text-xs text-white">
           {id}
         </p>
         <p className="absolute top-[322px] right-[125px] text-xs text-white">
           2100.{formattedDate}
+        </p>
+        <p className="absolute top-[347px] right-[125px] text-xs text-white">
+          FNM CENTER
         </p>
         <p className="absolute top-[413px] right-[188px] text-white">
           {lastName}
