@@ -38,13 +38,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           alt="movingText"
         />
         <button
-          className="fixed bottom-[80px] right-5 cursor-pointer z-20 bg-[#ffffff]"
+          className="fixed bottom-[80px] right-5 w-[230px] h-[190px] cursor-pointer z-20"
           onClick={() => {
             router.push("/");
           }}
         >
           <Image
-            className="fixed bottom-[80px] right-5 w-[229px] h-[190px] cursor-pointer"
+            className="fixed bottom-[80px] right-5 w-[230px] h-[190px] cursor-pointer"
             src={fncIcon}
             alt="logoIcon"
             priority
