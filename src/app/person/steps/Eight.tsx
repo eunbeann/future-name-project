@@ -54,7 +54,7 @@ export default function Eight() {
       <div className="absolute left-[18%] bottom-[3.6rem] ">
         <div className="flex gap-7">
           <button
-            onClick={() => router.push("/")}
+            onClick={() => router.push("/list")}
             className="w-[18rem] h-[4.7rem] text-[#02FE00] text-[25px] border-2 border-[#02FE00] text-center cursor-pointer"
           >
             끝내기
