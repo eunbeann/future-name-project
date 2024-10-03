@@ -27,7 +27,7 @@ export default function IdentifyCard({
       try {
         const arr = JSON.parse(data);
         if (Array.isArray(arr) && arr.length > 0) {
-          arr.pop(); // 마지막 항목 삭제
+          arr.pop();
           localStorage.setItem("userNames", JSON.stringify(arr));
           console.log("마지막 항목이 삭제되었습니다:", arr);
         } else {
@@ -49,10 +49,10 @@ export default function IdentifyCard({
           src={Identify}
           alt="Identify"
         />
-        <p className="absolute top-[128px] right-[400px] text-xl text-[#ffffff]">
+        <p className="absolute top-[128px] right-[346px] text-xl text-[#ffffff]">
           {`${newLastName} ${newFirstName}`}
         </p>
-        <p className="absolute top-[159px] right-[430px] text-xl text-[#ffffff]">
+        <p className="absolute top-[159px] right-[400px] text-xl text-[#ffffff]">
           {lastName}
           {firstName}
         </p>

@@ -29,7 +29,7 @@ export default function PersonCard({
     <div className="flex justify-between text-white hover:bg-white hover:text-[#031DDF]">
       <div className="flex">
         <p className="mr-[24px] text-[#ffffff]">{padId}</p>
-        <p className="text-[#ffffff]">{`<${futureLastName}${futureFirstName}>`}</p>
+        <p className="text-[#ffffff]">{`<${futureLastName} ${futureFirstName}>`}</p>
       </div>
       <p className="text-[#031DDF]">{time}</p>
     </div>
