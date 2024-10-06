@@ -26,7 +26,7 @@ export default function Fifth() {
   };
   return (
     <div>
-      <p className="absolute left-9 top-[380px] text-[#02FE00] text-[32px] text-center w-[760px]">
+      <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
         <TypeAnimation
           sequence={["이름을 입력하십시오."]}
           wrapper="span"
@@ -37,7 +37,7 @@ export default function Fifth() {
       <input
         value={newLastName}
         onChange={handleChange}
-        className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] text-[35px] text-[#02FE00]  w-[645px] py-4"
+        className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] font-dunggeunmo text-[35px] text-[#02FE00]  w-[645px] py-4"
       />
 
       <NextButton action={handleUpdate} />

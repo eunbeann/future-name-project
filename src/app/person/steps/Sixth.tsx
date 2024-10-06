@@ -18,7 +18,6 @@ interface UserNamesType {
 }
 
 export default function Sixth() {
-  const [isComplete, setIsComplete] = useState(false);
   const name = useRecoilValue(userName);
   const [names, setNames] = useState<UserNamesType[]>([]);
 
@@ -37,12 +36,7 @@ export default function Sixth() {
     }
   }, []);
 
-  const handleComplete = () => {
-    setIsComplete(true);
-  };
-
   const uniFistName = convertToUnicode(name.firstName);
-  console.log("uniFistName", uniFistName);
   const uniLastName = convertToUnicode(name.lastName);
 
   const saveNameInArray = () => {
@@ -65,7 +59,7 @@ export default function Sixth() {
 
   return (
     <div>
-      <p className="absolute left-9 top-[380px] text-[#02FE00] text-[32px] text-center w-[760px]">
+      <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
         <TypeAnimation
           sequence={[
             "이름 분석 중... 결과 도출 중... \n이름은 과거와 미래를 잇는 데이터입니다.\n변환을 시작합니다.",

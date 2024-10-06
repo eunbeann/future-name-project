@@ -12,7 +12,7 @@ export default function Button({ hasButton }: ButtonProps) {
     return (
       <>
         <motion.input
-          className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] text-[35px] text-[#02FE00]  w-[645px] py-4"
+          className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] text-[35px] font-dunggeunmo text-[#02FE00]  w-[645px] py-4"
           placeholder="입력하기"
         />
       </>

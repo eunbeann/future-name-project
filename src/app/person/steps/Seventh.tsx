@@ -18,7 +18,6 @@ interface UserNamesType {
 }
 
 export default function Seventh() {
-  const [isComplete, setIsComplete] = useState(false);
   const name = useRecoilValue(userName);
   const [names, setNames] = useState<UserNamesType[]>([]);
 
@@ -36,10 +35,6 @@ export default function Seventh() {
       }
     }
   }, []);
-
-  const handleComplete = () => {
-    setIsComplete(true);
-  };
 
   const uniFistName = convertToUnicode(name.firstName);
   const uniLastName = convertToUnicode(name.lastName);
@@ -61,10 +56,10 @@ export default function Seventh() {
 
   return (
     <div>
-      <p className="absolute left-9 top-[380px] text-[#02FE00] text-[32px] text-center w-[760px]">
+      <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
         <TypeAnimation
           sequence={[
-            `변환 완료. 당신의 이름은 이제 [${uniLastName}${uniFistName}]입니다.\n이 코드는 당신의 정체성을 데이터로 표현한 것입니다.`,
+            `변환 완료. 당신의 이름은 이제 [${uniLastName} ${uniFistName}]입니다.\n이 코드는 당신의 정체성을 데이터로 표현한 것입니다.`,
           ]}
           wrapper="span"
           speed={5}

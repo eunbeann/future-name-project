@@ -44,7 +44,7 @@ export default function CertificationCard({
   };
 
   return (
-    <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo">
       <div className="relative">
         <Image
           className="min-w-[580px] max-w-[580px] h-[855px]"

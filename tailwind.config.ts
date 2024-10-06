@@ -15,8 +15,8 @@ const config: Config = {
         custom: 'url("/path/to/your-cursor.png"), auto',
       },
       fontFamily: {
-        "pixter-display": ["Pixter Display", "sans-serif"],
-        // DungGeunMo: ["DungGeunMo", "DungGeunMo"],
+        dunggeunmo: ["var(--font-dunggeunmo)"],
+        pixardisplay: ["var(--font-pixardisplay)"],
       },
     },
     keyframes: {

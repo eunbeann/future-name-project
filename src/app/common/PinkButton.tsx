@@ -30,13 +30,12 @@ export default function PinkButton({ text }: PinkButtonProps) {
         <text
           x="43"
           y="33"
-          fontFamily="Arial"
+          fontFamily="var(--font-dunggeunmo)"
           fontSize="30"
           fill="white"
           stroke="black"
-          strokeWidth="1"
+          strokeWidth="1.5"
           style={{
-            fontWeight: "bold",
             letterSpacing: "-3px",
           }}
         >
