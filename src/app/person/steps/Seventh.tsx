@@ -2,7 +2,6 @@
 "use client";
 
 import { convertToUnicode } from "@/hooks/changeToUni";
-import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useRecoilValue } from "recoil";
 import { userName } from "../atoms/atoms";
@@ -19,40 +18,9 @@ interface UserNamesType {
 
 export default function Seventh() {
   const name = useRecoilValue(userName);
-  const [names, setNames] = useState<UserNamesType[]>([]);
-
-  useEffect(() => {
-    const storedNames = localStorage.getItem("userNames");
-    if (storedNames) {
-      try {
-        const parsedNames: UserNamesType[] = JSON.parse(storedNames);
-        setNames(parsedNames);
-      } catch (error) {
-        console.error(
-          "로컬스토리지에서 userNames를 파싱하는 데 실패했습니다:",
-          error
-        );
-      }
-    }
-  }, []);
 
   const uniFistName = convertToUnicode(name.firstName);
   const uniLastName = convertToUnicode(name.lastName);
-
-  const saveNameInArray = () => {
-    const newEntry: UserNamesType = {
-      id: Date.now(),
-      firstName: name.firstName,
-      lastName: name.lastName,
-      futureFirstName: uniFistName,
-      futureLastName: uniLastName,
-      date: new Date().toISOString(),
-    };
-
-    const updatedNames = [...names, newEntry];
-    setNames(updatedNames);
-    localStorage.setItem("userNames", JSON.stringify(updatedNames));
-  };
 
   return (
     <div>
@@ -67,7 +35,7 @@ export default function Seventh() {
         />
       </p>
 
-      <NextButton action={saveNameInArray} />
+      <NextButton />
     </div>
   );
 }

@@ -29,13 +29,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           src={personBackground}
           className="object-cover -z-10"
           alt="introBackground"
-          layout="fill"
-          priority={true}
+          fill
+          priority
         />
         <Image
           className="absolute h-[90%] w-[75%]"
           src={movingText}
           alt="movingText"
+          priority
         />
         <button
           className="fixed bottom-[80px] right-5 w-[230px] h-[190px] cursor-pointer z-20"

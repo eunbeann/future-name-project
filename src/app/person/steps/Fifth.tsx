@@ -5,13 +5,8 @@ import { userName } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
 
 export default function Fifth() {
-  const [isComplete, setIsComplete] = useState(false);
   const [user, setUser] = useRecoilState(userName);
   const [newLastName, setNewLastName] = useState("");
-
-  const handleComplete = () => {
-    setIsComplete(true);
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewLastName(e.target.value);

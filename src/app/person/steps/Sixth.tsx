@@ -54,9 +54,6 @@ export default function Sixth() {
     localStorage.setItem("userNames", JSON.stringify(updatedNames));
   };
 
-  console.log("uniLastName", uniLastName);
-  console.log("uniFistName", uniFistName);
-
   return (
     <div>
       <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
