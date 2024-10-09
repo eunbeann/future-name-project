@@ -1,4 +1,3 @@
-// Sixth.tsx
 "use client";
 
 import { convertToUnicode } from "@/hooks/changeToUni";
@@ -6,15 +5,6 @@ import { TypeAnimation } from "react-type-animation";
 import { useRecoilValue } from "recoil";
 import { userName } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
-
-interface UserNamesType {
-  id: number;
-  firstName: string;
-  lastName: string;
-  futureFirstName: string;
-  futureLastName: string;
-  date: string;
-}
 
 export default function Seventh() {
   const name = useRecoilValue(userName);

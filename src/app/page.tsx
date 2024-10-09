@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col gap-y-[20px] pl-[45px] pt-[40px]">
-        <button className="hover:cursor-not-allowed w-[134px] ">
+        <button className="w-[134px]" onClick={() => router.push("/intro")}>
           <Image src={helloIcon} alt="renameIcon" />
         </button>
         <button className="w-[134px]" onClick={() => router.push("/person")}>

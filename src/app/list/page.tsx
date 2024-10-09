@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import IdentifyCard from "./components/IdentifyCard";
 import PersonCard, { PersonCardProps } from "./components/PersonCard";
 
-const ListPage: React.FC = () => {
+export default function ListPage() {
   const [users, setUsers] = useState<PersonCardProps[]>([]);
   const [hoveredUserId, setHoveredUserId] = useState<number | null>(null);
 
@@ -59,6 +59,4 @@ const ListPage: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default ListPage;
+}

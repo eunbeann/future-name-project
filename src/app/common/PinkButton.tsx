@@ -28,8 +28,8 @@ export default function PinkButton({ text }: PinkButtonProps) {
         />
         =
         <text
-          x="43"
-          y="33"
+          x="40"
+          y="30"
           fontFamily="var(--font-dunggeunmo)"
           fontSize="30"
           fill="white"

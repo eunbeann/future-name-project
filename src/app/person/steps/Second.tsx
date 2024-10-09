@@ -1,18 +1,7 @@
-import { useCallback } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { useRecoilState } from "recoil";
-import { stepNumbers } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
 
 export default function Second() {
-  const [step, setStep] = useRecoilState(stepNumbers);
-
-  const onClickButton = useCallback(() => {
-    if (step !== 8) {
-      setStep((prevStep) => prevStep + 1);
-    }
-  }, [step, setStep]);
-
   return (
     <div>
       <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
