@@ -1,8 +1,11 @@
 import certification from "@/app/assets/image/certification.png";
 import PinkButton from "@/app/common/PinkButton";
+import { stepNumbers } from "@/app/person/atoms/atoms";
 import { format } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
 
 interface CertificationCardProps {
   id: number;
@@ -22,8 +25,12 @@ export default function CertificationCard({
   newLastName,
 }: CertificationCardProps) {
   const formattedDate = format(new Date(date), "MM.dd");
+  const [step, setStep] = useRecoilState(stepNumbers);
+  const router = useRouter();
 
   const handleRewrite = () => {
+    // 1. 데이터 삭제
+    // 2. step 4로 이동
     const data = localStorage.getItem("userNames");
     if (data) {
       try {
@@ -32,6 +39,8 @@ export default function CertificationCard({
           arr.pop();
           localStorage.setItem("userNames", JSON.stringify(arr));
           console.log("마지막 항목이 삭제되었습니다:", arr);
+          setStep(4);
+          router.push("/person");
         } else {
           console.warn("로컬스토리지에 데이터가 없거나 배열이 아닙니다.");
         }
@@ -57,19 +66,19 @@ export default function CertificationCard({
         <p className="absolute top-[322px] right-[125px] text-xs text-white">
           2100.{formattedDate}
         </p>
-        <p className="absolute top-[349px] right-[128px] text-xs text-white">
+        <p className="absolute top-[349px] right-[137px] text-xs text-white">
           FNM CENTER
         </p>
-        <p className="absolute top-[413px] right-[188px] text-white">
+        <p className="absolute top-[413px] right-[185px] text-white">
           {lastName}
           {firstName}
         </p>
-        <p className="absolute top-[485px] right-[145px]  text-white">
+        <p className="absolute top-[485px] right-[149px]  text-white">
           {`${newLastName} ${newFirstName}`}
         </p>
         <div>
-          <div className="absolute flex w-full justify-center gap-[43px] top-[820px]">
-            <button onClick={handleRewrite}>
+          <div className="absolute flex w-full justify-center gap-[43px] top-[820px] hover:cursor-pointer">
+            <button className="hover:cursor-pointer" onClick={handleRewrite}>
               <PinkButton text="다시쓰기" />
             </button>
             <Link href="/list">

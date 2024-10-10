@@ -19,7 +19,7 @@ export default function Fourth() {
   const handleUpdate = () => {
     setUser((prevUser) => ({
       ...prevUser,
-      firstName: newLastName,
+      lastName: newLastName,
     }));
     setNewLastName("");
   };

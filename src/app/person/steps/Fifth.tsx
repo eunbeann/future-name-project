@@ -15,7 +15,7 @@ export default function Fifth() {
   const handleUpdate = () => {
     setUser((prevUser) => ({
       ...prevUser,
-      lastName: newFirstName,
+      firstName: newFirstName,
     }));
     setNewFirstName("");
   };
