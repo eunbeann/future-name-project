@@ -61,7 +61,8 @@ export default function CertificationCard({
           FNM CENTER
         </p>
         <p className="absolute top-[413px] right-[188px] text-white">
-          {lastName}?{firstName}
+          {lastName}
+          {firstName}
         </p>
         <p className="absolute top-[485px] right-[145px]  text-white">
           {`${newLastName} ${newFirstName}`}

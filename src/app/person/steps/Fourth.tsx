@@ -10,18 +10,18 @@ import NextButton from "../components/NextButton";
 
 export default function Fourth() {
   const [user, setUser] = useRecoilState(userName);
-  const [newFirstName, setNewFirstName] = useState("");
+  const [newLastName, setNewLastName] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewFirstName(e.target.value);
+    setNewLastName(e.target.value);
   };
 
   const handleUpdate = () => {
     setUser((prevUser) => ({
       ...prevUser,
-      firstName: newFirstName,
+      firstName: newLastName,
     }));
-    setNewFirstName("");
+    setNewLastName("");
   };
 
   return (
@@ -38,7 +38,7 @@ export default function Fourth() {
       </p>
 
       <input
-        value={newFirstName}
+        value={newLastName}
         onChange={handleChange}
         className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] text-[35px] font-dunggeunmo text-[#02FE00]  w-[645px] py-4"
       />

@@ -38,7 +38,8 @@ export default function IdentifyCard({
               {`${newLastName} ${newFirstName}`}
             </p>
             <p className="absolute top-[159px] right-[400px] text-xl text-[#ffffff]">
-              {firstName} {lastName}
+              {lastName}
+              {firstName}
             </p>
             <p className="absolute top-[216px] right-[330px] text-[#ffffff]">
               {id}

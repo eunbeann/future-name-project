@@ -6,18 +6,18 @@ import NextButton from "../components/NextButton";
 
 export default function Fifth() {
   const [user, setUser] = useRecoilState(userName);
-  const [newLastName, setNewLastName] = useState("");
+  const [newFirstName, setNewFirstName] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewLastName(e.target.value);
+    setNewFirstName(e.target.value);
   };
 
   const handleUpdate = () => {
     setUser((prevUser) => ({
       ...prevUser,
-      lastName: newLastName,
+      lastName: newFirstName,
     }));
-    setNewLastName("");
+    setNewFirstName("");
   };
   return (
     <div>
@@ -30,7 +30,7 @@ export default function Fifth() {
         />
       </p>
       <input
-        value={newLastName}
+        value={newFirstName}
         onChange={handleChange}
         className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] font-dunggeunmo text-[35px] text-[#02FE00]  w-[645px] py-4"
       />
