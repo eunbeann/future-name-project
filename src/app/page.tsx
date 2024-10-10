@@ -15,13 +15,13 @@ export default function Home() {
     <>
       <div className="flex flex-col gap-y-[20px] pl-[45px] pt-[40px]">
         <button className="w-[134px]" onClick={() => router.push("/intro")}>
-          <Image src={helloIcon} alt="renameIcon" />
+          <Image src={helloIcon} alt="helloIcon" />
         </button>
         <button className="w-[134px]" onClick={() => router.push("/person")}>
           <Image src={renameIcon} alt="renameIcon" />
         </button>
         <button className="w-[134px]" onClick={() => router.push("/list")}>
-          <Image src={archiveIcon} alt="renameIcon" />
+          <Image src={archiveIcon} alt="archiveIcon" />
         </button>
       </div>
       <Image

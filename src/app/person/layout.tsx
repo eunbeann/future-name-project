@@ -45,7 +45,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           }}
         >
           <Image
-            className="fixed bottom-[80px] right-5 w-[230px] h-[190px] cursor-pointer"
+            className="fixed bottom-[80px] right-5 w-[12vw] cursor-pointer"
             src={fncIcon}
             alt="logoIcon"
             priority
