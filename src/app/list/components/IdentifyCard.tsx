@@ -1,6 +1,7 @@
 import Identify from "@/app/assets/image/identifyCard.png";
 import { format } from "date-fns";
 import Image from "next/image";
+import { useState } from "react";
 
 interface IdentifyCardProps {
   id: number;
@@ -19,6 +20,7 @@ export default function IdentifyCard({
   newFirstName,
   newLastName,
 }: IdentifyCardProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const formattedDate = format(new Date(date), "MM.dd");
 
   return (
@@ -28,23 +30,27 @@ export default function IdentifyCard({
           className="min-w-[654px] max-w-[654px] h-[405px]"
           src={Identify}
           alt="Identify"
+          onLoad={() => setIsLoaded(true)}
         />
-        <p className="absolute top-[128px] right-[346px] text-xl text-[#ffffff]">
-          {`${newLastName} ${newFirstName}`}
-        </p>
-        <p className="absolute top-[159px] right-[400px] text-xl text-[#ffffff]">
-          {lastName}
-          {firstName}
-        </p>
-        <p className="absolute top-[216px] right-[330px] text-[#ffffff]">
-          {id}
-        </p>
-        <p className="absolute top-[260px] right-[310px] text-[#ffffff]">
-          2100.{formattedDate}
-        </p>
-        <p className="absolute top-[300px] right-[316px] text-[#ffffff]">
-          FNM CENTER
-        </p>
+        {isLoaded && (
+          <>
+            <p className="absolute top-[128px] right-[346px] text-xl text-[#ffffff]">
+              {`${newLastName} ${newFirstName}`}
+            </p>
+            <p className="absolute top-[159px] right-[400px] text-xl text-[#ffffff]">
+              {firstName} {lastName}
+            </p>
+            <p className="absolute top-[216px] right-[330px] text-[#ffffff]">
+              {id}
+            </p>
+            <p className="absolute top-[260px] right-[310px] text-[#ffffff]">
+              2100.{formattedDate}
+            </p>
+            <p className="absolute top-[300px] right-[316px] text-[#ffffff]">
+              FNM CENTER
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

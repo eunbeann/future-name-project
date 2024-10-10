@@ -29,7 +29,7 @@ export default function CertificationCard({
       try {
         const arr = JSON.parse(data);
         if (Array.isArray(arr) && arr.length > 0) {
-          arr.pop(); // 마지막 항목 삭제
+          arr.pop();
           localStorage.setItem("userNames", JSON.stringify(arr));
           console.log("마지막 항목이 삭제되었습니다:", arr);
         } else {
@@ -61,8 +61,7 @@ export default function CertificationCard({
           FNM CENTER
         </p>
         <p className="absolute top-[413px] right-[188px] text-white">
-          {lastName}
-          {firstName}
+          {lastName}?{firstName}
         </p>
         <p className="absolute top-[485px] right-[145px]  text-white">
           {`${newLastName} ${newFirstName}`}
