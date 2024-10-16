@@ -8,17 +8,33 @@ export default function ListPage() {
   const [users, setUsers] = useState<PersonCardProps[]>([]);
   const [hoveredUserId, setHoveredUserId] = useState<number | null>(null);
 
+  const data = {
+    id: 1729113819018,
+    firstName: "은빈",
+    lastName: "권",
+    futureFirstName: "C740 BE48",
+    futureLastName: "AD8C",
+    date: "2024-10-16T21:23:39.018Z",
+  };
+
   useEffect(() => {
-    const storedUsers = localStorage.getItem("userNames");
-    if (storedUsers) {
-      try {
-        const parsedUsers: PersonCardProps[] = JSON.parse(storedUsers);
-        setUsers(parsedUsers);
-      } catch (error) {
-        console.error("Failed to parse userNames from localStorage:", error);
-      }
-    }
+    // test data
+
+    const repeatedData = Array(100).fill(data);
+    setUsers(repeatedData);
+
+    // const storedUsers = localStorage.getItem("userNames");
+    // if (storedUsers) {
+    //   try {
+    //     const parsedUsers: PersonCardProps[] = JSON.parse(storedUsers);
+    //     setUsers(parsedUsers);
+    //   } catch (error) {
+    //     console.error("Failed to parse userNames from localStorage:", error);
+    //   }
+    // }
   }, []);
+
+  console.log(users);
 
   return (
     <div className="relative h-[88vh] w-[100vw] overflow-auto">
@@ -26,14 +42,14 @@ export default function ListPage() {
         <div className="absolute left-1/3 h-full border-l-2 border-[#031DDF]"></div>
         <div className="absolute left-2/3 h-full border-l-2 border-[#031DDF]"></div>
       </div>
-      <div className="grid grid-rows-3 w-1/3 gap-[8px] relative z-10 p-4">
+      <div className="flex flex-wrap flex-col h-[88vh]">
         {users.length > 0 ? (
           users.map((user, key) => (
             <div
               key={key}
               onMouseEnter={() => setHoveredUserId(key)}
               onMouseLeave={() => setHoveredUserId(null)}
-              className="relative"
+              className="w-1/3 px-4"
             >
               <PersonCard
                 id={key + 1}
@@ -54,9 +70,10 @@ export default function ListPage() {
             </div>
           ))
         ) : (
-          <p>No users available.</p>
+          <p className="text-[#ffffff]">No users available.</p>
         )}
       </div>
     </div>
+    // </div>
   );
 }
