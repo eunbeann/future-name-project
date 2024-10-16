@@ -19,22 +19,19 @@ export default function ListPage() {
 
   useEffect(() => {
     // test data
+    // const repeatedData = Array(100).fill(data);
+    // setUsers(repeatedData);
 
-    const repeatedData = Array(100).fill(data);
-    setUsers(repeatedData);
-
-    // const storedUsers = localStorage.getItem("userNames");
-    // if (storedUsers) {
-    //   try {
-    //     const parsedUsers: PersonCardProps[] = JSON.parse(storedUsers);
-    //     setUsers(parsedUsers);
-    //   } catch (error) {
-    //     console.error("Failed to parse userNames from localStorage:", error);
-    //   }
-    // }
+    const storedUsers = localStorage.getItem("userNames");
+    if (storedUsers) {
+      try {
+        const parsedUsers: PersonCardProps[] = JSON.parse(storedUsers);
+        setUsers(parsedUsers);
+      } catch (error) {
+        console.error("Failed to parse userNames from localStorage:", error);
+      }
+    }
   }, []);
-
-  console.log(users);
 
   return (
     <div className="relative h-[88vh] w-[100vw] overflow-auto">
@@ -74,6 +71,5 @@ export default function ListPage() {
         )}
       </div>
     </div>
-    // </div>
   );
 }
