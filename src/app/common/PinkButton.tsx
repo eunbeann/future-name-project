@@ -24,7 +24,6 @@ export default function PinkButton({ text, onClick }: PinkButtonProps) {
         d="M4.42742 3.92529L0 0.925293V40.9253H4.42742V3.92529Z"
         fill="#656565"
       />
-      {/* 텍스트에 아웃라인 적용 */}
       <text
         x="50%"
         y="50%"

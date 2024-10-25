@@ -1,4 +1,3 @@
-// import taskBar from "@/app/assets/image/taskBar.png";
 import taskBarWithButton from "@/app/assets/image/taskBarWithButton.png";
 import Image from "next/image";
 

@@ -1,14 +1,5 @@
-// src/state/effects/localStorageEffect.ts
-
 import { AtomEffect } from "recoil";
 
-/**
- * localStorageEffect
- * Recoil atom의 상태를 localStorage에 저장하고, 초기화 시 localStorage에서 불러옵니다.
- *
- * @param key - localStorage에 저장될 키
- * @returns AtomEffect
- */
 export const localStorageEffect =
   <T>(key: string): AtomEffect<T> =>
   ({ setSelf, onSet }) => {

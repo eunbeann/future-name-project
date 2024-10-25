@@ -1,5 +1,3 @@
-// src/components/Third.jsx
-
 "use client";
 
 import { useState } from "react";
