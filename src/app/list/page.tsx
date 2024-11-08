@@ -1,6 +1,8 @@
 "use client";
 
+import { get, ref } from "firebase/database";
 import { useEffect, useState } from "react";
+import { db } from "../../../firebase/firebasedb";
 import IdentifyCard from "./components/IdentifyCard";
 import PersonCard, { PersonCardProps } from "./components/PersonCard";
 
@@ -18,19 +20,20 @@ export default function ListPage() {
   };
 
   useEffect(() => {
-    // test data
-    // const repeatedData = Array(100).fill(data);
-    // setUsers(repeatedData);
+    const fetchUsers = async () => {
+      const reference = ref(db, "users");
+      const snapshot = await get(reference);
 
-    const storedUsers = localStorage.getItem("userNames");
-    if (storedUsers) {
-      try {
-        const parsedUsers: PersonCardProps[] = JSON.parse(storedUsers);
-        setUsers(parsedUsers);
-      } catch (error) {
-        console.error("Failed to parse userNames from localStorage:", error);
+      if (snapshot.exists()) {
+        const usersArray = Object.values(snapshot.val()) as PersonCardProps[];
+        setUsers(usersArray);
+      } else {
+        console.log("데이터가 없습니다.");
+        setUsers([]);
       }
-    }
+    };
+
+    fetchUsers();
   }, []);
 
   return (

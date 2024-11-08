@@ -1,56 +1,30 @@
 "use client";
 
 import { convertToUnicode } from "@/hooks/changeToUni";
-import { useEffect, useState } from "react";
+import { push, ref, set } from "firebase/database";
 import { TypeAnimation } from "react-type-animation";
 import { useRecoilValue } from "recoil";
+import { db } from "../../../../firebase/firebasedb";
 import { userName } from "../atoms/atoms";
 import NextButton from "../components/NextButton";
 
-interface UserNamesType {
-  id: number;
-  firstName: string;
-  lastName: string;
-  futureFirstName: string;
-  futureLastName: string;
-  date: string;
-}
-
 export default function Sixth() {
   const name = useRecoilValue(userName);
-  const [names, setNames] = useState<UserNamesType[]>([]);
 
-  useEffect(() => {
-    const storedNames = localStorage.getItem("userNames");
-    if (storedNames) {
-      try {
-        const parsedNames: UserNamesType[] = JSON.parse(storedNames);
-        setNames(parsedNames);
-      } catch (error) {
-        console.error(
-          "로컬스토리지에서 userNames를 파싱하는 데 실패했습니다:",
-          error
-        );
-      }
-    }
-  }, []);
-
-  const uniFistName = convertToUnicode(name.firstName);
+  const uniFirstName = convertToUnicode(name.firstName);
   const uniLastName = convertToUnicode(name.lastName);
 
   const saveNameInArray = () => {
-    const newEntry: UserNamesType = {
-      id: Date.now(),
+    const reference = ref(db, "users");
+    const newUserRef = push(reference); // 고유 키로 새로운 항목 추가
+
+    set(newUserRef, {
       firstName: name.firstName,
       lastName: name.lastName,
-      futureFirstName: uniFistName,
+      futureFirstName: uniFirstName,
       futureLastName: uniLastName,
       date: new Date().toISOString(),
-    };
-
-    const updatedNames = [...names, newEntry];
-    setNames(updatedNames);
-    localStorage.setItem("userNames", JSON.stringify(updatedNames));
+    });
   };
 
   return (
