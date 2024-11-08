@@ -1,8 +1,10 @@
 import CertificationCard from "@/app/list/components/CertificationCard";
 import { PersonCardProps } from "@/app/list/components/PersonCard";
+import { onValue, ref } from "firebase/database";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { db } from "../../../../firebase/firebasedb";
 
 export default function Eight() {
   const [showCertification, setShowCertification] = useState(false);
@@ -11,16 +13,16 @@ export default function Eight() {
   const [names, setNames] = useState<PersonCardProps[]>([]);
   const lastUser = names.length > 0 && names[names.length - 1];
 
+  function getUserData() {
+    const reference = ref(db, "users/");
+    onValue(reference, (snapshot) => {
+      const usersArray = Object.values(snapshot.val()) as PersonCardProps[];
+      setNames(usersArray);
+    });
+  }
+
   useEffect(() => {
-    const storedNames = localStorage.getItem("userNames");
-    if (storedNames) {
-      try {
-        const parsedNames: PersonCardProps[] = JSON.parse(storedNames);
-        setNames(parsedNames);
-      } catch (error) {
-        console.error("로컬스토리지에서 userNames를 파싱 실패", error);
-      }
-    }
+    getUserData();
   }, []);
 
   return (

@@ -1,11 +1,11 @@
 import certification from "@/app/assets/image/certification.png";
 import PinkButton from "@/app/common/PinkButton";
-import { stepNumbers } from "@/app/person/atoms/atoms";
 import { format } from "date-fns";
+import { get, limitToLast, query, ref, remove } from "firebase/database";
+
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useRecoilState } from "recoil";
+import { db } from "../../../../firebase/firebasedb";
 
 interface CertificationCardProps {
   id: number;
@@ -25,31 +25,16 @@ export default function CertificationCard({
   newLastName,
 }: CertificationCardProps) {
   const formattedDate = format(new Date(date), "MM.dd");
-  const [step, setStep] = useRecoilState(stepNumbers);
-  const router = useRouter();
 
-  const handleRewrite = () => {
-    // 1. 데이터 삭제
-    // 2. step 4로 이동
-    const data = localStorage.getItem("userNames");
-    if (data) {
-      try {
-        const arr = JSON.parse(data);
-        if (Array.isArray(arr) && arr.length > 0) {
-          arr.pop();
-          localStorage.setItem("userNames", JSON.stringify(arr));
-          console.log("마지막 항목이 삭제되었습니다:", arr);
-          setStep(4);
-          router.push("/person");
-        } else {
-          console.warn("로컬스토리지에 데이터가 없거나 배열이 아닙니다.");
-        }
-      } catch (error) {
-        console.error("로컬스토리지 데이터를 파싱하는 중 오류 발생:", error);
-      }
-    } else {
-      console.warn("로컬스토리지에 'certifications' 키가 없습니다.");
-    }
+  const deleteLastNameInArray = async () => {
+    const reference = ref(db, "users");
+    const lastItemQuery = query(reference, limitToLast(1));
+
+    const snapshot = await get(lastItemQuery);
+
+    snapshot.forEach((childSnapshot) => {
+      remove(childSnapshot.ref);
+    });
   };
 
   return (
@@ -70,22 +55,24 @@ export default function CertificationCard({
           FNM CENTER
         </p>
         <p className="absolute top-[413px] right-[185px] text-white">
-          {lastName}
-          {firstName}
+          {lastName} {firstName}
         </p>
-        <p className="absolute top-[485px] right-[149px]  text-white">
+        <p className="absolute top-[485px] right-[149px] text-white">
           {`${newLastName} ${newFirstName}`}
         </p>
         <div>
           <div className="absolute flex w-full justify-center gap-[43px] top-[820px] hover:cursor-pointer">
-            <button className="hover:cursor-pointer" onClick={handleRewrite}>
+            <button
+              className="hover:cursor-pointer"
+              onClick={deleteLastNameInArray}
+            >
               <PinkButton text="다시쓰기" />
             </button>
             <Link href="/list">
               <PinkButton
                 text="저장하기"
                 onClick={() => {
-                  console.log("clicked");
+                  alert("수정필요");
                 }}
               />
             </Link>

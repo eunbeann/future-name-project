@@ -1,51 +1,77 @@
 "use client";
 
+import {
+  get,
+  limitToLast,
+  onValue,
+  query,
+  ref,
+  remove,
+} from "firebase/database";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { db } from "../../../firebase/firebasedb";
 import { PersonCardProps } from "../list/components/PersonCard";
 
 export default function ResetPage() {
   const [userNames, setUserNames] = useState<PersonCardProps[]>([]);
   const router = useRouter();
 
+  function getUserData() {
+    const reference = ref(db, "users/");
+    onValue(reference, (snapshot) => {
+      const usersArray = Object.values(snapshot.val()) as PersonCardProps[];
+      setUserNames(usersArray);
+    });
+  }
+
   useEffect(() => {
-    const storedUserNames = localStorage.getItem("userNames");
-    if (storedUserNames) {
-      try {
-        const parsedUserNames: PersonCardProps[] = JSON.parse(storedUserNames);
-        setUserNames(parsedUserNames);
-      } catch (error) {
-        console.error(
-          "로컬 스토리지의 userNames를 파싱하는 중 오류 발생:",
-          error
-        );
-        setUserNames([]);
-      }
-    }
+    getUserData();
   }, []);
 
-  const handleDeleteAll = () => {
-    if (window.confirm("정말로 모든 userNames를 삭제하시겠습니까?")) {
-      localStorage.removeItem("userNames");
-      setUserNames([]);
-      alert("모든 userNames가 삭제되었습니다.");
-    }
-  };
+  function deleteAllUserData() {
+    const reference = ref(db, "users/");
 
-  const handleDeleteLast = () => {
-    if (userNames.length === 0) {
-      alert("삭제할 userName이 없습니다.");
-      return;
-    }
+    onValue(reference, (snapshot) => {
+      if (snapshot.exists()) {
+        remove(reference)
+          .then(() => {
+            console.log("모든 데이터가 성공적으로 삭제되었습니다.");
+            setUserNames([]);
+          })
+          .catch(() => {
+            alert("데이터 삭제 중 오류가 발생했습니다:");
+          });
+      } else {
+        console.log("삭제할 데이터가 없습니다.");
+      }
+    });
+  }
 
-    if (window.confirm("마지막 userName을 삭제하시겠습니까?")) {
-      const updatedUserNames = [...userNames];
-      updatedUserNames.pop();
-      localStorage.setItem("userNames", JSON.stringify(updatedUserNames));
-      setUserNames(updatedUserNames);
-      alert("마지막 userName이 삭제되었습니다.");
+  async function deleteLastUserData() {
+    const reference = ref(db, "users/");
+    const lastItemQuery = query(reference, limitToLast(1));
+
+    try {
+      const snapshot = await get(lastItemQuery);
+
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          remove(childSnapshot.ref)
+            .then(() => {
+              console.log("마지막 데이터가 성공적으로 삭제되었습니다.");
+            })
+            .catch((error) => {
+              console.error("데이터 삭제 중 오류가 발생했습니다:", error);
+            });
+        });
+      } else {
+        console.log("삭제할 데이터가 없습니다.");
+      }
+    } catch (error) {
+      console.error("데이터 가져오는 중 오류가 발생했습니다:", error);
     }
-  };
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
@@ -53,13 +79,13 @@ export default function ResetPage() {
 
       <div className="flex space-x-4">
         <button
-          onClick={handleDeleteAll}
+          onClick={deleteAllUserData}
           className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition border-2"
         >
           모든 데이터 삭제
         </button>
         <button
-          onClick={handleDeleteLast}
+          onClick={deleteLastUserData}
           className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition  border-2"
         >
           마지막 데이터 삭제
@@ -81,10 +107,8 @@ export default function ResetPage() {
               <li key={user.id} className="mb-1">
                 <div className="flex flex-col">
                   <span>
-                    <strong>ID:</strong> {user.id}
-                  </span>
-                  <span>
-                    <strong>이름:</strong> {user.firstName} {user.lastName}
+                    <strong>이름:</strong> {user.lastName}
+                    {user.firstName}
                   </span>
                   <span>
                     <strong>미래 이름:</strong> {user.futureFirstName}{" "}
