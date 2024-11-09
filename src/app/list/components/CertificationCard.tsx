@@ -40,6 +40,11 @@ export default function CertificationCard({
   return (
     <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo">
       <div className="relative">
+        <div className="bg-[#2B9EB3] absolute top-[300px] left-[119px] w-[132px] h-[204px] text-center">
+          <button className="text-[#ffffff] h-full align-text-bottom">
+            사진 촬영
+          </button>
+        </div>
         <Image
           className="min-w-[580px] max-w-[580px] h-[855px]"
           src={certification}
