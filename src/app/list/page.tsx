@@ -70,7 +70,7 @@ export default function ListPage() {
             </div>
           ))
         ) : (
-          <p className="text-[#ffffff]">No users available.</p>
+          <p className="text-[#ffffff]">Loading....</p>
         )}
       </div>
     </div>
