@@ -22,6 +22,12 @@ body {
   /* @apply Pixter-Display; */
 }
 
+@layer base {
+  img {
+    @apply inline-block;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
