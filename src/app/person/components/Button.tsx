@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { TouchButton } from "../MotionButton";
+import { TouchButton } from "../../common/MotionButton";
 
 interface ButtonProps {
   hasButton: number;
