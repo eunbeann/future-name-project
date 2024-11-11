@@ -1,29 +1,27 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { TypeAnimation } from "react-type-animation";
-import PinkButton from "../common/PinkButton";
+import introPerson from "@/app/assets/icon/introPerson.png";
+import rowLogo from "@/app/assets/icon/rowLogo.png";
+import introBg from "@/app/assets/image/introBg.png";
+import Image from "next/image";
+import MainContainer from "../common/MainContainer";
 
 export default function IntroPage() {
-  const router = useRouter();
+  //TODO 배경 이미지 변경 / 뒤가기 버튼 추가
   return (
-    <div className="absolute h-[60vh] w-[50vw] mt-[3rem] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10 bg-[#000000]">
-      <p className="text-center text-[#ffffff] pt-[45px] px-[25px] font-dunggeunmo whitespace-pre-wrap h-[80%]">
-        <TypeAnimation
-          sequence={[
-            `대통령은 국가의 원수이며, 외국에 대하여 국가를 대표한다. 대통령은 헌법과 법률이 정하는 바에 의하여 국군을 통수한다. 대통령은 조국의 평화적 통일을 위한 성실한 의무를 진다. 위원은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니한다. 국가안전보장회의는 대통령이 주재한다. 모든 국민은 법률이 정하는 바에 의하여 납세의 의무를 진다.\n \n 한 회계연도를 넘어 계속하여 지출할 필요가 있을 때에는 정부는 연한을 정하여 계속비로서 국회의 의결을 얻어야 한다. 대통령의 국법상 행위는 문서로써 하며, 이 문서에는 국무총리와 관계 국무위원이 부서한다. 군사에 관한 것도 또한 같다. 국가는 재해를 예방하고 그 위험으로부터 국민을 보호하기 위하여 노력하여야 한다. \n 대통령·국무총리·국무위원·행정각부의 장·헌법재판소 재판관·법관·중앙선거관리위원회 위원·감사원장·감사위원 기타 법률이 정한 공무원이 그 직무집행에 있어서 \n \n 헌법이나 법률을 위배한 때에는 국회는 탄핵의 소추를 의결할 수 있다.`,
-          ]}
-          speed={5}
-          style={{ display: "inline-block", whiteSpace: "pre-line" }}
-        />
-      </p>
-      <button
-        className="flex justify-center w-full mt-[15px]"
-        onClick={() => {
-          router.push("/");
-        }}
-      >
-        <PinkButton text="뒤로가기" />
-      </button>
-    </div>
+    <MainContainer bgImage={introBg}>
+      <div className="flex justify-center items-center h-full">
+        <div className="flex flex-col items-center w-[60%] h-full overflow-y-scroll bg-[#000000] px-[50px] py-[30px] font-dunggeunmo text-[#02FE00] text-center">
+          <Image src={rowLogo} alt="row-logo" />
+          <Image
+            className="w-[190px] mt-[60px]"
+            src={introPerson}
+            alt="intro-person"
+          />
+          <h1 className="mt-[10px] text-[26px]">작명가 인사말</h1>
+          <p className="mt-[10px] whitespace-break-spaces w-[80%]">
+            {`환영합니다. 퓨처네이밍센터의 작명가 **코드(CODE)**입니다.\n저희 센터는 이름을 넘어, 시대의 정체성을 부여하는 곳입니다.\n과거의 감정적 유물로서의 이름은 이제 사라지고, 새로운 코드화된 정체성이 여러분의 역할을 정의합니다.\n\n저는 수십 년간 인공지능과 빅데이터를 연구하며 이름의 새로운 역할을 개척해왔습니다. 퓨처네이밍센터에서 부여하는 이름은 단순한 호칭이 아닌, 데이터로 최적화된 사회적 기능 그 자체입니다. 여러분의 이름은 이제 코드로 변환되어, 시스템 속에서 완벽히 동작하는 정체성으로 자리 잡을 것입니다.\n\n퓨처네이밍센터는 과거와의 단절이자, 미래와의 연결입니다. 저 **코드(CODE)**는 여러분이 새로운 세상에서 최적화된 역할을 수행할 수 있도록 안내하겠습니다. 여러분의 이름이 곧 시대의 일부가 될 것입니다.\n\n퓨처네이밍센터 작명가 코드(CODE)`}
+          </p>
+        </div>
+      </div>
+    </MainContainer>
   );
 }
