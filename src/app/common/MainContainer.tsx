@@ -10,7 +10,7 @@ export default function MainContainer({
   bgImage,
 }: {
   children: React.ReactNode;
-  bgImage: StaticImageData;
+  bgImage?: StaticImageData;
 }) {
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -21,7 +21,9 @@ export default function MainContainer({
             <Image src={headerName} alt="fnc.com" />
           </div>
           <div className="h-full rounded-b-[12px] border border-[#ffffff] relative">
-            <Image className="w-full h-full" src={bgImage} alt="lobbyBg" />
+            {bgImage && (
+              <Image className="w-full h-full" src={bgImage} alt="lobbyBg" />
+            )}
             <div className="absolute inset-0">{children}</div>
           </div>
         </div>
