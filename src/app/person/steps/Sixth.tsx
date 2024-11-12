@@ -1,12 +1,14 @@
 "use client";
 
+import movingPerson from "@/app/assets/gif/movingPerosn.gif";
+import NeonDialog from "@/app/common/NeonDialog";
 import { convertToUnicode } from "@/hooks/changeToUni";
 import { push, ref, set } from "firebase/database";
+import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { useRecoilValue } from "recoil";
 import { db } from "../../../../firebase/firebasedb";
 import { userName } from "../atoms/atoms";
-import NextButton from "../components/NextButton";
 
 export default function Sixth() {
   const name = useRecoilValue(userName);
@@ -16,7 +18,7 @@ export default function Sixth() {
 
   const saveNameInArray = () => {
     const reference = ref(db, "users");
-    const newUserRef = push(reference); // 고유 키로 새로운 항목 추가
+    const newUserRef = push(reference);
 
     set(newUserRef, {
       firstName: name.firstName,
@@ -28,19 +30,22 @@ export default function Sixth() {
   };
 
   return (
-    <div>
-      <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
-        <TypeAnimation
-          sequence={[
-            "이름 분석 중... 결과 도출 중... \n이름은 과거와 미래를 잇는 데이터입니다.\n변환을 시작합니다.",
-          ]}
-          wrapper="span"
-          speed={5}
-          style={{ display: "inline-block", whiteSpace: "pre-line" }}
-        />
-      </p>
-
-      <NextButton action={saveNameInArray} />
+    <div className="flex flex-col items-center gap-[40px]">
+      <Image className="h-[400px]" src={movingPerson} alt="movingPerson" />
+      <NeonDialog action={saveNameInArray}>
+        <p className="font-dunggeunmo text-[18px] text-[#000000]">
+          <TypeAnimation
+            sequence={["이름 분석 중... 데이터를 분석 중 입니다."]}
+            wrapper="span"
+            speed={5}
+            style={{
+              display: "block",
+              whiteSpace: "pre-line",
+              color: "black",
+            }}
+          />
+        </p>
+      </NeonDialog>
     </div>
   );
 }

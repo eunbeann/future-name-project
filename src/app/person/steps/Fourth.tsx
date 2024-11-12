@@ -1,10 +1,12 @@
 "use client";
 
+import movingPerson from "@/app/assets/gif/movingPerosn.gif";
+import NeonDialog from "@/app/common/NeonDialog";
+import Image from "next/image";
 import { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useRecoilState } from "recoil";
 import { userName } from "../atoms/atoms";
-import NextButton from "../components/NextButton";
 
 export default function Fourth() {
   const [user, setUser] = useRecoilState(userName);
@@ -23,25 +25,28 @@ export default function Fourth() {
   };
 
   return (
-    <div>
-      <p className="absolute left-9 top-[380px] font-dunggeunmo text-[#02FE00] text-[32px] text-center w-[760px]">
-        <TypeAnimation
-          sequence={[
-            "성을 입력하십시오. 이 작업은 과거의 흔적을 반영하는 절차일 뿐입니다. 데이터 수집을 완료하겠습니다.",
-          ]}
-          wrapper="span"
-          speed={5}
-          style={{ display: "inline-block", whiteSpace: "pre-line" }}
+    <div className="flex flex-col items-center gap-[40px]">
+      <Image className="h-[400px]" src={movingPerson} alt="movingPerson" />
+      <NeonDialog action={handleUpdate}>
+        <p className="font-dunggeunmo text-center text-[18px] text-[#000000]">
+          <TypeAnimation
+            sequence={["성을 입력하십시오. "]}
+            wrapper="span"
+            speed={5}
+            style={{
+              display: "block",
+              whiteSpace: "pre-line",
+              color: "black",
+            }}
+          />
+        </p>
+
+        <input
+          value={newLastName}
+          onChange={handleChange}
+          className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00]  w-[245px] my-2 py-2"
         />
-      </p>
-
-      <input
-        value={newLastName}
-        onChange={handleChange}
-        className="absolute bg-[#242424B2] text-center left-[102px] top-[510px] text-[35px] font-dunggeunmo text-[#02FE00]  w-[645px] py-4"
-      />
-
-      <NextButton action={handleUpdate} />
+      </NeonDialog>
     </div>
   );
 }
