@@ -1,13 +1,9 @@
 import certification from "@/app/assets/image/certification.png";
-import PinkButton from "@/app/common/PinkButton";
 import { format } from "date-fns";
-import { get, limitToLast, query, ref, remove } from "firebase/database";
 import html2canvas from "html2canvas";
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
-import { db } from "../../../../firebase/firebasedb";
 
 interface CertificationCardProps {
   id: number;
@@ -72,19 +68,9 @@ export default function CertificationCard({
     setIsCapturing(false);
   };
 
-  const deleteLastNameInArray = async () => {
-    const reference = ref(db, "users");
-    const lastItemQuery = query(reference, limitToLast(1));
-
-    const snapshot = await get(lastItemQuery);
-    snapshot.forEach((childSnapshot) => {
-      remove(childSnapshot.ref);
-    });
-  };
-
   return (
     <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo">
-      <div className="relative">
+      <div className="relative ">
         <div className="absolute top-[300px] left-[119px]">
           {loading && (
             <div className="bg-[#000000] w-[132px] h-[204px] text-center">
@@ -142,10 +128,10 @@ export default function CertificationCard({
           <p className="absolute top-[349px] right-[137px] text-xs">
             FNM CENTER
           </p>
-          <p className="absolute top-[413px] right-[185px] ">
+          <p className="absolute top-[413px] right-[125px] w-[168px] text-center">
             {lastName} {firstName}
           </p>
-          <p className="absolute top-[485px] right-[149px] ">
+          <p className="absolute top-[485px] right-[125px] w-[168px] text-center">
             {`${newLastName} ${newFirstName}`}
           </p>
           <Image
@@ -154,18 +140,12 @@ export default function CertificationCard({
             alt="certification"
           />
         </div>
-
-        <div className="absolute flex w-full justify-center gap-[43px] top-[820px] hover:cursor-pointer">
-          <button className="hover:cursor-pointer">
-            <PinkButton onClick={deleteLastNameInArray} text="다시쓰기" />
-          </button>
-
-          <PinkButton onClick={captureArea} text="저장하기" />
-
-          <Link href="/list">
-            <PinkButton text="목록 보기" />
-          </Link>
-        </div>
+        <button
+          className="w-[460px] h-[40px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] fixed bottom-[0px] left-1/2 transform -translate-x-1/2"
+          onClick={captureArea}
+        >
+          저장하기
+        </button>
       </div>
     </div>
   );
