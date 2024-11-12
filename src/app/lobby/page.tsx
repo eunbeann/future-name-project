@@ -4,6 +4,7 @@ import renameFrame from "@/app/assets/icon/renameFrame.png";
 import welcomeFrame from "@/app/assets/icon/welcomeFrame.png";
 import lobbyBg from "@/app/assets/image/lobbyBg.png";
 import Image from "next/image";
+import Link from "next/link";
 import MainContainer from "../common/MainContainer";
 
 export default function LobbyPage() {
@@ -30,11 +31,13 @@ export default function LobbyPage() {
             src={welcomeFrame}
             alt="welcomeFrame"
           />
-          <Image
-            className="w-[280px] h-[170px]"
-            src={introduceFrame}
-            alt="introduceFrame"
-          />
+          <Link href="/intro">
+            <Image
+              className="w-[280px] h-[170px]"
+              src={introduceFrame}
+              alt="introduceFrame"
+            />
+          </Link>
           <Image
             className="w-[280px] h-[170px]"
             src={renameFrame}
