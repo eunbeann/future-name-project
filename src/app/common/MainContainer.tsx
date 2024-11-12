@@ -4,6 +4,7 @@ import headerLogo from "@/app/assets/icon/headerLogo.png";
 import headerName from "@/app/assets/icon/headerName.png";
 import project from "@/app/assets/icon/projectIcon.png";
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 export default function MainContainer({
   children,
@@ -28,15 +29,15 @@ export default function MainContainer({
           </div>
         </div>
         <div className="flex flex-col gap-[10px] ml-[9px]">
-          <button className="w-[78px] h-[78px]">
+          <Link href={"/list"} className="w-[78px] h-[78px]">
             <Image src={project} alt="projectIcon" />
-          </button>
-          <button className="w-[78px] h-[78px]">
+          </Link>
+          <Link href={"/list"} className="w-[78px] h-[78px]">
             <Image src={code} alt="codeIcon" />
-          </button>
-          <button className="w-[78px] h-[78px]">
+          </Link>
+          <Link href={"/list"} className="w-[78px] h-[78px]">
             <Image src={aiList} alt="AlListIcon" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
