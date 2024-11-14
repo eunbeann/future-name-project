@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import ClientRecoilRoot from "../common/ClientRecoilRoot";
 import MainContainer from "../common/MainContainer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
   return (
     <ClientRecoilRoot>
       <div className="relative min-h-screen flex justify-center items-center bg-[#000000]">
