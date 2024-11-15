@@ -7,13 +7,8 @@ export interface PersonCardProps {
   futureFirstName: string;
   futureLastName: string;
   date: string;
-}
-
-export interface PersonCardProps {
-  id: number;
-  futureFirstName: string;
-  futureLastName: string;
-  date: string;
+  uniqueId?: string;
+  img: string;
 }
 
 export default function PersonCard({
