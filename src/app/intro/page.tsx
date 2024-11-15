@@ -9,7 +9,7 @@ export default function IntroPage() {
   return (
     <MainContainer bgImage={introBg}>
       <div className="flex justify-center items-center h-full">
-        <div className="flex flex-col items-center w-[60%] h-full overflow-y-scroll bg-[#000000] px-[50px] py-[30px] font-dunggeunmo text-[#02FE00] text-center">
+        <div className="flex flex-col items-center w-[60%] h-full overflow-y-scroll scrollbar-hide bg-[#000000] px-[50px] py-[30px] font-dunggeunmo text-[#02FE00] text-center">
           <Image src={rowLogo} alt="row-logo" />
           <Image
             className="w-[190px] mt-[60px]"

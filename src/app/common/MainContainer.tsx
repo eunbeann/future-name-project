@@ -17,9 +17,9 @@ export default function MainContainer({
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div className="flex">
         <div className="w-[80vw] h-[80vh] relative">
-          <div className="flex gap-[16px] rounded-t-[12px] bg-[#ffffff] h-[42px] pl-[30px] items-center">
-            <Image src={headerLogo} alt="logo" />
-            <Image src={headerName} alt="fnc.com" />
+          <div className="flex gap-[15px] rounded-t-[12px] bg-[#ffffff] h-[42px] pl-[30px] items-center">
+            <Image className="h-[29px] w-auto" src={headerLogo} alt="logo" />
+            <Image className="h-[14px] w-auto" src={headerName} alt="fnc.com" />
           </div>
           <div className="h-full rounded-b-[12px] border border-[#ffffff] relative">
             {bgImage && (

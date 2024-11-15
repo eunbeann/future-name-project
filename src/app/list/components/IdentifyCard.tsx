@@ -27,10 +27,10 @@ export default function IdentifyCard({
       <>
         <Image
           width={140}
-          height={"198"}
+          height={203}
           src={img}
           alt="profile Image"
-          className="absolute top-[103px] right-[91px] bg-green8 scale-x-[-1]"
+          className="absolute top-[103px] right-[91px] h-[203px] bg-green8 scale-x-[-1]"
         />
         <p className="absolute text-center w-[300px] top-[132px] right-[270px] text-[32px] text-[#ffffff]">
           {`${futureLastName} ${futureFirstName}`}

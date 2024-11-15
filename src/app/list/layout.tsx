@@ -6,13 +6,8 @@ import ClientRecoilRoot from "../common/ClientRecoilRoot";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-[100vw] h-[100vh] bg-[#000000]">
-      <Image
-        src={listBg}
-        alt="list-background-image"
-        fill
-        style={{ objectFit: "cover" }}
-      />
+    <div className="">
+      <Image className="h-[100vh]" src={listBg} alt="list-background-image" />
       <ClientRecoilRoot>{children}</ClientRecoilRoot>
     </div>
   );
