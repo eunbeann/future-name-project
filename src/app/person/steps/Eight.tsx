@@ -42,7 +42,7 @@ export default function Eight() {
   return (
     <>
       <NeonDialog action={() => setShowCertification(true)}>
-        <p className="font-dunggeunmo text-[18px] text-[#000000]">
+        <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
           <TypeAnimation
             sequence={["개명신청서를 발급 받으세요."]}
             wrapper="span"
@@ -60,15 +60,17 @@ export default function Eight() {
       ) : (
         showCertification &&
         user && (
-          <CertificationCard
-            id={userArray.length}
-            uniqueId={user.uniqueId}
-            date={user.date}
-            firstName={user.firstName || ""}
-            lastName={user.lastName || ""}
-            newFirstName={user.futureFirstName}
-            newLastName={user.futureLastName}
-          />
+          <div className="absolute -top-50 -left-2 z-50 bg-[#000000] bg-opacity-70 w-[100vw] h-[100vh]">
+            <CertificationCard
+              id={userArray.length}
+              uniqueId={user.uniqueId}
+              date={user.date}
+              firstName={user.firstName || ""}
+              lastName={user.lastName || ""}
+              newFirstName={user.futureFirstName}
+              newLastName={user.futureLastName}
+            />
+          </div>
         )
       )}
     </>
