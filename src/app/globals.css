@@ -22,6 +22,10 @@ body {
   /* @apply Pixter-Display; */
 }
 
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
 @layer base {
   img {
     @apply inline-block;

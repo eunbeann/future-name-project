@@ -11,6 +11,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transform: {
+        "3d": "transform-style: preserve-3d;",
+      },
+      perspective: {
+        "1000": "1000px",
+      },
+      rotate: {
+        "y-180": "rotateY(180deg)",
+      },
       cursor: {
         custom: 'url("/path/to/your-cursor.png"), auto',
       },
