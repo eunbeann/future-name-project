@@ -54,3 +54,15 @@ body {
 .animate-blink {
   animation: blink 1s step-start infinite;
 }
+
+.scrollbar-hide {
+  /* Firefox */
+  scrollbar-width: none; /* Firefox */
+
+  /* Chrome, Safari, Edge */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
