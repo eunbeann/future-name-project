@@ -22,6 +22,7 @@ const pixardisplay = localfont({
 export const metadata: Metadata = {
   title: "Future Name Center",
   description: "Future naming center",
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({
