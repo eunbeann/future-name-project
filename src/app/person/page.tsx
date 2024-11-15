@@ -1,5 +1,7 @@
 "use client";
 
+import movingPerson from "@/app/assets/gif/movingPerosn.gif";
+import Image from "next/image";
 import { useRecoilValue } from "recoil";
 import { stepNumbers } from "./atoms/atoms";
 import Eight from "./steps/Eight";
@@ -25,5 +27,14 @@ const stepComponents = {
 export default function PersonPage() {
   const step = useRecoilValue(stepNumbers) as keyof typeof stepComponents;
 
-  return <div>{stepComponents[step]}</div>;
+  return (
+    <div className="flex flex-col items-center justify-center gap-[40px]">
+      <Image
+        className="h-[80%] w-[90%]"
+        src={movingPerson}
+        alt="movingPerson"
+      />
+      {stepComponents[step]}
+    </div>
+  );
 }
