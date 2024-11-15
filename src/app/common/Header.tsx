@@ -1,3 +1,6 @@
+import HeaderLogo from "@/app/assets/icon/headerLogoWhite.png";
+import Image from "next/image";
+
 export default function Header() {
   const MONTH = [
     "JAN",
@@ -27,7 +30,10 @@ export default function Header() {
 
   return (
     <div className="flex justify-between w-[100vw] bg-[#000000] z-50 px-[29px] py-[12px] text-[#ffffff]">
-      <div>FUTURE NAMING CENTER</div>
+      <div className="flex gap-[20px] h-[] items-center">
+        <Image src={HeaderLogo} alt="HeaderLogo" />
+        <div>FUTURE NAMING CENTER</div>
+      </div>
       <div className="flex gap-[26px]">
         <p>2100</p>
         <p>
