@@ -1,4 +1,5 @@
-import certification from "@/app/assets/image/certification.png";
+import arrow from "@/app/assets/gif/movingArrow.gif";
+import certification from "@/app/assets/icon/certification.png";
 import { format } from "date-fns";
 import { getDatabase, ref, update } from "firebase/database";
 import html2canvas from "html2canvas";
@@ -80,35 +81,38 @@ export default function CertificationCard({
 
   return (
     <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo ga">
-      {/* <div className="relative "> */}
-      <div className="absolute top-[300px] left-[119px]">
+      <div className="absolute top-[300px] left-[119px] xl:top-[474px] xl:left-[201px] ">
         {loading && (
-          <div className="bg-[#000000] w-[132px] h-[204px] text-center">
-            <h1 className="text-[#ffffff]">로딩중..</h1>
+          <div className="bg-[#f1b0b0] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]">
+            <h1 className="text-[#ffffff] xl:text-[20px]">로딩중..</h1>
           </div>
         )}
-        <Webcam
-          className="transform scale-x-[-1]"
-          audio={false}
-          width={132}
-          height={180}
-          ref={webcamRef}
-          screenshotFormat="image/jpeg"
-          videoConstraints={{ width: 103, height: 154, facingMode: "user" }}
-        />
-        <button
-          className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px]"
-          onClick={capture}
-        >
-          사진 촬영
-        </button>
+        {isCapturing && (
+          <>
+            <Webcam
+              className="transform scale-x-[-1] xl:w-[211px]"
+              audio={false}
+              width={103}
+              height={154}
+              ref={webcamRef}
+              screenshotFormat="image/jpeg"
+              videoConstraints={{ width: 103, height: 154, facingMode: "user" }}
+            />
+            <button
+              className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"
+              onClick={capture}
+            >
+              사진 촬영
+            </button>
+          </>
+        )}
       </div>
       <div ref={captureRef}>
         {url && (
-          <div className="absolute top-[301px] left-[119px]">
+          <div className="absolute top-[300px] left-[119px] xl:top-[442px] xl:left-[190px]">
             <div>
               <Image
-                className="transform scale-x-[-1]"
+                className="transform scale-x-[-1] xl:w-[211px]"
                 width={132}
                 height={140}
                 src={url}
@@ -117,7 +121,7 @@ export default function CertificationCard({
             </div>
             {!isCapturing && (
               <button
-                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] "
+                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"
                 onClick={() => setUrl(null)}
               >
                 다시 찍기
@@ -125,38 +129,39 @@ export default function CertificationCard({
             )}
           </div>
         )}
-        <p className="absolute top-[294px] right-[145px] text-xs leading-0">
+        <p className="absolute top-[294px] right-[145px] xl:top-[466px] xl:right-[199px] xl:text-[19px] xl:w-[88px] text-center text-xs leading-0">
           {id}
         </p>
-        <p className="absolute top-[322px] right-[125px] text-xs">
+        <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[195px] xl:text-[19px] xl:w-[118px] text-center ">
           2100.{formattedDate}
         </p>
-        <p className="absolute top-[349px] right-[137px] text-xs">FNM CENTER</p>
-        <p className="absolute top-[413px] right-[125px] w-[168px] text-center">
+        <p className="absolute top-[349px] right-[137px] text-xs xl:top-[556px] xl:right-[200px] xl:w-[156px] xl:text-[19px] text-center">
+          FNM CENTER
+        </p>
+        <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[650px] xl:right-[203px] xl:h-[45px] xl:w-[280px] xl:text-[28px] text-center ">
           {lastName} {firstName}
         </p>
-        <p className="absolute top-[485px] right-[125px] w-[168px] text-center">
+        <p className="absolute top-[485px] right-[125px] w-[168px] xl:top-[762px] xl:right-[204px] xl:h-[45px] xl:w-[280px] xl:text-[28px] text-center">
           {`${newLastName} ${newFirstName}`}
         </p>
         <Image
-          className="min-w-[580px] max-w-[580px] h-[855px]"
+          className="w-[580px] h-[855px] xl:w-[980px] xl:h-auto"
           src={certification}
           alt="certification"
         />
       </div>
       <button
-        className="w-[460px] h-[40px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] fixed bottom-[0px] left-1/2 transform -translate-x-1/2"
+        className="w-[460px] xl:w-[780px] py-[8px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[30px] "
         onClick={captureArea}
       >
         저장하기
       </button>
       <Link
         href={"/get-card"}
-        className="w-[40px] h-[40px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] fixed right-[0px] -translate-y-1/2 top-1/2 flex justify-center items-center"
+        className="w-[40px] h-auto xl:w-[64px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] fixed right-[0px] -translate-y-1/2 top-1/2 flex justify-center items-center scale-x-[-1]"
       >
-        {">"}
+        <Image src={arrow} alt="arrow" />
       </Link>
-      {/* </div> */}
     </div>
   );
 }
