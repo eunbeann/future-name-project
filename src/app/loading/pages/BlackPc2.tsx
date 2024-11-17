@@ -7,7 +7,7 @@ export default function BlackPc2() {
   const router = useRouter();
 
   const handleAnimationEnd = () => {
-    router.push("/person");
+    router.push("/story");
   };
 
   return (
