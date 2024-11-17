@@ -13,14 +13,14 @@ export default function Story0() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setStoryNumber((prev) => prev + 1);
-    }, 1000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [setStoryNumber]);
 
   return (
     <>
-      <Image className="w-full h-full" src={story0} alt="story0" />
+      <Image className="w-full h-full" src={story0} alt="story0" priority />
       <div className="flex w-full justify-center">
         <Image
           className="absolute top-[80px] w-[600px] opacity-40"

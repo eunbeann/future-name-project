@@ -4,11 +4,13 @@ import arrow from "@/app/assets/gif/movingArrow.gif";
 import text from "@/app/assets/image/welcomeTxt.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import MainContainer from "../common/MainContainer";
 
+import bg from "@/app/assets/image/welcomeBg.png";
 export default function WelcomePage() {
   const router = useRouter();
   return (
-    <>
+    <MainContainer bgImage={bg}>
       <Image
         className="w-[100vw] h-[100vh] object-cover z-30"
         src={text}
@@ -25,6 +27,6 @@ export default function WelcomePage() {
           alt="arrow"
         />
       </button>
-    </>
+    </MainCOnt>
   );
 }

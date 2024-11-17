@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import BlackPc1 from "./pages/BlackPc1";
 import BlackPc2 from "./pages/BlackPc2";
@@ -10,10 +11,8 @@ export default function LoadingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const startTime = performance.now();
     if (currentIndex < components.length - 1) {
       const timeout = setTimeout(() => {
-        console.log(`Time elapsed: ${performance.now() - startTime}ms`);
         setCurrentIndex((prevIndex) => prevIndex + 1);
       }, 1000);
 
@@ -23,5 +22,20 @@ export default function LoadingPage() {
 
   const CurrentComponent = components[currentIndex];
 
-  return <CurrentComponent />;
+  return (
+    <div className="w-full h-[100vh] overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          // initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          // exit={{ opacity: 0, y: -50 }}
+          transition={{ duration: 0.8 }}
+          className="absolute w-full h-full"
+        >
+          <CurrentComponent />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
 }

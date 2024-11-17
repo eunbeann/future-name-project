@@ -37,11 +37,11 @@ export default function LobbyPage() {
         />
         <div className="flex gap-[15px]">
           <input className="border-2 border-[#9F9F9F] bg-[#D9D9D9F2] w-[450px] xl:w-[650px] h-[48px]" />
-          <div className="border-2 border-[#9F9F9F] bg-[#D9D9D9F2] w-[100px] text-center font-dunggeunmo xl:text-[24px]">
+          <div className="border-2 border-[#9F9F9F] bg-[#D9D9D9F2] w-[100px] text-center font-dunggeunmo xl:text-[24px] flex items-center">
             SEARCH
           </div>
         </div>
-        <div className="bg-[#02FE00] px-[30px] xl:px-[55px] mt-[40px] xl:mt-[60px] xl:mb-[25px] font-dunggeunmo xl:text-[34px]">
+        <div className="bg-[#02FE00] px-[30px] xl:px-[55px] mt-[40px] xl:mt-[60px] xl:mb-[25px] font-dunggeunmo xl:text-[34px] flex items-center">
           SITE
         </div>
         <div className="flex gap-[34px]">
