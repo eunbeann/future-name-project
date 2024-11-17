@@ -1,7 +1,7 @@
 import mainBg from "@/app/assets/image/mainBg.png";
 import Image from "next/image";
 
-export default function ProjectLayout({
+export default function CodeLayout({
   children,
 }: {
   children: React.ReactNode;

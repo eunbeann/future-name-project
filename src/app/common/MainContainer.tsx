@@ -38,19 +38,19 @@ export default function MainContainer({
         </div>
         <div className="flex flex-col gap-[10px] ml-[9px]">
           <Link
-            href={""}
+            href={"/project"}
             className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
           >
             <Image src={project} alt="projectIcon" />
           </Link>
           <Link
-            href={""}
+            href={"/code"}
             className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
           >
             <Image src={code} alt="codeIcon" />
           </Link>
           <Link
-            href={""}
+            href={"/list"}
             className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
           >
             <Image src={aiList} alt="AlListIcon" />
