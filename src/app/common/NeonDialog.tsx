@@ -1,6 +1,7 @@
 "use client";
 
 import playBtn from "@/app/assets/gif/playBtn.gif";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -38,8 +39,21 @@ export default function NeonDialog({
     }
   };
 
+  const dialogVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 50 },
+  };
+
   return (
-    <div className="relative bg-[#02FE00] w-[90%] h-[130px] xl:h-[250px] z-50 flex justify-center items-center rounded-[8px] py-[20px] text-center xl:w-[76%]">
+    <motion.div
+      variants={dialogVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="relative bg-[#02FE00] w-[90%] h-[130px] xl:h-[250px] z-50 flex justify-center items-center rounded-[8px] py-[20px] text-center xl:w-[76%]"
+    >
       <div className="font-dunggeunmo whitespace-pre-wrap">{children}</div>
       <button
         className="absolute right-3 bottom-2 w-fit h-fit p-2"
@@ -52,6 +66,6 @@ export default function NeonDialog({
           priority
         />
       </button>
-    </div>
+    </motion.div>
   );
 }
