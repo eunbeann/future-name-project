@@ -4,6 +4,7 @@ export default function LoadingPage() {
   return (
     <div>
       <WhitePc />
+      {/* <WhitePc /> */}
     </div>
   );
 }
