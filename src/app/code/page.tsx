@@ -22,7 +22,7 @@ export default function CodePage() {
           className="absolute top-[80px] w-[340px] h-auto xl:w-[45%] xl:h-auto xl:my-[10px] z-50"
         />
         <div className="absolute top-[240px] bg-[#000000] xl:pt-[105px] xl:px-[70px] xl:w-[68%] xl:pb-[155px]">
-          <div className="flex ml-[9px] justify-evenly w-full h-auto xl:pb-[20px]">
+          <div className="flex ml-[9px] justify-evenly w-full h-auto xl:pb-[30px]">
             <Link
               href={"project"}
               className="flex flex-col justify-center items-center gap-[20px]"
