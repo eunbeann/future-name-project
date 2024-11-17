@@ -31,7 +31,7 @@ export default function Header() {
   const meridiem = thisHour >= 12 ? "PM" : "AM";
 
   return (
-    <div className="absolute top-0 flex justify-between w-[100vw] bg-[#000000] z-50 px-[29px] py-[12px] text-[#ffffff] xl:text-[25px]">
+    <div className="absolute top-0 flex justify-between w-[100vw] bg-[#000000] z-40 px-[29px] py-[12px] text-[#ffffff] xl:text-[25px]">
       <div className="flex gap-[20px] items-center">
         <Image src={HeaderLogo} alt="HeaderLogo" />
         <div>FUTURE NAMING CENTER</div>
@@ -45,8 +45,7 @@ export default function Header() {
           {hours12}:{thisMinute}
           {meridiem}
         </p>
-        {/* 링크 연결 제대로 다시 확인하기 */}
-        <Link href="/lobby">
+        <Link href="/">
           <Image src={exit} alt="exit" />
         </Link>
       </div>

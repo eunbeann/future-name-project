@@ -3,6 +3,7 @@
 import arrow from "@/app/assets/gif/movingArrow.gif";
 import listBackground from "@/app/assets/image/listBackground.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import MainContainer from "../common/MainContainer";
 import IdentifyCard from "./components/IdentifyCard";
@@ -31,6 +32,7 @@ const mockUsers: PersonCardProps[] = [
 export default function ListPage() {
   const [users, setUsers] = useState<PersonCardProps[]>([]);
   const [hoveredUserId, setHoveredUserId] = useState<string | null>(null);
+  const router = useRouter();
 
   // const getUserData = useCallback(() => {
   //   const reference = ref(db, "users/");
@@ -65,17 +67,13 @@ export default function ListPage() {
 
   return (
     <MainContainer bgImage={listBackground}>
-      {/* <button
-        onClick={() => {}}
-        className="absolute left-4 bottom-1/2 w-[50px] h-[50px] bg-green9"
-      > */}
-      <Image
-        className="absolute left-4 bottom-1/2 w-[50px] h-[50px]"
-        src={arrow}
-        alt="arrow"
-      />
-      {/* </button> */}
-      <div className="flex flex-col flex-wrap max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:pt-[3rem]">
+      <button
+        className="absolute left-[45px] bottom-1/2 w-[50px] h-[50px] xl:h-[72px] xl:w-[72px]"
+        onClick={() => router.back()}
+      >
+        <Image src={arrow} alt="arrow" />
+      </button>
+      <div className="flex flex-col flex-wrap max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[150px] xl:pt-[3rem]">
         {users.length > 0 ? (
           users.map((user, idx) => (
             <div

@@ -92,11 +92,14 @@ export default function CertificationCard({
             <Webcam
               className="transform scale-x-[-1] xl:w-[211px]"
               audio={false}
-              width={103}
-              height={154}
+              width={132}
+              height={204}
               ref={webcamRef}
               screenshotFormat="image/jpeg"
-              videoConstraints={{ width: 103, height: 154, facingMode: "user" }}
+              onUserMediaError={(error) =>
+                console.error("Webcam error:", error)
+              }
+              videoConstraints={{ width: 132, height: 204, facingMode: "user" }}
             />
             <button
               className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"

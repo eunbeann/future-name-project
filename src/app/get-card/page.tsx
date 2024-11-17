@@ -7,6 +7,7 @@ import { getPrintWindowHTML } from "@/app/get-card/utils/printTemplate";
 import { onValue, ref } from "firebase/database";
 import html2canvas from "html2canvas";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { db } from "../../../firebase/firebasedb";
@@ -113,11 +114,13 @@ export default function GetCardPage() {
           </NeonDialog>
         )}
         {showPrintButton && (
-          <Image
-            className="absolute right-[54px] bottom-[37px] scale-x-[-1] xl:w-[98px] "
-            src={arrow}
-            alt="arrow"
-          />
+          <Link href="/list">
+            <Image
+              className="absolute right-[54px] bottom-[37px] scale-x-[-1] xl:w-[98px] "
+              src={arrow}
+              alt="arrow"
+            />
+          </Link>
         )}
       </div>
     </>

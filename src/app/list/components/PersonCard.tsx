@@ -21,7 +21,7 @@ export default function PersonCard({
   const padId = String(id).padStart(3, "0");
 
   return (
-    <div className="flex font-pixardisplay justify-between text-white hover:bg-white hover:text-[#031DDF] xl:text-[34px] mr-[3rem] mb-[8px]">
+    <div className="flex font-pixardisplay justify-between text-white hover:bg-white hover:text-[#031DDF] xl:text-[30px] mr-[3rem] xl:mr-[4.2rem] mb-[8px]">
       <div className="flex">
         <p className="mr-[24px] text-[#ffffff] ">{padId}</p>
         <p className="text-[#ffffff] xl:mr-[3rem] overflow-x-scroll scrollbar-hide">{`<${futureLastName} ${futureFirstName}>`}</p>

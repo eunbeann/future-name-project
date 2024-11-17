@@ -59,15 +59,18 @@ export default function Eight() {
         </p>
       </NeonDialog>
       {showCertification && user && (
-        <CertificationCard
-          id={userArray.length}
-          uniqueId={user.uniqueId}
-          date={user.date}
-          firstName={user.firstName || ""}
-          lastName={user.lastName || ""}
-          newFirstName={user.futureFirstName}
-          newLastName={user.futureLastName}
-        />
+        <>
+          <div className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
+          <CertificationCard
+            id={userArray.length}
+            uniqueId={user.uniqueId}
+            date={user.date}
+            firstName={user.firstName || ""}
+            lastName={user.lastName || ""}
+            newFirstName={user.futureFirstName}
+            newLastName={user.futureLastName}
+          />
+        </>
       )}
     </>
   );

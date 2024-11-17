@@ -8,18 +8,17 @@ export default function WhitePc() {
   return (
     <>
       <Image className="w-full h-[100vh]" src={blueWorldBg} alt="background" />
-      <ComputerMonitor>
-        {/* TODO: 이미지  */}
+      <ComputerMonitor color="white">
         <Image
-          className="w-[280px] pb-[35px] xl:w-[500px]"
+          className="w-[320px] xl:w-[600px]"
           src={loadingLogo}
           alt="movingLogo"
         />
-        <div className="flex xl:gap-[20px] xl:text-[28px] text-center font-dunggeunmo">
-          <Link href="" className="xl:px-[36px] bg-[#ffffff]">
+        <div className="flex gap-[10px] xl:gap-[20px] xl:text-[28px] text-center font-dunggeunmo">
+          <Link href="" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
             들어가기
           </Link>
-          <Link href="/person" className="xl:px-[36px] bg-[#ffffff]">
+          <Link href="/person" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
             개명하기
           </Link>
         </div>
