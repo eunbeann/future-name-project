@@ -6,7 +6,7 @@ export default function BlackBackground() {
   return (
     <>
       <Image className="w-full h-[100vh]" src={blueWorldBg} alt="background" />
-      <ComputerMonitor></ComputerMonitor>
+      <ComputerMonitor color="black"></ComputerMonitor>
     </>
   );
 }
