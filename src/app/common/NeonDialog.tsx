@@ -2,28 +2,41 @@
 
 import playBtn from "@/app/assets/gif/playBtn.gif";
 import Image from "next/image";
-import { useCallback } from "react";
+import { useRouter } from "next/navigation";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../person/atoms/atoms";
+import { storyNumbers } from "../story/atoms/atoms";
 
-// TODO: props로 텍스트를 배열로 받고 버튼 클릭시 다음 텍스트로 변경
 export default function NeonDialog({
   children,
   action,
+  story,
 }: {
   children?: React.ReactNode;
   action?: () => void;
+  story?: boolean;
 }) {
   const [step, setStep] = useRecoilState(stepNumbers);
+  const [storyStep, setStoryStep] = useRecoilState(storyNumbers);
+  const router = useRouter();
 
-  const onClickButton = useCallback(() => {
-    if (step !== 8) {
-      setStep((prevStep) => prevStep + 1);
+  const onClickButton = () => {
+    if (story) {
+      if (storyStep !== 4) {
+        setStoryStep((prevStep) => prevStep + 1);
+      } else {
+        router.push("/lobby");
+      }
+    } else {
+      if (step !== 8) {
+        setStep((prevStep) => prevStep + 1);
+      }
     }
     if (action) {
       action();
     }
-  }, [step, setStep, action]);
+  };
 
   return (
     <div className="relative bg-[#02FE00] w-[90%] h-[130px] xl:h-[250px] z-50 flex justify-center items-center rounded-[8px] py-[20px] text-center xl:w-[76%]">
@@ -33,7 +46,7 @@ export default function NeonDialog({
         onClick={onClickButton}
       >
         <Image
-          className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px] "
+          className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
           src={playBtn}
           alt="Play Button"
           priority
