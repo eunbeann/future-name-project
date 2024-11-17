@@ -14,7 +14,7 @@ export default function LoadingPage() {
     if (currentIndex < components.length - 1) {
       const timeout = setTimeout(() => {
         setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, 3000);
+      }, 10000);
 
       return () => clearTimeout(timeout);
     }
