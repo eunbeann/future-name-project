@@ -17,9 +17,17 @@ export default function MainContainer({
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div className="flex">
         <div className="w-[80vw] h-[80vh] relative">
-          <div className="flex gap-[15px] rounded-t-[12px] bg-[#ffffff] h-[42px] pl-[30px] items-center">
-            <Image className="h-[29px] w-auto" src={headerLogo} alt="logo" />
-            <Image className="h-[14px] w-auto" src={headerName} alt="fnc.com" />
+          <div className="flex gap-[15px] rounded-t-[12px] bg-[#ffffff] h-[42px] xl:h-[64px] pl-[30px] items-center">
+            <Image
+              className="h-[29px] xl:h-[48px] w-auto"
+              src={headerLogo}
+              alt="logo"
+            />
+            <Image
+              className="h-[14px] xl:h-[23px] w-auto"
+              src={headerName}
+              alt="fnc.com"
+            />
           </div>
           <div className="h-full rounded-b-[12px] border border-[#ffffff] relative">
             {bgImage && (
@@ -29,13 +37,22 @@ export default function MainContainer({
           </div>
         </div>
         <div className="flex flex-col gap-[10px] ml-[9px]">
-          <Link href={"/list"} className="w-[78px] h-[78px]">
+          <Link
+            href={"/list"}
+            className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
+          >
             <Image src={project} alt="projectIcon" />
           </Link>
-          <Link href={"/list"} className="w-[78px] h-[78px]">
+          <Link
+            href={"/list"}
+            className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
+          >
             <Image src={code} alt="codeIcon" />
           </Link>
-          <Link href={"/list"} className="w-[78px] h-[78px]">
+          <Link
+            href={"/list"}
+            className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
+          >
             <Image src={aiList} alt="AlListIcon" />
           </Link>
         </div>

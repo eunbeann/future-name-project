@@ -1,5 +1,7 @@
 import HeaderLogo from "@/app/assets/icon/headerLogoWhite.png";
+import exit from "@/app/assets/icon/pinkExit.png";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const MONTH = [
@@ -29,12 +31,12 @@ export default function Header() {
   const meridiem = thisHour >= 12 ? "PM" : "AM";
 
   return (
-    <div className="flex justify-between w-[100vw] bg-[#000000] z-50 px-[29px] py-[12px] text-[#ffffff]">
-      <div className="flex gap-[20px] h-[] items-center">
+    <div className="absolute top-0 flex justify-between w-[100vw] bg-[#000000] z-50 px-[29px] py-[12px] text-[#ffffff] xl:text-[25px]">
+      <div className="flex gap-[20px] items-center">
         <Image src={HeaderLogo} alt="HeaderLogo" />
         <div>FUTURE NAMING CENTER</div>
       </div>
-      <div className="flex gap-[26px]">
+      <div className="flex items-center gap-[26px] ">
         <p>2100</p>
         <p>
           {DAY[thisDay]} {MONTH[thisMonth]} {thisDate}
@@ -43,6 +45,10 @@ export default function Header() {
           {hours12}:{thisMinute}
           {meridiem}
         </p>
+        {/* 링크 연결 제대로 다시 확인하기 */}
+        <Link href="/lobby">
+          <Image src={exit} alt="exit" />
+        </Link>
       </div>
     </div>
   );

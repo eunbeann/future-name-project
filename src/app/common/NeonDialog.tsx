@@ -26,14 +26,14 @@ export default function NeonDialog({
   }, [step, setStep, action]);
 
   return (
-    <div className="relative bg-[#02FE00] w-[90%] h-[130px] z-50 flex justify-center items-center rounded-[8px] py-[20px] text-center">
+    <div className="relative bg-[#02FE00] w-[90%] h-[130px] xl:h-[250px] z-50 flex justify-center items-center rounded-[8px] py-[20px] text-center xl:w-[76%]">
       <div className="font-dunggeunmo whitespace-pre-wrap">{children}</div>
       <button
-        className="absolute  right-3 bottom-2 w-fit h-fit p-2"
+        className="absolute right-3 bottom-2 w-fit h-fit p-2"
         onClick={onClickButton}
       >
         <Image
-          className="w-[35px] h-[35px]"
+          className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px] "
           src={playBtn}
           alt="Play Button"
           priority
