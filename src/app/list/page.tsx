@@ -13,6 +13,7 @@ import PersonCard, { PersonCardProps } from "./components/PersonCard";
 
 const mockUsers: PersonCardProps[] = [
   {
+    uniqueId: "1",
     id: 1,
     firstName: "은빈",
     lastName: "권",
@@ -22,6 +23,7 @@ const mockUsers: PersonCardProps[] = [
     img: "https://randomuser.me/api/portraits",
   },
   {
+    uniqueId: "2",
     id: 2,
     firstName: "민수",
     lastName: "김",
@@ -55,19 +57,7 @@ export default function ListPage() {
 
   useEffect(() => {
     getUserData();
-  }, []);
-
-  // useEffect(() => {
-  //   const repeatedMockUsers = Array(50)
-  //     .fill(mockUsers)
-  //     .flat()
-  //     .map((user, i) => ({
-  //       ...user,
-  //       id: i + 1,
-  //     }));
-
-  //   setUsers(repeatedMockUsers);
-  // }, []);
+  }, [getUserData]);
 
   return (
     <MainContainer bgImage={listBackground}>
@@ -77,14 +67,14 @@ export default function ListPage() {
       >
         <Image src={arrow} alt="arrow" />
       </button>
-      <div className="flex flex-col flex-wrap max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[160px] xl:pt-[3rem]">
+      <div className="flex flex-col flex-wrap content-start max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[160px] xl:pt-[3rem]">
         {users.length > 0 ? (
           users.map((user, idx) => (
             <div
               key={user.uniqueId}
               onMouseEnter={() => setHoveredUserId(user.uniqueId || null)}
               onMouseLeave={() => setHoveredUserId(null)}
-              className="px-4 xl:w-[550px] w-[330px]"
+              className="px-0"
             >
               <PersonCard
                 id={idx + 1}
