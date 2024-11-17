@@ -84,7 +84,7 @@ export default function ListPage() {
               key={user.uniqueId}
               onMouseEnter={() => setHoveredUserId(user.uniqueId || null)}
               onMouseLeave={() => setHoveredUserId(null)}
-              className="px-4 bg-mauve6 xl:w-[550px] w-[330px]"
+              className="px-4 xl:w-[550px] w-[330px]"
             >
               <PersonCard
                 id={idx + 1}
