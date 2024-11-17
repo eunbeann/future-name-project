@@ -21,6 +21,7 @@ export default function Eight() {
           ...(value as PersonCardProps),
           uniqueId: key,
         }));
+        console.log("usersArray", usersArray);
 
         setUserArray(usersArray);
 
@@ -34,8 +35,10 @@ export default function Eight() {
   }, []);
 
   useEffect(() => {
+    console.log("run Effect");
     if (isLoading) {
       getUserData();
+      console.log("get data");
     }
   }, [isLoading, getUserData]);
 
@@ -55,23 +58,16 @@ export default function Eight() {
           />
         </p>
       </NeonDialog>
-      {isLoading ? (
-        <p>로딩 중...</p>
-      ) : (
-        showCertification &&
-        user && (
-          <div className="absolute -top-50 -left-2 z-50 bg-[#000000] bg-opacity-70 w-[100vw] h-[100vh]">
-            <CertificationCard
-              id={userArray.length}
-              uniqueId={user.uniqueId}
-              date={user.date}
-              firstName={user.firstName || ""}
-              lastName={user.lastName || ""}
-              newFirstName={user.futureFirstName}
-              newLastName={user.futureLastName}
-            />
-          </div>
-        )
+      {showCertification && user && (
+        <CertificationCard
+          id={userArray.length}
+          uniqueId={user.uniqueId}
+          date={user.date}
+          firstName={user.firstName || ""}
+          lastName={user.lastName || ""}
+          newFirstName={user.futureFirstName}
+          newLastName={user.futureLastName}
+        />
       )}
     </>
   );

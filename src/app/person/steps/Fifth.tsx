@@ -40,7 +40,7 @@ export default function Fifth() {
       <input
         value={newFirstName}
         onChange={handleChange}
-        className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00]  w-[245px] my-2 py-2 mt-[12px] xl:w-[490px] xl:h-[60px] xl:text-[32px]"
+        className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00]  w-[245px] my-2 py-2 mt-[12px] xl:w-[490px] xl:h-[60px] xl:text-[32px] xl:mt-[24px]"
       />
     </NeonDialog>
   );

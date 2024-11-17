@@ -132,7 +132,7 @@ export default function CertificationCard({
         <p className="absolute top-[294px] right-[145px] xl:top-[466px] xl:right-[199px] xl:text-[19px] xl:w-[88px] text-center text-xs leading-0">
           {id}
         </p>
-        <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[195px] xl:text-[19px] xl:w-[118px] text-center ">
+        <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[200px] xl:text-[19px] xl:w-[118px] text-center ">
           2100.{formattedDate}
         </p>
         <p className="absolute top-[349px] right-[137px] text-xs xl:top-[556px] xl:right-[200px] xl:w-[156px] xl:text-[19px] text-center">

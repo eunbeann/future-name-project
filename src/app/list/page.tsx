@@ -1,6 +1,8 @@
 "use client";
 
+import arrow from "@/app/assets/gif/movingArrow.gif";
 import listBackground from "@/app/assets/image/listBackground.png";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import MainContainer from "../common/MainContainer";
 import IdentifyCard from "./components/IdentifyCard";
@@ -63,13 +65,17 @@ export default function ListPage() {
 
   return (
     <MainContainer bgImage={listBackground}>
-      <button
+      {/* <button
         onClick={() => {}}
         className="absolute left-4 bottom-1/2 w-[50px] h-[50px] bg-green9"
-      >
-        {"<"}
-      </button>
-      <div className="flex flex-col flex-wrap w-fit max-w-[93%] h-full overflow-y-hidden py-[20px] ml-[80px]">
+      > */}
+      <Image
+        className="absolute left-4 bottom-1/2 w-[50px] h-[50px]"
+        src={arrow}
+        alt="arrow"
+      />
+      {/* </button> */}
+      <div className="flex flex-col flex-wrap max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:pt-[3rem]">
         {users.length > 0 ? (
           users.map((user, idx) => (
             <div

@@ -18,7 +18,7 @@ export default function IdentifyCard({
   return (
     <div className="relative z-50 font-dunggeunmo">
       <Image
-        className="min-w-[654px] max-w-[654px] h-[405px]"
+        className="w-[654px] h-full xl:w-[1000px] xl:h-full"
         src={Identify}
         alt="Identify"
         onLoad={() => setIsLoaded(true)}
@@ -30,19 +30,19 @@ export default function IdentifyCard({
           height={203}
           src={img}
           alt="profile Image"
-          className="absolute top-[103px] right-[91px] h-[203px] bg-green8 scale-x-[-1]"
+          className="absolute top-[103px] right-[91px] h-[203px] xl:h-[320px] xl:w-[220px] xl:top-[155px] xl:right-[136px] bg-green8 scale-x-[-1]"
         />
-        <p className="absolute text-center w-[300px] top-[132px] right-[270px] text-[32px] text-[#ffffff]">
+        <p className="absolute text-center w-[300px] xl:w-[420px] top-[132px] xl:top-[200px] right:[270px] xl:left-[150px] text-[32px] text-[#ffffff] xl:text-[48px] ">
           {`${futureLastName} ${futureFirstName}`}
         </p>
-        <p className="absolute text-center w-[300px] top-[168px] right-[270px] text-xl text-[#ffffff]">
+        <p className="absolute text-center w-[300px] xl:w-[420px] top-[168px] xl:top-[275px] right-[270px] xl:left-[150px] text-xl xl:text-[44px] text-[#ffffff] ">
           {lastName}
           {firstName}
         </p>
-        <p className="absolute text-center w-[66px] bottom-[153px] right-[308px] text-[#ffffff]">
+        <p className="absolute text-center xl:text-[24px] w-[66px] xl:w-[97px] bottom-[153px] xl:bottom-[236px] right-[308px] xl:right-[474px] text-[#ffffff]">
           {id}
         </p>
-        <p className="absolute text-center w-[92px] bottom-[118px] right-[307px] text-[#ffffff]">
+        <p className="absolute text-center xl:text-[24px] w-[92px] xl:w-[128px] bottom-[118px] xl:bottom-[188px] right-[307px] xl:right-[474px]  text-[#ffffff]">
           2100.{formattedDate}
         </p>
       </>

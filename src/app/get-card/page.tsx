@@ -1,5 +1,6 @@
 "use client";
 
+import arrow from "@/app/assets/gif/movingArrow.gif";
 import temp from "@/app/assets/image/cardBackground.png";
 import NeonDialog from "@/app/common/NeonDialog";
 import { getPrintWindowHTML } from "@/app/get-card/utils/printTemplate";
@@ -68,8 +69,8 @@ export default function GetCardPage() {
         src={temp}
         alt="movingPerson"
       />
-      <div className="h-full w-full flex flex-col items-center justify-center gap-[20px]">
-        <p className="mt-[18px] text-[25px] font-dunggeunmo text-[#02FE00]">
+      <div className="h-[80vh] w-full flex flex-col items-center justify-center gap-[20px]">
+        <p className="mt-[12px] text-[25px] font-dunggeunmo text-[#02FE00] xl:text-[48px]">
           신분증 발급
         </p>
         {user && id && (
@@ -88,17 +89,17 @@ export default function GetCardPage() {
         )}
         {showPrintButton ? (
           <button
-            className="w-[460px] py-[8px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] font-dunggeunmo text-[18px] text-[#000000]"
+            className="w-[460px] xl:w-[800px] py-[8px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] font-dunggeunmo text-[18px] xl:text-[42px] text-[#000000]"
             onClick={openPrintWindow}
           >
             출력하기
           </button>
         ) : (
           <NeonDialog action={handlePrintButton}>
-            <p className="font-dunggeunmo text-[18px] text-[#000000]">
+            <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
               <TypeAnimation
                 sequence={[
-                  "새 신분증이 발급된다. 그 위엔 내가 알던 이름 대신 낯선 코드만이 새겨져 있다.\n이게… 정말 나의 정체성인가?",
+                  `"새 신분증이 발급된다. 그 위엔 내가 알던 이름 대신 낯선 코드만이 새겨져 있다.\n이게… 정말 나의 정체성인가?"`,
                 ]}
                 wrapper="span"
                 speed={5}
@@ -110,6 +111,13 @@ export default function GetCardPage() {
               />
             </p>
           </NeonDialog>
+        )}
+        {showPrintButton && (
+          <Image
+            className="absolute right-[54px] bottom-[37px] scale-x-[-1] xl:w-[98px] "
+            src={arrow}
+            alt="arrow"
+          />
         )}
       </div>
     </>
