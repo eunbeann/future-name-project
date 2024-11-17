@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { getDatabase, ref, update } from "firebase/database";
 import html2canvas from "html2canvas";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
 
@@ -36,6 +36,7 @@ export default function CertificationCard({
   const formattedDate = date ? format(new Date(date), "MM.dd") : "";
   const webcamRef = useRef<Webcam>(null);
   const captureRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const [url, setUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [isCapturing, setIsCapturing] = useState(false);
@@ -66,10 +67,6 @@ export default function CertificationCard({
       });
       const image = canvas.toDataURL("image/png");
 
-      if (uniqueId) {
-        saveImageToDatabase(uniqueId, url);
-      }
-
       const link = document.createElement("a");
       link.href = image;
       link.download = "capture.png";
@@ -77,6 +74,14 @@ export default function CertificationCard({
     }
 
     setIsCapturing(false);
+  };
+
+  const handleNextPage = () => {
+    if (uniqueId) {
+      saveImageToDatabase(uniqueId, url);
+    }
+
+    router.push("/get-card");
   };
 
   return (
@@ -155,12 +160,12 @@ export default function CertificationCard({
       >
         저장하기
       </button>
-      <Link
-        href={"/get-card"}
+      <button
+        onClick={handleNextPage}
         className="w-[40px] h-auto xl:w-[64px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] fixed right-[0px] -translate-y-1/2 top-1/2 flex justify-center items-center scale-x-[-1]"
       >
         <Image src={arrow} alt="arrow" />
-      </Link>
+      </button>
     </div>
   );
 }
