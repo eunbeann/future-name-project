@@ -11,10 +11,12 @@ export default function LoadingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    const startTime = performance.now();
     if (currentIndex < components.length - 1) {
       const timeout = setTimeout(() => {
+        console.log(`Time elapsed: ${performance.now() - startTime}ms`);
         setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, 10000);
+      }, 1000);
 
       return () => clearTimeout(timeout);
     }

@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 const dunggeunmo = localfont({
-  src: [{ path: "../../public/fonts/DungGeunMo.ttf", weight: "500" }],
+  src: [{ path: "../../public/fonts/DungGeunMo.ttf", weight: "400" }],
   variable: "--font-dunggeunmo",
 });
 
