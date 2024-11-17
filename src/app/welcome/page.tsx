@@ -11,11 +11,7 @@ export default function WelcomePage() {
   const router = useRouter();
   return (
     <MainContainer bgImage={bg}>
-      <Image
-        className="w-[100vw] h-[100vh] object-cover z-30"
-        src={text}
-        alt="text"
-      />
+      <Image className="w-[100%] h-[100%] object-cover" src={text} alt="text" />
       <button
         onClick={() => {
           router.back();
@@ -27,6 +23,6 @@ export default function WelcomePage() {
           alt="arrow"
         />
       </button>
-    </MainCOnt>
+    </MainContainer>
   );
 }
