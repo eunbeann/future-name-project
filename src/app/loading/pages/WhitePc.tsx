@@ -7,7 +7,11 @@ import Link from "next/link";
 export default function WhitePc() {
   return (
     <>
-      <Image className="w-full h-[100vh]" src={blueWorldBg} alt="background" />
+      <Image
+        className="w-[100vw] h-[100vh]"
+        src={blueWorldBg}
+        alt="background"
+      />
       <ComputerMonitor color="white">
         <Image
           className="w-[320px] xl:w-[600px]"
