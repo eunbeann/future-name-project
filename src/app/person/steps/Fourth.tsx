@@ -4,11 +4,12 @@ import NeonDialog from "@/app/common/NeonDialog";
 import { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useSetRecoilState } from "recoil";
-import { userName } from "../atoms/atoms";
+import { stepNumbers, userName } from "../atoms/atoms";
 
 export default function Fourth() {
   const setUser = useSetRecoilState(userName);
   const [newLastName, setNewLastName] = useState("");
+  const setStep = useSetRecoilState(stepNumbers);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewLastName(e.target.value);
@@ -20,6 +21,13 @@ export default function Fourth() {
       lastName: newLastName,
     }));
     setNewLastName("");
+  };
+
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setStep((prevStep) => prevStep + 1);
+      handleUpdate();
+    }
   };
 
   return (
@@ -40,7 +48,7 @@ export default function Fourth() {
       <input
         value={newLastName}
         onChange={handleChange}
-        onKeyDown={(e) => e.key === "Enter" && handleUpdate()}
+        onKeyDown={handleEnter}
         className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00]  w-[245px] my-2 py-2 mt-[12px] xl:w-[490px] xl:h-[60px] xl:text-[32px] xl:mt-[24px]"
       />
     </NeonDialog>

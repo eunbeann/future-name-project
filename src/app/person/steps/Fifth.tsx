@@ -3,12 +3,13 @@
 import NeonDialog from "@/app/common/NeonDialog";
 import { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
-import { useRecoilState } from "recoil";
-import { userName } from "../atoms/atoms";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { stepNumbers, userName } from "../atoms/atoms";
 
 export default function Fifth() {
   const [user, setUser] = useRecoilState(userName);
   const [newFirstName, setNewFirstName] = useState("");
+  const setStep = useSetRecoilState(stepNumbers);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewFirstName(e.target.value);
@@ -20,6 +21,13 @@ export default function Fifth() {
       firstName: newFirstName,
     }));
     setNewFirstName("");
+  };
+
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setStep((prevStep) => prevStep + 1);
+      handleUpdate();
+    }
   };
 
   return (
@@ -40,7 +48,7 @@ export default function Fifth() {
       <input
         value={newFirstName}
         onChange={handleChange}
-        onKeyDown={(e) => e.key === "Enter" && handleUpdate()}
+        onKeyDown={handleEnter}
         className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00] w-[245px] my-2 py-2 mt-[12px] xl:w-[490px] xl:h-[60px] xl:text-[32px] xl:mt-[24px]"
       />
     </NeonDialog>
