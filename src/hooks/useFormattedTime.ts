@@ -8,7 +8,8 @@ interface TimeOptions extends Intl.DateTimeFormatOptions {
 
 const useFormattedTime = (
   isoDateString: string,
-  options: TimeOptions = { hour: "2-digit", minute: "2-digit", hour12: true }
+  options: TimeOptions = { hour: "2-digit", minute: "2-digit", hour12: true },
+  locale: string = "en-US"
 ): string => {
   const formattedTime = useMemo(() => {
     if (!isoDateString) return "";
@@ -16,8 +17,8 @@ const useFormattedTime = (
     const date = new Date(isoDateString);
     if (isNaN(date.getTime())) return "Invalid Date";
 
-    return date.toLocaleTimeString(undefined, options);
-  }, [isoDateString, options]);
+    return date.toLocaleTimeString(locale, options);
+  }, [isoDateString, options, locale]);
 
   return formattedTime;
 };
