@@ -81,34 +81,30 @@ export default function CertificationCard({
 
   return (
     <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo ga">
-      <div className="absolute top-[300px] left-[119px] xl:top-[474px] xl:left-[201px] ">
+      <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[201px]">
         {loading && (
           <div className="bg-[#f1b0b0] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]">
             <h1 className="text-[#ffffff] xl:text-[20px]">로딩중..</h1>
           </div>
         )}
-        {isCapturing && (
-          <>
-            <Webcam
-              className="transform scale-x-[-1] xl:w-[211px]"
-              audio={false}
-              width={132}
-              height={204}
-              ref={webcamRef}
-              screenshotFormat="image/jpeg"
-              onUserMediaError={(error) =>
-                console.error("Webcam error:", error)
-              }
-              videoConstraints={{ width: 132, height: 204, facingMode: "user" }}
-            />
-            <button
-              className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"
-              onClick={capture}
-            >
-              사진 촬영
-            </button>
-          </>
-        )}
+        <>
+          <Webcam
+            className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]"
+            audio={false}
+            // width={134}
+            // height={204}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            onUserMediaError={(error) => console.error("Webcam error:", error)}
+            videoConstraints={{ width: 132, height: 208, facingMode: "user" }}
+          />
+          <button
+            className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"
+            onClick={capture}
+          >
+            사진 촬영
+          </button>
+        </>
       </div>
       <div ref={captureRef}>
         {url && (

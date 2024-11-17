@@ -2,12 +2,15 @@
 
 import arrow from "@/app/assets/gif/movingArrow.gif";
 import listBackground from "@/app/assets/image/listBackground.png";
+import { onValue, ref } from "firebase/database";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { db } from "../../../firebase/firebasedb";
 import MainContainer from "../common/MainContainer";
 import IdentifyCard from "./components/IdentifyCard";
 import PersonCard, { PersonCardProps } from "./components/PersonCard";
+
 const mockUsers: PersonCardProps[] = [
   {
     id: 1,
@@ -34,36 +37,37 @@ export default function ListPage() {
   const [hoveredUserId, setHoveredUserId] = useState<string | null>(null);
   const router = useRouter();
 
-  // const getUserData = useCallback(() => {
-  //   const reference = ref(db, "users/");
-  //   onValue(reference, (snapshot) => {
-  //     const data = snapshot.val();
-  //     if (data && typeof data === "object") {
-  //       const usersArray = Object.entries(data).map(([key, value]) => ({
-  //         ...(value as PersonCardProps),
-  //         uniqueId: key,
-  //       }));
+  const getUserData = useCallback(() => {
+    const reference = ref(db, "users/");
+    onValue(reference, (snapshot) => {
+      const data = snapshot.val();
+      if (data && typeof data === "object") {
+        const usersArray = Object.entries(data).map(([key, value]) => ({
+          ...(value as PersonCardProps),
+          uniqueId: key,
+        }));
 
-  //       setUsers(usersArray);
-  //     }
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   getUserData();
-  // }, []);
+        console.log("usersArray", usersArray);
+        setUsers(usersArray);
+      }
+    });
+  }, []);
 
   useEffect(() => {
-    const repeatedMockUsers = Array(50)
-      .fill(mockUsers)
-      .flat()
-      .map((user, i) => ({
-        ...user,
-        id: i + 1,
-      }));
-
-    setUsers(repeatedMockUsers);
+    getUserData();
   }, []);
+
+  // useEffect(() => {
+  //   const repeatedMockUsers = Array(50)
+  //     .fill(mockUsers)
+  //     .flat()
+  //     .map((user, i) => ({
+  //       ...user,
+  //       id: i + 1,
+  //     }));
+
+  //   setUsers(repeatedMockUsers);
+  // }, []);
 
   return (
     <MainContainer bgImage={listBackground}>
@@ -73,14 +77,14 @@ export default function ListPage() {
       >
         <Image src={arrow} alt="arrow" />
       </button>
-      <div className="flex flex-col flex-wrap max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[150px] xl:pt-[3rem]">
+      <div className="flex flex-col flex-wrap max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[160px] xl:pt-[3rem]">
         {users.length > 0 ? (
           users.map((user, idx) => (
             <div
               key={user.uniqueId}
               onMouseEnter={() => setHoveredUserId(user.uniqueId || null)}
               onMouseLeave={() => setHoveredUserId(null)}
-              className="px-4"
+              className="px-4 bg-mauve6 xl:w-[550px] w-[330px]"
             >
               <PersonCard
                 id={idx + 1}
