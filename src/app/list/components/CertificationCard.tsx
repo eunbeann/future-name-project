@@ -92,31 +92,35 @@ export default function CertificationCard({
             <h1 className="text-[#ffffff] xl:text-[20px]">로딩중..</h1>
           </div>
         )}
-        <>
-          <Webcam
-            className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]"
-            audio={false}
-            // width={134}
-            // height={204}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            onUserMediaError={(error) => console.error("Webcam error:", error)}
-            videoConstraints={{ width: 132, height: 208, facingMode: "user" }}
-          />
-          <button
-            className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"
-            onClick={capture}
-          >
-            사진 촬영
-          </button>
-        </>
+        {!url && (
+          <>
+            <Webcam
+              className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]"
+              audio={false}
+              width={223}
+              height={322}
+              ref={webcamRef}
+              screenshotFormat="image/jpeg"
+              onUserMediaError={(error) =>
+                console.error("Webcam error:", error)
+              }
+              videoConstraints={{ width: 132, height: 208, facingMode: "user" }}
+            />
+            <button
+              className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[36px] xl:bottom-[12px]"
+              onClick={capture}
+            >
+              사진 촬영
+            </button>
+          </>
+        )}
       </div>
       <div ref={captureRef}>
         {url && (
-          <div className="absolute top-[300px] left-[119px] xl:top-[442px] xl:left-[190px]">
+          <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[210px]">
             <div>
               <Image
-                className="transform scale-x-[-1] xl:w-[211px]"
+                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[205px] xl:h-[322px]"
                 width={132}
                 height={140}
                 src={url}
@@ -125,7 +129,7 @@ export default function CertificationCard({
             </div>
             {!isCapturing && (
               <button
-                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[25px] xl:bottom-[12px]"
+                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[28px] xl:bottom-[12px]"
                 onClick={() => setUrl(null)}
               >
                 다시 찍기
