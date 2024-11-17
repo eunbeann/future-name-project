@@ -19,7 +19,7 @@ export default function WhitePc() {
           alt="movingLogo"
         />
         <div className="flex gap-[10px] xl:gap-[20px] xl:text-[28px] text-center font-dunggeunmo">
-          <Link href="" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
+          <Link href="/loading" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
             들어가기
           </Link>
           <Link href="/person" className="xl:px-[36px] px-[12px] bg-[#ffffff]">

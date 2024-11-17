@@ -39,6 +39,10 @@ const config: Config = {
         from: { opacity: "0" },
         to: { opacity: "1" },
       },
+      expandWidth: {
+        "0%": { width: "0%" },
+        "100%": { width: "100%" },
+      },
       blink: {
         "0%, 100%": { opacity: "1" },
         "50%": { opacity: "0" },
@@ -111,6 +115,7 @@ const config: Config = {
       overlayShow: "overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
       contentShow: "contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)",
       blink: "blink 1s step-start infinite",
+      expand: "expandWidth 3s ease-in-out",
     },
   },
   plugins: [require("tailwindcss-animate")],
