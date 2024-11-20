@@ -1,4 +1,3 @@
-import arrow from "@/app/assets/gif/movingArrow.gif";
 import certification from "@/app/assets/icon/certification.png";
 import { format } from "date-fns";
 import { getDatabase, ref, update } from "firebase/database";
@@ -158,18 +157,20 @@ export default function CertificationCard({
           alt="certification"
         />
       </div>
-      <button
-        className="w-[460px] xl:w-[780px] py-[8px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[30px] "
-        onClick={captureArea}
-      >
-        저장하기
-      </button>
-      <button
-        onClick={handleNextPage}
-        className="w-[40px] h-auto xl:w-[64px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] fixed right-[0px] -translate-y-1/2 top-1/2 flex justify-center items-center scale-x-[-1]"
-      >
-        <Image src={arrow} alt="arrow" />
-      </button>
+      <div className="flex gap-[8px] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[34px]">
+        <button
+          className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+          onClick={captureArea}
+        >
+          이미지 저장하기
+        </button>
+        <button
+          className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+          onClick={captureArea}
+        >
+          신분증 받기
+        </button>
+      </div>
     </div>
   );
 }
