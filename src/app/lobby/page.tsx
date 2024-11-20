@@ -41,27 +41,27 @@ export default function LobbyPage() {
             SEARCH
           </div>
         </div>
-        <div className="bg-[#02FE00] px-[30px] xl:px-[55px] mt-[40px] xl:mt-[60px] xl:mb-[25px] font-dunggeunmo xl:text-[34px] flex items-center">
+        <div className="bg-[#02FE00] px-[30px] xl:px-[55px] xl:py-[0px] mt-[40px] xl:mt-[60px] xl:mb-[5px] font-dunggeunmo xl:text-[38px] leading-10 flex items-center">
           SITE
         </div>
-        <div className="flex gap-[34px]">
+        <div className="flex gap-[34px] mt-[40px]">
           <Link href="/welcome">
             <Image
-              className="w-[280px] h-[170px] xl:w-[380px] xl:h-auto"
+              className="w-[280px] h-[170px] xl:w-[420px] xl:h-auto"
               src={welcomeFrame}
               alt="welcomeFrame"
             />
           </Link>
           <Link href="/intro">
             <Image
-              className="w-[280px] h-[170px] xl:w-[380px] xl:h-auto"
+              className="w-[280px] h-[170px] xl:w-[420px] xl:h-auto"
               src={introduceFrame}
               alt="introduceFrame"
             />
           </Link>
           <Link href="/person">
             <Image
-              className="w-[280px] h-[170px] xl:w-[380px] xl:h-auto"
+              className="w-[280px] h-[170px] xl:w-[420px] xl:h-auto"
               src={renameFrame}
               alt="renameFrame"
             />
