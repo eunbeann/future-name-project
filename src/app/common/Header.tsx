@@ -46,7 +46,7 @@ export default function Header() {
           {meridiem}
         </p>
         <Link href="/">
-          <Image src={exit} alt="exit" />
+          <Image className="w-[10rem]" src={exit} alt="exit" />
         </Link>
       </div>
     </div>
