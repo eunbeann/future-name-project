@@ -7,21 +7,23 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useRecoilState } from "recoil";
 import { stepNumbers } from "../person/atoms/atoms";
+import { sendingNumber } from "../sending/atoms/atom";
 import { storyNumbers } from "../story/atoms/atoms";
 
 export default function NeonDialog({
   children,
   action,
   story,
-  isInputFilled,
+  sending,
 }: {
   children?: React.ReactNode;
   action?: () => void;
   story?: boolean;
-  isInputFilled?: boolean;
+  sending?: boolean;
 }) {
   const [step, setStep] = useRecoilState(stepNumbers);
   const [storyStep, setStoryStep] = useRecoilState(storyNumbers);
+  const [sendingStep, setSendingStep] = useRecoilState(sendingNumber);
   const router = useRouter();
 
   const onClickButton = () => {
@@ -33,6 +35,12 @@ export default function NeonDialog({
           setStoryStep((prevStep) => prevStep + 1);
         } else if (storyStep === 4) {
           router.push("/lobby");
+        }
+      } else if (sending) {
+        if (storyStep !== 4) {
+          setSendingStep((prevStep) => prevStep + 1);
+        } else if (sendingStep === 4) {
+          router.push("/archive");
         }
       } else {
         if (step !== 8) {
@@ -90,19 +98,20 @@ export default function NeonDialog({
             priority
           />
         </button>
-        {storyStep !== 1 && (
-          <button
-            className="absolute left-3 bottom-5 w-fit h-fit p-2 scale-x-[-1]"
-            onClick={onCBackButton}
-          >
-            <Image
-              className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
-              src={playBtn}
-              alt="Back Button"
-              priority
-            />
-          </button>
-        )}
+        {sending ||
+          (storyStep !== 1 && (
+            <button
+              className="absolute left-3 bottom-5 w-fit h-fit p-2 scale-x-[-1]"
+              onClick={onCBackButton}
+            >
+              <Image
+                className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
+                src={playBtn}
+                alt="Back Button"
+                priority
+              />
+            </button>
+          ))}
         {story && (
           <button
             onClick={() => router.push("lobby")}
