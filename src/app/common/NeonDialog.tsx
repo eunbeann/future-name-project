@@ -42,6 +42,7 @@ export default function NeonDialog({
     }
   };
 
+  // TODO: input 있을 경우엔 그냥 뒤로 가도 되게
   const onCBackButton = () => {
     if (story) {
       if (storyStep !== 0) {
@@ -50,9 +51,9 @@ export default function NeonDialog({
         router.back();
       }
     } else {
-      if (step !== 0) {
+      if (step !== 1) {
         setStep((prevStep) => prevStep - 1);
-      } else if (step === 0) {
+      } else if (step === 1) {
         router.push("lobby");
       }
     }
@@ -89,17 +90,19 @@ export default function NeonDialog({
             priority
           />
         </button>
-        <button
-          className="absolute left-3 bottom-5 w-fit h-fit p-2 scale-x-[-1]"
-          onClick={onCBackButton}
-        >
-          <Image
-            className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
-            src={playBtn}
-            alt="Back Button"
-            priority
-          />
-        </button>
+        {storyStep !== 1 && (
+          <button
+            className="absolute left-3 bottom-5 w-fit h-fit p-2 scale-x-[-1]"
+            onClick={onCBackButton}
+          >
+            <Image
+              className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
+              src={playBtn}
+              alt="Back Button"
+              priority
+            />
+          </button>
+        )}
         {story && (
           <button
             onClick={() => router.push("lobby")}
