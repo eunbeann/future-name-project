@@ -24,7 +24,7 @@ export default function Story2() {
         />
       </div>
 
-      <div className="absolute -bottom-[110px] flex justify-center xl:w-[100%]">
+      <div className="absolute -bottom-[76px] flex justify-center xl:w-[100%]">
         <NeonDialog story>
           <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
             <TypeAnimation
