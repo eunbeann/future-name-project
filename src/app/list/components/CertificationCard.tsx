@@ -94,10 +94,8 @@ export default function CertificationCard({
         {!url && (
           <>
             <Webcam
-              className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]"
+              className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
               audio={false}
-              width={223}
-              height={322}
               ref={webcamRef}
               screenshotFormat="image/jpeg"
               onUserMediaError={(error) =>
@@ -116,10 +114,10 @@ export default function CertificationCard({
       </div>
       <div ref={captureRef}>
         {url && (
-          <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[210px]">
+          <div className="absolute top-[300px] left-[115px] xl:top-[473px] xl:left-[202px]">
             <div>
               <Image
-                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[205px] xl:h-[322px]"
+                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
                 width={132}
                 height={140}
                 src={url}
@@ -142,9 +140,6 @@ export default function CertificationCard({
         <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[200px] xl:text-[19px] xl:w-[118px] text-center ">
           2100.{formattedDate}
         </p>
-        <p className="absolute top-[349px] right-[137px] text-xs xl:top-[556px] xl:right-[200px] xl:w-[156px] xl:text-[19px] text-center">
-          FNM CENTER
-        </p>
         <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[650px] xl:right-[203px] xl:h-[45px] xl:w-[280px] xl:text-[28px] text-center ">
           {lastName} {firstName}
         </p>
@@ -166,7 +161,7 @@ export default function CertificationCard({
         </button>
         <button
           className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
-          onClick={captureArea}
+          onClick={handleNextPage}
         >
           신분증 받기
         </button>
