@@ -21,7 +21,6 @@ export default function Eight() {
           ...(value as PersonCardProps),
           uniqueId: key,
         }));
-        console.log("usersArray", usersArray);
 
         setUserArray(usersArray);
 
@@ -42,9 +41,13 @@ export default function Eight() {
     }
   }, [isLoading, getUserData]);
 
+  const handleCertification = () => {
+    setShowCertification(true);
+  };
+
   return (
     <>
-      <NeonDialog action={() => setShowCertification(true)}>
+      <NeonDialog action={handleCertification}>
         <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
           <TypeAnimation
             sequence={["개명신청서를 발급 받으세요."]}
@@ -60,7 +63,6 @@ export default function Eight() {
       </NeonDialog>
       {showCertification && user && (
         <>
-          <div className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
           <CertificationCard
             id={userArray.length}
             uniqueId={user.uniqueId}

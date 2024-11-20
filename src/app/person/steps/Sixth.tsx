@@ -4,12 +4,13 @@ import NeonDialog from "@/app/common/NeonDialog";
 import { convertToUnicode } from "@/hooks/changeToUni";
 import { push, ref, set } from "firebase/database";
 import { TypeAnimation } from "react-type-animation";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { db } from "../../../../firebase/firebasedb";
-import { userName } from "../atoms/atoms";
+import { stepNumbers, userName } from "../atoms/atoms";
 
 export default function Sixth() {
   const name = useRecoilValue(userName);
+  const [step, setStep] = useRecoilState(stepNumbers);
 
   const uniFirstName = convertToUnicode(name.firstName);
   const uniLastName = convertToUnicode(name.lastName);
@@ -25,6 +26,7 @@ export default function Sixth() {
       futureLastName: uniLastName,
       date: new Date().toISOString(),
     });
+    setStep(step + 1);
   };
 
   return (

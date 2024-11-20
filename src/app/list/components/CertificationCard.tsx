@@ -84,88 +84,95 @@ export default function CertificationCard({
   };
 
   return (
-    <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo ga">
-      <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[201px]">
-        {loading && (
-          <div className="bg-[#f1b0b0] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]">
-            <h1 className="text-[#ffffff] xl:text-[20px]">로딩중..</h1>
-          </div>
-        )}
-        {!url && (
-          <>
-            <Webcam
-              className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
-              audio={false}
-              ref={webcamRef}
-              screenshotFormat="image/jpeg"
-              onUserMediaError={(error) =>
-                console.error("Webcam error:", error)
-              }
-              videoConstraints={{ width: 132, height: 208, facingMode: "user" }}
-            />
-            <button
-              className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[36px] xl:bottom-[12px]"
-              onClick={capture}
-            >
-              사진 촬영
-            </button>
-          </>
-        )}
-      </div>
-      <div ref={captureRef}>
-        {url && (
-          <div className="absolute top-[300px] left-[115px] xl:top-[473px] xl:left-[202px]">
-            <div>
-              <Image
-                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
-                width={132}
-                height={140}
-                src={url}
-                alt="Screenshot"
-              />
+    <>
+      <div className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
+      <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo bg-">
+        <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[201px]">
+          {loading && (
+            <div className="bg-[#f1b0b0] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]">
+              <h1 className="text-[#ffffff] xl:text-[20px]">로딩중..</h1>
             </div>
-            {!isCapturing && (
+          )}
+          {!url && (
+            <>
+              <Webcam
+                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
+                audio={false}
+                ref={webcamRef}
+                screenshotFormat="image/jpeg"
+                onUserMediaError={(error) =>
+                  console.error("Webcam error:", error)
+                }
+                videoConstraints={{
+                  width: 132,
+                  height: 208,
+                  facingMode: "user",
+                }}
+              />
               <button
-                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[28px] xl:bottom-[12px]"
-                onClick={() => setUrl(null)}
+                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[36px] xl:bottom-[12px]"
+                onClick={capture}
               >
-                다시 찍기
+                사진 촬영
               </button>
-            )}
-          </div>
-        )}
-        <p className="absolute top-[294px] right-[145px] xl:top-[466px] xl:right-[199px] xl:text-[19px] xl:w-[88px] text-center text-xs leading-0">
-          {id}
-        </p>
-        <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[200px] xl:text-[19px] xl:w-[118px] text-center ">
-          2100.{formattedDate}
-        </p>
-        <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[650px] xl:right-[203px] xl:h-[45px] xl:w-[280px] xl:text-[28px] text-center ">
-          {lastName} {firstName}
-        </p>
-        <p className="absolute top-[485px] right-[125px] w-[168px] xl:top-[762px] xl:right-[204px] xl:h-[45px] xl:w-[280px] xl:text-[28px] text-center">
-          {`${newLastName} ${newFirstName}`}
-        </p>
-        <Image
-          className="w-[580px] h-[855px] xl:w-[980px] xl:h-auto"
-          src={certification}
-          alt="certification"
-        />
+            </>
+          )}
+        </div>
+        <div ref={captureRef}>
+          {url && (
+            <div className="absolute top-[300px] left-[115px] xl:top-[473px] xl:left-[202px]">
+              <div>
+                <Image
+                  className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
+                  width={132}
+                  height={140}
+                  src={url}
+                  alt="Screenshot"
+                />
+              </div>
+              {!isCapturing && (
+                <button
+                  className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[36px] xl:bottom-[12px]"
+                  onClick={() => setUrl(null)}
+                >
+                  다시 찍기
+                </button>
+              )}
+            </div>
+          )}
+          <p className="absolute top-[294px] right-[145px] xl:top-[466px] xl:right-[199px] xl:text-[19px] xl:w-[88px] text-center text-xs leading-0">
+            {id}
+          </p>
+          <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[200px] xl:text-[19px] xl:w-[118px] text-center">
+            2100.{formattedDate}
+          </p>
+          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[650px] xl:right-[205px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
+            {lastName} {firstName}
+          </p>
+          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[762px] xl:right-[205px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
+            {`${newLastName} ${newFirstName}`}
+          </p>
+          <Image
+            className="w-[580px] h-[855px] xl:w-[980px] xl:h-auto"
+            src={certification}
+            alt="certification"
+          />
+        </div>
+        <div className="flex gap-[8px] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[34px]">
+          <button
+            className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+            onClick={captureArea}
+          >
+            이미지 저장하기
+          </button>
+          <button
+            className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+            onClick={handleNextPage}
+          >
+            신분증 받기
+          </button>
+        </div>
       </div>
-      <div className="flex gap-[8px] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[34px]">
-        <button
-          className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
-          onClick={captureArea}
-        >
-          이미지 저장하기
-        </button>
-        <button
-          className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
-          onClick={handleNextPage}
-        >
-          신분증 받기
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
