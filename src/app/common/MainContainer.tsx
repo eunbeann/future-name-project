@@ -29,7 +29,7 @@ export default function MainContainer({
               alt="fnc.com"
             />
           </div>
-          <div className="h-full rounded-b-[12px] border border-[#ffffff] relative">
+          <div className="h-full rounded-b-[24px] border border-[#ffffff] relative">
             {bgImage && (
               <Image className="w-full h-full" src={bgImage} alt="lobbyBg" />
             )}
