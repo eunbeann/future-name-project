@@ -10,9 +10,7 @@ export default function Archive2() {
 
   return (
     <>
-      <Image className="w-[100vw] h-[100%]" src={archive2} alt="background" />
-
-      <div className="absolute bottom-[65px] flex justify-center xl:w-[100%]">
+      <div className="absolute bottom-[65px] flex justify-center xl:w-[100%] z-50">
         <NeonDialog
           action={() => {
             setNext((prev) => prev + 1);
@@ -34,6 +32,11 @@ export default function Archive2() {
           </p>
         </NeonDialog>
       </div>
+      <Image
+        className="w-[100vw] h-[100%] z-30"
+        src={archive2}
+        alt="background"
+      />
     </>
   );
 }

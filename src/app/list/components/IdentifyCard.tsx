@@ -1,6 +1,7 @@
 import Identify from "@/app/assets/image/identifyCard.png";
 import { format } from "date-fns";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { PersonCardProps } from "./PersonCard";
 
@@ -45,6 +46,14 @@ export default function IdentifyCard({
         <p className="absolute text-center xl:text-[24px] w-[92px] xl:w-[128px] bottom-[118px] xl:bottom-[188px] right-[307px] xl:right-[474px]  text-[#ffffff]">
           2100.{formattedDate}
         </p>
+        <div className="w-full text-center">
+          <Link
+            href={"/sending"}
+            className="inline-block w-[500px] xl:w-[700px] py-[16px] xl:text-[28px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+          >
+            데이터 전송하기
+          </Link>
+        </div>
       </>
       {/* )} */}
     </div>
