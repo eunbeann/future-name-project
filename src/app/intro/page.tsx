@@ -15,7 +15,7 @@ export default function IntroPage() {
       <div className="flex justify-center items-center h-full">
         <div className="flex flex-col items-center w-[60%] h-full overflow-y-scroll scrollbar-hide bg-[#000000] px-[50px] py-[30px] font-dunggeunmo text-[#02FE00] text-center">
           <Image
-            className="h-[160px] w-auto py-[25px]"
+            className="h-[130px] w-auto py-[25px]"
             src={rowLogo}
             alt="row-logo"
           />
