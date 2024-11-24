@@ -1,5 +1,5 @@
 import loadingLogo from "@/app/assets/gif/loadingLogo.gif";
-import blueWorldBg from "@/app/assets/image/blueWorldBg.jpg";
+import blueWorldBg from "@/app/assets/image/blueWorldBg.png";
 import ComputerMonitor from "@/app/common/ComputerMonitor";
 import Image from "next/image";
 import Link from "next/link";
