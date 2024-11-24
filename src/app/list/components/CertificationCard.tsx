@@ -85,7 +85,7 @@ export default function CertificationCard({
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
+      <div className="fixed -top-[150px] -left-[180px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
       <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo bg-">
         <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[201px]">
           {loading && (
