@@ -4,15 +4,17 @@ import loadingLogo from "@/app/assets/gif/loadingLogo.gif";
 import { convertToUnicode } from "@/hooks/changeToUni";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { userName } from "../person/atoms/atoms";
 
 export default function DeniedPage() {
   const [password, setPassword] = useState<string[]>([]);
-  const [complete, setComplete] = useState(Boolean);
+  const [complete, setComplete] = useState(false);
 
   const name = useRecoilValue(userName);
+  const router = useRouter();
 
   const uniFistName = convertToUnicode(name.firstName);
   const uniLastName = convertToUnicode(name.lastName);
@@ -22,7 +24,7 @@ export default function DeniedPage() {
     animate: {
       scale: [1, 1.05, 1],
       transition: {
-        duration: 0.3,
+        duration: 0.4,
         repeat: 2,
         ease: "easeInOut",
       },
@@ -47,6 +49,16 @@ export default function DeniedPage() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [password]);
+
+  useEffect(() => {
+    if (complete) {
+      const timeout = setTimeout(() => {
+        router.push("/ending");
+      }, 4000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [complete, router]);
 
   return (
     <>
@@ -91,9 +103,6 @@ export default function DeniedPage() {
                   key={index}
                   className="border-4 border-[#02FE00] w-[120px] h-[120px] flex items-center justify-center text-[#02FE00] text-[56px] font-dunggeunmo"
                 >
-                  {/* {password[index] && (
-                    <Image className="w-[60%] h-[60%]" src={x} alt="x" />
-                  )} */}
                   {password[index] || ""}
                 </li>
               ))}
