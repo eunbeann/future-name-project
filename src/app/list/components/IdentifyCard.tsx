@@ -13,7 +13,8 @@ export default function IdentifyCard({
   futureFirstName,
   futureLastName,
   img,
-}: PersonCardProps) {
+  isList,
+}: PersonCardProps & { isList?: boolean }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const formattedDate = format(new Date(date), "MM.dd");
   return (
@@ -31,10 +32,10 @@ export default function IdentifyCard({
               width={140}
               height={203}
               src={img}
-              alt="profile Image"
-              className="absolute top-[103px] right-[91px] h-[203px] xl:h-[320px] xl:w-[220px] xl:top-[155px] xl:right-[136px] bg-green8 scale-x-[-1]"
+              alt="X"
+              className="absolute top-[103px] right-[91px] h-[203px] xl:h-[320px] xl:w-[220px] xl:top-[155px] xl:right-[136px] scale-x-[-1]"
             />
-            <p className="absolute text-center w-[300px] xl:w-[420px] top-[132px] xl:top-[200px] right:[270px] xl:left-[150px] text-[32px] text-[#ffffff] xl:text-[48px] ">
+            <p className="absolute text-center w-[300px] xl:w-[480px] top-[132px] xl:top-[200px] right:[270px] xl:left-[120px] text-[32px] text-[#ffffff] xl:text-[48px]">
               {`${futureLastName} ${futureFirstName}`}
             </p>
             <p className="absolute text-center w-[300px] xl:w-[420px] top-[168px] xl:top-[275px] right-[270px] xl:left-[150px] text-xl xl:text-[40px] text-[#ffffff] ">
@@ -50,15 +51,16 @@ export default function IdentifyCard({
           </>
         )}
       </div>
-
-      <div className="w-full text-center font-dunggeunmo">
-        <Link
-          href={"/sending"}
-          className="inline-block w-[500px] xl:w-[700px] py-[16px] xl:text-[28px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
-        >
-          데이터 전송하기
-        </Link>
-      </div>
+      {isList && (
+        <div className="w-full text-center font-dunggeunmo">
+          <Link
+            href={"/sending"}
+            className="inline-block w-[500px] xl:w-[700px] py-[16px] xl:text-[28px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+          >
+            데이터 전송하기
+          </Link>
+        </div>
+      )}
     </>
   );
 }
