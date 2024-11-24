@@ -22,11 +22,17 @@ export default function Archive3() {
             <ProfileChip key={index} />
           ))}
       </div>
-      <Image
-        className="absolute right-[80px] top-1/2 transform -translate-y-1/2 scale-x-[-1] xl:w-[98px] "
-        src={arrow}
-        alt="arrow"
-      />
+      <button
+        onClick={() => {
+          setArchiveStep((prev) => prev + 1);
+        }}
+      >
+        <Image
+          className="absolute right-[80px] top-1/2 transform -translate-y-1/2 scale-x-[-1] xl:w-[98px] "
+          src={arrow}
+          alt="arrow"
+        />
+      </button>
     </>
   );
 }
