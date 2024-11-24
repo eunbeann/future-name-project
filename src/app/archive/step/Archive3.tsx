@@ -1,19 +1,32 @@
-import hackerText from "@/app/assets/gif/hackerText.gif";
+import arrow from "@/app/assets/gif/movingArrow.gif";
+import denied from "@/app/assets/image/deniedBg.png";
 import Image from "next/image";
-import { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
+import ProfileChip from "./components/ProfileChip";
 
 export default function Archive3() {
-  const [archiveStep, setArchiveStep] = useRecoilState(archiveNumber);
+  const setArchiveStep = useSetRecoilState(archiveNumber);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setArchiveStep((step) => step + 1);
-    }, 3500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  return <Image height={1130} src={hackerText} alt="background" />;
+  return (
+    <>
+      <Image
+        alt="bg"
+        src={denied}
+        className="absolute w-full h-full  rounded-b-[24px]"
+      />
+      <div className="w-full h-full flex flex-col flex-wrap justify-center items-center content-center bg-mauve3 rounded-b-[24px] gap-x-[50px] gap-y-[32px] py-[20px]">
+        {Array(18)
+          .fill(0)
+          .map((_, index) => (
+            <ProfileChip key={index} />
+          ))}
+      </div>
+      <Image
+        className="absolute right-[80px] top-1/2 transform -translate-y-1/2 scale-x-[-1] xl:w-[98px] "
+        src={arrow}
+        alt="arrow"
+      />
+    </>
+  );
 }

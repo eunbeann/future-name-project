@@ -25,6 +25,15 @@ body {
   backface-visibility: hidden;
 }
 
+.clip-diagonal {
+  clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20%);
+  outline: 4px solid #02fe00;
+}
+
+.image-filter {
+  filter: grayscale(100%) contrast(200%);
+}
+
 @layer base {
   img {
     @apply inline-block;

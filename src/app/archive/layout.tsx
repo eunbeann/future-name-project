@@ -10,11 +10,8 @@ export default function ArchiveLayout({
 }) {
   return (
     <ClientRecoilRoot>
-      <div className="relative min-h-screen flex justify-center items-center bg-[#000000]">
-        <MainContainer>
-          <div className="relative">{children}</div>
-        </MainContainer>
-      </div>
+      <div className="relative min-h-screen flex justify-center items-center bg-[#000000]" />
+      <MainContainer>{children}</MainContainer>
     </ClientRecoilRoot>
   );
 }

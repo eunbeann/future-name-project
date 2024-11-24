@@ -1,25 +1,37 @@
-import archive2 from "@/app/assets/image/archive2Img.png";
+import denied from "@/app/assets/image/deniedBg.png";
 import NeonDialog from "@/app/common/NeonDialog";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
+import ProfileChip from "./components/ProfileChip";
 
 export default function Archive2() {
-  const [next, setNext] = useRecoilState(archiveNumber);
-
+  const setArchiveStep = useSetRecoilState(archiveNumber);
   return (
     <>
-      <div className="absolute bottom-[65px] flex justify-center xl:w-[100%] z-50">
+      <Image
+        alt="bg"
+        src={denied}
+        className="absolute w-full h-full  rounded-b-[24px]"
+      />
+      <div className="w-full h-full flex flex-col flex-wrap justify-center items-center content-center bg-mauve3 rounded-b-[24px] gap-x-[50px] gap-y-[32px] py-[20px]">
+        {Array(18)
+          .fill(0)
+          .map((_, index) => (
+            <ProfileChip key={index} />
+          ))}
+      </div>
+      <div className="absolute bottom-[105px] flex  justify-center xl:w-[100%] z-50">
         <NeonDialog
           action={() => {
-            setNext((prev) => prev + 1);
+            setArchiveStep((prev) => prev + 1);
           }}
         >
           <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
             <TypeAnimation
               sequence={[
-                `여기서도 익숙한 이름이 보인다. 이건… 내가 아는 사람들이 아닌가?\n그들도 다 이 시스템의 일부가 되어버린 건가? 이게 정말 가상 세계가 맞나?`,
+                `각자의 데이터가 칩 속에 보관되어 있다. 그들의 과거, 이름, 정체성…\n모두가 이 차가운 칩 안에 담겨 있다.`,
               ]}
               wrapper="span"
               speed={5}
@@ -32,11 +44,6 @@ export default function Archive2() {
           </p>
         </NeonDialog>
       </div>
-      <Image
-        className="w-[100vw] h-[100%] z-30"
-        src={archive2}
-        alt="background"
-      />
     </>
   );
 }
