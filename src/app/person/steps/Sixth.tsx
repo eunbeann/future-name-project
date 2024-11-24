@@ -26,7 +26,8 @@ export default function Sixth() {
       futureLastName: uniLastName,
       date: new Date().toISOString(),
     });
-    setStep(step + 1);
+
+    setStep((prevStep) => prevStep + 1);
   };
 
   return (

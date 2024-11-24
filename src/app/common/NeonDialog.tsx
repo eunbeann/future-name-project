@@ -24,6 +24,7 @@ export default function NeonDialog({
   const [step, setStep] = useRecoilState(stepNumbers);
   const [storyStep, setStoryStep] = useRecoilState(storyNumbers);
   const [sendingStep, setSendingStep] = useRecoilState(sendingNumber);
+
   const router = useRouter();
 
   const onClickButton = () => {
@@ -43,7 +44,7 @@ export default function NeonDialog({
           router.push("/archive");
         }
       } else {
-        if (step !== 8) {
+        if (step !== 9) {
           setStep((prevStep) => prevStep + 1);
         }
       }
@@ -52,21 +53,15 @@ export default function NeonDialog({
 
   // TODO: input 있을 경우엔 그냥 뒤로 가도 되게
   const onCBackButton = () => {
-    if (story) {
-      if (storyStep !== 0) {
-        setStoryStep((prevStep) => prevStep - 1);
-      } else if (storyStep === 0) {
-        router.back();
-      }
-    } else {
-      if (step !== 1) {
-        setStep((prevStep) => prevStep - 1);
-      } else if (step === 1) {
-        router.push("lobby");
-      }
+    if (storyStep !== 0) {
+      setStoryStep((prevStep) => prevStep - 1);
+    } else if (storyStep === 0 && step === 0) {
+      router.back();
     }
-    if (action) {
-      action();
+    if (step > 1) {
+      setStep(step - 1);
+    } else {
+      router.push("lobby");
     }
   };
 

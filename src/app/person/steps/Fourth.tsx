@@ -16,26 +16,18 @@ export default function Fourth() {
   };
 
   const handleUpdate = () => {
-    if (newLastName === "") {
-      alert("성을 입력해주세요.");
-    } else {
-      setUser((prevUser) => ({
-        ...prevUser,
-        lastName: newLastName,
-      }));
-      setNewLastName("");
-      setStep((prevStep) => prevStep + 1);
-    }
+    setUser((prevUser) => ({
+      ...prevUser,
+      lastName: newLastName,
+    }));
+    setNewLastName("");
+    setStep((prevStep) => prevStep + 1);
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      if (newLastName === "") {
-        alert("성을 입력해주세요.");
-      } else {
-        handleUpdate();
-        setStep((prevStep) => prevStep + 1);
-      }
+      handleUpdate();
+      setStep((prevStep) => prevStep + 1);
     }
   };
 

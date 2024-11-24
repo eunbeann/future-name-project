@@ -16,26 +16,18 @@ export default function Fifth() {
   };
 
   const handleUpdate = () => {
-    if (newFirstName === "") {
-      alert("성을 입력해주세요.");
-    } else {
-      setUser((prevUser) => ({
-        ...prevUser,
-        firstName: newFirstName,
-      }));
-      setNewFirstName("");
-      setStep((prevStep) => prevStep + 1);
-    }
+    setUser((prevUser) => ({
+      ...prevUser,
+      firstName: newFirstName,
+    }));
+    setNewFirstName("");
+    setStep((prevStep) => prevStep + 1);
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      if (newFirstName === "") {
-        alert("성을 입력해주세요.");
-      } else {
-        setStep((prevStep) => prevStep + 1);
-        handleUpdate();
-      }
+      setStep((prevStep) => prevStep + 1);
+      handleUpdate();
     }
   };
 
