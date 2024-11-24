@@ -1,23 +1,30 @@
 "use client";
 
 import loadingLogo from "@/app/assets/gif/loadingLogo.gif";
-import x from "@/app/assets/icon/X.png";
+import { convertToUnicode } from "@/hooks/changeToUni";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
+import { userName } from "../person/atoms/atoms";
 
 export default function DeniedPage() {
   const [password, setPassword] = useState<string[]>([]);
   const [complete, setComplete] = useState(Boolean);
 
+  const name = useRecoilValue(userName);
+
+  const uniFistName = convertToUnicode(name.firstName);
+  const uniLastName = convertToUnicode(name.lastName);
+
   const shakeAnimation = {
     initial: { scale: 1 },
     animate: {
-      scale: [1, 1.05, 1], // 커졌다가 원래 크기로 돌아오는 애니메이션
+      scale: [1, 1.05, 1],
       transition: {
-        duration: 0.3, // 애니메이션 주기
-        repeat: 2, // 무한 반복
-        ease: "easeInOut", // 부드러운 애니메이션
+        duration: 0.3,
+        repeat: 2,
+        ease: "easeInOut",
       },
     },
   };
@@ -29,7 +36,7 @@ export default function DeniedPage() {
         setPassword((prev) => [...prev, key]);
       }
 
-      if (password.length === 5) {
+      if (password.length === 5 || event.key === "Enter") {
         setComplete(true);
       }
     };
@@ -57,24 +64,23 @@ export default function DeniedPage() {
           </div>
         </div>
       )}
-      <div className="flex flex-col gap-[12px] w-full h-[100%] justify-center items-center align-middle">
+      <div className="flex flex-col gap-[8px] w-full h-[100%] justify-center items-center align-middle">
         <Image
-          className="xl:w-[560px] flex"
+          className="xl:w-[500px] flex"
           src={loadingLogo}
           alt="loadingLogo"
         />
-        <p className="text-[40px] text-[#FFF] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00]">
+        <p className="text-[58px] text-[#FFF] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00] pt-[20px] my-0 leading-3">
           USER:
         </p>
-        <p className="text-[80px] text-[#02FE00] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00]">
-          BC15 C9C0 D604
+        <p className="text-[80px] text-[#02FE00] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00] py-0 my-0">
+          {uniLastName ? `${uniLastName} ${uniFistName}` : `BC15 C9C0 D604`}
         </p>
         <motion.div
-          className="flex flex-col justify-center items-center px-[6rem] py-[2.3rem] border-[3px] border-[#ffffff]"
-          style={{ backgroundColor: "rgba(181, 181, 181, 0.3)" }}
+          className="flex flex-col justify-center items-center px-[6rem] pt-[0.6rem] pb-[1.8rem] border-[3px] border-[#525252] bg-[#242424]"
           {...(complete ? shakeAnimation : {})}
         >
-          <p className="text-[40px] text-[#FFF] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00]">
+          <p className="text-[54px] text-[#FFF] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00] mb-[1rem]">
             PASSWORD
           </p>
           <ul className="flex gap-[18px] ">
@@ -83,11 +89,12 @@ export default function DeniedPage() {
               .map((_, index) => (
                 <li
                   key={index}
-                  className="border-4 border-[#02FE00] w-[120px] h-[120px] flex items-center justify-center text-[#02FE00] text-[40px]"
+                  className="border-4 border-[#02FE00] w-[120px] h-[120px] flex items-center justify-center text-[#02FE00] text-[56px] font-dunggeunmo"
                 >
-                  {password[index] && (
+                  {/* {password[index] && (
                     <Image className="w-[60%] h-[60%]" src={x} alt="x" />
-                  )}
+                  )} */}
+                  {password[index] || ""}
                 </li>
               ))}
           </ul>
