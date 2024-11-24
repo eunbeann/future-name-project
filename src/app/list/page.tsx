@@ -49,7 +49,6 @@ export default function ListPage() {
           uniqueId: key,
         }));
 
-        console.log("usersArray", usersArray);
         setUsers(usersArray);
       }
     });
@@ -86,6 +85,7 @@ export default function ListPage() {
               {hoveredUserId === user.uniqueId && (
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                   <IdentifyCard
+                    isList
                     id={idx + 1}
                     date={user.date}
                     firstName={user.firstName || ""}
