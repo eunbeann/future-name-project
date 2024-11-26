@@ -1,11 +1,20 @@
 import fakeList from "@/app/assets/icon/fakeLists.png";
 import denied from "@/app/assets/image/deniedBg.png";
 import Image from "next/image";
+import { useEffect } from "react";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
 
 export default function Archive3() {
   const setArchiveStep = useSetRecoilState(archiveNumber);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setArchiveStep((step) => step + 1);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
