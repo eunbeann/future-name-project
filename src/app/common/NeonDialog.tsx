@@ -4,7 +4,7 @@ import playBtn from "@/app/assets/gif/playBtn.gif";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { archiveNumber } from "../archive/atoms/atom";
 import { stepNumbers } from "../person/atoms/atoms";
@@ -26,23 +26,10 @@ export default function NeonDialog({
   const [storyStep, setStoryStep] = useRecoilState(storyNumbers);
   const [sendingStep, setSendingStep] = useRecoilState(sendingNumber);
   const [archiveStep, setArchiveStep] = useRecoilState(archiveNumber);
-  const [currentFlow, setCurrentFlow] = useState("default");
 
   useEffect(() => {
     console.log(step, storyStep, sendingStep, archiveStep);
   }, [step, storyStep, sendingStep, archiveStep]);
-
-  useEffect(() => {
-    if (story) {
-      setCurrentFlow("story");
-    } else if (sending) {
-      setCurrentFlow("sending");
-    } else if (archiveStep > 0) {
-      setCurrentFlow("archive");
-    } else {
-      setCurrentFlow("default");
-    }
-  }, [story, sending, archiveStep]);
 
   const router = useRouter();
 
@@ -50,65 +37,41 @@ export default function NeonDialog({
     if (action) {
       action();
     } else {
-      switch (currentFlow) {
-        case "story":
-          if (storyStep < 4) {
-            setStoryStep(storyStep + 1);
-          } else {
-            router.push("/lobby");
-          }
-          break;
-        case "sending":
-          if (sendingStep < 4) {
-            setSendingStep(sendingStep + 1);
-          } else {
-            router.push("/archive");
-          }
-          break;
-        case "archive":
-          // archive 플로우에 대한 로직 추가
-          break;
-        default:
-          if (step < 9) {
-            setStep(step + 1);
-          } else {
-            router.push("/lobby");
-          }
-          break;
+      if (story) {
+        if (storyStep !== 4) {
+          setStoryStep((prevStep) => prevStep + 1);
+        } else if (storyStep === 4) {
+          router.push("/lobby");
+        }
+      } else if (sending) {
+        if (storyStep !== 4) {
+          setSendingStep((prevStep) => prevStep + 1);
+        } else if (sendingStep === 4) {
+          router.push("/archive");
+        }
+      } else {
+        if (step !== 9) {
+          setStep((prevStep) => prevStep + 1);
+        }
       }
     }
   };
 
   const onCBackButton = () => {
-    switch (currentFlow) {
-      case "archive":
-        if (archiveStep > 0) {
-          setArchiveStep(archiveStep - 1);
-        } else {
-          router.back();
-        }
-        break;
-      case "story":
-        if (storyStep > 0) {
-          setStoryStep(storyStep - 1);
-        } else {
-          router.back();
-        }
-        break;
-      case "sending":
-        if (sendingStep > 0) {
-          setSendingStep(sendingStep - 1);
-        } else {
-          router.back();
-        }
-        break;
-      default:
-        if (step > 0) {
-          setStep(step - 1);
-        } else {
-          router.push("lobby");
-        }
-        break;
+    if (archiveStep === 1) {
+      setArchiveStep((prevStep) => prevStep - 1);
+    } else if (archiveStep === 0 && step === 0) {
+      router.back();
+    }
+    if (storyStep !== 0) {
+      setStoryStep((prevStep) => prevStep - 1);
+    } else if (storyStep === 0 && step === 0) {
+      router.back();
+    }
+    if (step > 1) {
+      setStep(step - 1);
+    } else if (step === 0) {
+      router.push("lobby");
     }
   };
 
