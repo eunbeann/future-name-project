@@ -58,13 +58,13 @@ export default function NeonDialog({
   };
 
   const onCBackButton = () => {
-    if (archiveStep === 1) {
-      setArchiveStep((prevStep) => prevStep - 1);
+    if (archiveStep === 1 || archiveStep === 3 || archiveStep === 5) {
+      setArchiveStep(archiveStep - 1);
     } else if (archiveStep === 0 && step === 0) {
       router.back();
     }
     if (storyStep !== 0) {
-      setStoryStep((prevStep) => prevStep - 1);
+      setStoryStep(storyStep - 1);
     } else if (storyStep === 0 && step === 0) {
       router.back();
     }
