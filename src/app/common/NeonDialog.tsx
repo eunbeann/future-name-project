@@ -41,7 +41,7 @@ export default function NeonDialog({
         if (storyStep !== 4) {
           setStoryStep((prevStep) => prevStep + 1);
         } else if (storyStep === 4) {
-          router.push("/lobby");
+          router.push("/lobby?from=story");
         }
       } else if (sending) {
         if (storyStep !== 4) {

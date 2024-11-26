@@ -7,12 +7,15 @@ import welcomeFrame from "@/app/assets/icon/welcomeFrame.png";
 import lobbyBg from "@/app/assets/image/lobbyBg.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import MainContainer from "../common/MainContainer";
 import LobbyDialog from "./component/LobbyDialog";
 
 export default function LobbyPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const searchParams = useSearchParams();
+  const from = searchParams.get("from");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -67,7 +70,9 @@ export default function LobbyPage() {
             />
           </Link>
         </div>
-        {isDialogOpen && <LobbyDialog handleDialogClose={handleDialogClose} />}
+        {isDialogOpen && from && (
+          <LobbyDialog handleDialogClose={handleDialogClose} />
+        )}
       </div>
     </MainContainer>
   );
