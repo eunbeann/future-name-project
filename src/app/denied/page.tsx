@@ -54,7 +54,7 @@ export default function DeniedPage() {
     if (complete) {
       const timeout = setTimeout(() => {
         router.push("/ending");
-      }, 4000);
+      }, 3000);
 
       return () => clearTimeout(timeout);
     }

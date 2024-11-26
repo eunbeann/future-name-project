@@ -12,7 +12,7 @@ export default function Archive6() {
       <div className="absolute bottom-[65px] flex justify-center xl:w-[100%] z-50">
         <NeonDialog
           action={() => {
-            router.push("/lobby");
+            router.push("/lobby?from=archive");
           }}
         >
           <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">

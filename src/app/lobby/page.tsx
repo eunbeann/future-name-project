@@ -7,19 +7,23 @@ import welcomeFrame from "@/app/assets/icon/welcomeFrame.png";
 import lobbyBg from "@/app/assets/image/lobbyBg.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import MainContainer from "../common/MainContainer";
 import LobbyDialog from "./component/LobbyDialog";
 
 export default function LobbyPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get("from");
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsDialogOpen(true);
+      if (from === "archive") {
+        router.push("denied");
+      }
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -70,7 +74,7 @@ export default function LobbyPage() {
             />
           </Link>
         </div>
-        {isDialogOpen && from && (
+        {isDialogOpen && from === "stroy" && (
           <LobbyDialog handleDialogClose={handleDialogClose} />
         )}
       </div>
