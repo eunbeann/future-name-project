@@ -1,12 +1,15 @@
 import denied from "@/app/assets/image/deniedBg.png";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
 import ProfileChip from "./components/ProfileChip";
 
 export default function Archive1() {
   const setArchiveStep = useSetRecoilState(archiveNumber);
+
+  // 카드별 호버 상태를 관리하는 배열
+  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,7 +30,12 @@ export default function Archive1() {
         {Array(18)
           .fill(0)
           .map((_, index) => (
-            <ProfileChip key={index} />
+            <ProfileChip
+              key={index}
+              isHovered={hoveredCardIndex === index}
+              onMouseEnter={() => setHoveredCardIndex(index)}
+              onMouseLeave={() => setHoveredCardIndex(null)}
+            />
           ))}
       </div>
     </>

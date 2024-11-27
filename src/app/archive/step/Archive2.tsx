@@ -1,6 +1,7 @@
 import denied from "@/app/assets/image/deniedBg.png";
 import NeonDialog from "@/app/common/NeonDialog";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
@@ -8,6 +9,18 @@ import ProfileChip from "./components/ProfileChip";
 
 export default function Archive2() {
   const setArchiveStep = useSetRecoilState(archiveNumber);
+
+  // 카드별 호버 상태를 관리하는 배열
+  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setArchiveStep((step) => step + 1);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Image
@@ -19,7 +32,12 @@ export default function Archive2() {
         {Array(18)
           .fill(0)
           .map((_, index) => (
-            <ProfileChip key={index} />
+            <ProfileChip
+              key={index}
+              isHovered={hoveredCardIndex === index}
+              onMouseEnter={() => setHoveredCardIndex(index)}
+              onMouseLeave={() => setHoveredCardIndex(null)}
+            />
           ))}
       </div>
       <div className="absolute bottom-[105px] flex  justify-center xl:w-[100%] z-50">

@@ -1,20 +1,35 @@
 import fakeProfile from "@/app/assets/image/fakeProfile1.png";
 import Image from "next/image";
-import { useState } from "react";
 import ProfileBack from "./ProfileBack";
 
-export default function ProfileChip() {
-  const [isHovered, setIsHovered] = useState(false);
+type ProfileChipProps = {
+  isHovered: boolean;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+};
 
+export default function ProfileChip({
+  isHovered,
+  onMouseEnter,
+  onMouseLeave,
+}: ProfileChipProps) {
   return (
     <div
       className="relative w-[224px] h-[320px] cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
-      {/* 기본 ProfileChip */}
-      <div className="absolute inset-0 bg-[#02FE00] clip-diagonal" />
-      <div className="absolute inset-[4px] clip-diagonal flex flex-col">
+      {/* 카드 앞면 */}
+      <div
+        className={`absolute inset-0 bg-[#02FE00] clip-diagonal ${
+          isHovered ? "hidden" : ""
+        }`}
+      />
+      <div
+        className={`absolute inset-[4px] clip-diagonal flex flex-col ${
+          isHovered ? "hidden" : ""
+        }`}
+      >
         <Image
           src={fakeProfile}
           alt="Profile"
@@ -27,9 +42,9 @@ export default function ProfileChip() {
         </div>
       </div>
 
-      {/* 호버 시 ProfileBack 컴포넌트 */}
+      {/* 카드 뒷면 (호버 시 표시) */}
       {isHovered && (
-        <div className="absolute inset-0 flex justify-center items-center rounded-lg">
+        <div className="absolute inset-0 flex justify-center items-center rounded-lg bg-black">
           <ProfileBack />
         </div>
       )}
