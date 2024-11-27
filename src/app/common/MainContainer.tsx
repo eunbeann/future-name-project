@@ -31,7 +31,11 @@ export default function MainContainer({
           </div>
           <div className="h-full rounded-b-[24px] outline outline-[#ffffff] relative">
             {bgImage && (
-              <Image className="w-full h-full" src={bgImage} alt="lobbyBg" />
+              <Image
+                className="w-full h-full rounded-b-[24px]"
+                src={bgImage}
+                alt="lobbyBg"
+              />
             )}
             <div className="absolute inset-0 rounded-b-[24px] ">{children}</div>
           </div>
