@@ -22,10 +22,10 @@ export default function DeniedPage() {
   const shakeAnimation = {
     initial: { scale: 1 },
     animate: {
-      scale: [1, 1.05, 1],
+      scale: [1, 1.05],
       transition: {
         duration: 0.4,
-        repeat: 2,
+        repeat: 1,
         ease: "easeInOut",
       },
     },
@@ -101,7 +101,7 @@ export default function DeniedPage() {
               .map((_, index) => (
                 <li
                   key={index}
-                  className="border-4 border-[#02FE00] w-[120px] h-[120px] flex items-center justify-center text-[#02FE00] text-[56px] font-dunggeunmo"
+                  className="border-4 border-[#02FE00] w-[120px] h-[120px] flex items-center justify-center text-[#02FE00] text-[56px] font-dunggeunmo shadow-[0px_0px_12px_#02FE00]"
                 >
                   {password[index] || ""}
                 </li>
