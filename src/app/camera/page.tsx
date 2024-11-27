@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import ProfileBack from "../archive/step/components/ProfileBack";
-import ProfileChip from "../archive/step/components/ProfileChip";
 
 export default function CameraPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,8 +32,8 @@ export default function CameraPage() {
           .fill(0)
           .map((_, index) => ( */}
         {/* <ProfileBack /> */}
-        <ProfileChip />
-        <ProfileBack />
+        {/* <ProfileChip />
+        <ProfileBack /> */}
         {/* ))} */}
       </div>
       {/* <CertificationCard
