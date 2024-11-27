@@ -5,5 +5,5 @@ export default function CameraLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="h-[100vh] ">{children}</div>;
+  return <div className="w-[100vw] h-[100vh]">{children}</div>;
 }
