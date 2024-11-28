@@ -16,16 +16,28 @@ export default function DeniedPage() {
   const name = useRecoilValue(userName);
   const router = useRouter();
 
-  const uniFistName = convertToUnicode(name.firstName);
+  const uniFirstName = convertToUnicode(name.firstName);
   const uniLastName = convertToUnicode(name.lastName);
 
   const shakeAnimation = {
+    initial: { rotate: 0 },
+    animate: {
+      rotate: [0, 2, -2, 1, -1, 0.5, -0.5, 0],
+      transition: {
+        duration: 1.2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const fastShakeAnimation = {
     initial: { scale: 1 },
     animate: {
-      scale: [1, 1.05],
+      scale: [1, 1.05, 1],
       transition: {
         duration: 0.4,
-        repeat: 1,
+        repeat: Infinity,
         ease: "easeInOut",
       },
     },
@@ -34,13 +46,20 @@ export default function DeniedPage() {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       const key = event.key;
-      if (password.length < 6 && /^[a-zA-Z0-9]$/.test(key)) {
-        setPassword((prev) => [...prev, key]);
-      }
 
-      if (password.length === 5 || event.key === "Enter") {
-        setComplete(true);
-      }
+      setPassword((prev) => {
+        let newPassword = prev;
+
+        if (prev.length < 6 && /^[a-zA-Z0-9]$/.test(key)) {
+          newPassword = [...prev, key];
+        }
+
+        if (newPassword.length === 6 || key === "Enter") {
+          setComplete(true);
+        }
+
+        return newPassword;
+      });
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -48,7 +67,7 @@ export default function DeniedPage() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [password]);
+  }, []); // 의존성 배열을 빈 배열로 설정
 
   useEffect(() => {
     if (complete) {
@@ -63,7 +82,10 @@ export default function DeniedPage() {
   return (
     <>
       {complete && (
-        <div className="absolute -top-[200px] -left-[200px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50 flex justify-center items-center">
+        <motion.div
+          className="absolute -top-[200px] -left-[200px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50 flex justify-center items-center"
+          {...fastShakeAnimation} // 불필요한 조건문 제거
+        >
           <div
             className="text-[#FFF] font-dunggeunmo text-[200px] border-[7px] border-[#ff0000] px-[5rem] bg-[#000000]"
             style={{
@@ -74,7 +96,7 @@ export default function DeniedPage() {
           >
             ACCESS DENIED
           </div>
-        </div>
+        </motion.div>
       )}
       <div className="flex flex-col gap-[8px] w-full h-[100%] justify-center items-center align-middle">
         <Image
@@ -86,11 +108,11 @@ export default function DeniedPage() {
           USER:
         </p>
         <p className="text-[80px] text-[#02FE00] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00] py-0 my-0">
-          {uniLastName ? `${uniLastName} ${uniFistName}` : `BC15 C9C0 D604`}
+          {uniLastName ? `${uniLastName} ${uniFirstName}` : `BC15 C9C0 D604`}
         </p>
         <motion.div
-          className="flex flex-col justify-center items-center px-[6rem] pt-[0.6rem] pb-[1.8rem] border-[3px] border-[#525252] bg-[#242424]"
-          {...(complete ? shakeAnimation : {})}
+          className="flex flex-col justify-center items-center px-[6rem] pt-[0.6rem] pb-[1.8rem] border-[3px] border-[#525252] bg-[#242424] "
+          {...shakeAnimation}
         >
           <p className="text-[54px] text-[#FFF] font-dunggeunmo [text-shadow:0px_0px_28.1px_#02FE00] mb-[1rem]">
             PASSWORD

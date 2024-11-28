@@ -1,4 +1,6 @@
+import arrow from "@/app/assets/gif/movingArrow.gif";
 import certification from "@/app/assets/icon/certification.png";
+import { stepNumbers } from "@/app/person/atoms/atoms";
 import { format } from "date-fns";
 import { getDatabase, ref, update } from "firebase/database";
 import html2canvas from "html2canvas";
@@ -6,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
+import { useRecoilState } from "recoil";
 
 interface CertificationCardProps {
   id: number;
@@ -39,6 +42,7 @@ export default function CertificationCard({
   const [url, setUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [isCapturing, setIsCapturing] = useState(false);
+  const [step, setStep] = useRecoilState(stepNumbers);
 
   useEffect(() => {
     if (webcamRef.current) {
@@ -144,7 +148,7 @@ export default function CertificationCard({
             {id}
           </p>
           <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[200px] xl:text-[19px] xl:w-[118px] text-center">
-            2100.{formattedDate}
+            2050.{formattedDate}
           </p>
           <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[650px] xl:right-[205px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
             {lastName} {firstName}
@@ -158,6 +162,13 @@ export default function CertificationCard({
             alt="certification"
           />
         </div>
+        <button onClick={() => setStep(step - 1)}>
+          <Image
+            className="absolute -left-[40px] top-[720px] xl:w-[78px] z-50"
+            src={arrow}
+            alt="arrow"
+          />
+        </button>
         <div className="flex gap-[8px] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[34px]">
           <button
             className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
