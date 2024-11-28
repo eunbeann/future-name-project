@@ -1,8 +1,9 @@
 import denied from "@/app/assets/image/deniedBg.png";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
+import { fakePeople } from "../mocks/fakePeople";
 import ProfileChip from "./components/ProfileChip";
 
 export default function Archive1() {
@@ -10,13 +11,13 @@ export default function Archive1() {
 
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setArchiveStep((step) => step + 1);
-    }, 2000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setArchiveStep((step) => step + 1);
+  //   }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   return (
     <>
@@ -26,16 +27,20 @@ export default function Archive1() {
         className="absolute w-full h-full  rounded-b-[24px]"
       />
       <div className="w-full h-full flex flex-col flex-wrap justify-center items-center content-center bg-mauve3 rounded-b-[24px] gap-x-[50px] gap-y-[32px] py-[20px]">
-        {Array(18)
-          .fill(0)
-          .map((_, index) => (
-            <ProfileChip
-              key={index}
-              isHovered={hoveredCardIndex === index}
-              onMouseEnter={() => setHoveredCardIndex(index)}
-              onMouseLeave={() => setHoveredCardIndex(null)}
-            />
-          ))}
+        {fakePeople.map((data, index) => (
+          <ProfileChip
+            name={data.name}
+            intelligence={data.intelligence}
+            number={data.number}
+            date={data.date}
+            futureName={data.futureName}
+            img={data.img}
+            key={index}
+            isHovered={hoveredCardIndex === index}
+            onMouseEnter={() => setHoveredCardIndex(index)}
+            onMouseLeave={() => setHoveredCardIndex(null)}
+          />
+        ))}
       </div>
     </>
   );
