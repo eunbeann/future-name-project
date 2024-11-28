@@ -1,6 +1,6 @@
 import denied from "@/app/assets/image/deniedBg.png";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
 import { fakePeople } from "../mocks/fakePeople";
@@ -11,13 +11,13 @@ export default function Archive1() {
 
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setArchiveStep((step) => step + 1);
-  //   }, 2000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setArchiveStep((step) => step + 1);
+    }, 2000);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>

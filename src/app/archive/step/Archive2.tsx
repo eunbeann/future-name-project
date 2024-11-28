@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
+import { fakePeople } from "../mocks/fakePeople";
 import ProfileChip from "./components/ProfileChip";
 
 export default function Archive2() {
@@ -28,16 +29,20 @@ export default function Archive2() {
         className="absolute w-full h-full  rounded-b-[24px]"
       />
       <div className="w-full h-full flex flex-col flex-wrap justify-center items-center content-center bg-mauve3 rounded-b-[24px] gap-x-[50px] gap-y-[32px] py-[20px]">
-        {Array(18)
-          .fill(0)
-          .map((_, index) => (
-            <ProfileChip
-              key={index}
-              isHovered={hoveredCardIndex === index}
-              onMouseEnter={() => setHoveredCardIndex(index)}
-              onMouseLeave={() => setHoveredCardIndex(null)}
-            />
-          ))}
+        {fakePeople.map((data, index) => (
+          <ProfileChip
+            name={data.name}
+            intelligence={data.intelligence}
+            number={data.number}
+            date={data.date}
+            futureName={data.futureName}
+            img={data.img}
+            key={index}
+            isHovered={hoveredCardIndex === index}
+            onMouseEnter={() => setHoveredCardIndex(index)}
+            onMouseLeave={() => setHoveredCardIndex(null)}
+          />
+        ))}
       </div>
       <div className="absolute bottom-[105px] flex  justify-center xl:w-[100%] z-50">
         <NeonDialog
