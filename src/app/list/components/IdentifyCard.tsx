@@ -46,7 +46,7 @@ export default function IdentifyCard({
               {id}
             </p>
             <p className="absolute text-center xl:text-[24px] w-[92px] xl:w-[128px] bottom-[118px] xl:bottom-[188px] right-[307px] xl:right-[474px]  text-[#ffffff]">
-              2100.{formattedDate}
+              2050.{formattedDate}
             </p>
           </>
         )}

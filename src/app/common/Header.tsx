@@ -37,7 +37,7 @@ export default function Header() {
         <div>FUTURE NAMING CENTER</div>
       </div>
       <div className="flex items-center gap-[26px] ">
-        <p>2100</p>
+        <p>2050</p>
         <p>
           {DAY[thisDay]} {MONTH[thisMonth]} {thisDate}
         </p>
