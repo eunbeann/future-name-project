@@ -22,6 +22,9 @@ const pixardisplay = localfont({
 export const metadata: Metadata = {
   title: "Future Name Center",
   description: "Future naming center",
+  icons: {
+    icon: "/fncLogo.png",
+  },
 };
 
 export const viewport = {
