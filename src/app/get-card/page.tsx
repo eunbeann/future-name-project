@@ -8,6 +8,7 @@ import { onValue, ref } from "firebase/database";
 import html2canvas from "html2canvas";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { db } from "../../../firebase/firebasedb";
@@ -18,6 +19,7 @@ export default function GetCardPage() {
   const [user, setUser] = useState<PersonCardProps>();
   const [id, setId] = useState<number>();
   const [showPrintButton, setShowPrintButton] = useState(false);
+  const router = useRouter();
 
   const identifyCardRef = useRef<HTMLDivElement>(null);
 
@@ -66,7 +68,7 @@ export default function GetCardPage() {
   return (
     <>
       <Image
-        className="absolute w-full h-full -z-50 "
+        className="absolute w-full h-full -z-50"
         src={temp}
         alt="movingPerson"
       />
@@ -86,6 +88,24 @@ export default function GetCardPage() {
               img={user.img}
               uniqueId={user.uniqueId}
             />
+            {showPrintButton && (
+              <>
+                <Link href="/list">
+                  <Image
+                    className="absolute left-[1530px] top-[520px] scale-x-[-1] xl:w-[98px]"
+                    src={arrow}
+                    alt="arrow"
+                  />
+                </Link>
+                <button onClick={() => router.back}>
+                  <Image
+                    className="absolute left-[420px] top-[520px] xl:w-[98px]"
+                    src={arrow}
+                    alt="arrow"
+                  />
+                </button>
+              </>
+            )}
           </div>
         )}
         {showPrintButton ? (
@@ -112,15 +132,6 @@ export default function GetCardPage() {
               />
             </p>
           </NeonDialog>
-        )}
-        {showPrintButton && (
-          <Link href="/list">
-            <Image
-              className="absolute right-[54px] bottom-[37px] scale-x-[-1] xl:w-[98px] "
-              src={arrow}
-              alt="arrow"
-            />
-          </Link>
         )}
       </div>
     </>
