@@ -8,7 +8,6 @@ import ProfileChip from "./components/ProfileChip";
 export default function Archive1() {
   const setArchiveStep = useSetRecoilState(archiveNumber);
 
-  // 카드별 호버 상태를 관리하는 배열
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
 
   useEffect(() => {
