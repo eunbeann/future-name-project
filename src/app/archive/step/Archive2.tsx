@@ -1,7 +1,7 @@
 import denied from "@/app/assets/image/deniedBg.png";
 import NeonDialog from "@/app/common/NeonDialog";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useSetRecoilState } from "recoil";
 import { archiveNumber } from "../atoms/atom";
@@ -12,14 +12,6 @@ export default function Archive2() {
   const setArchiveStep = useSetRecoilState(archiveNumber);
 
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setArchiveStep((step) => step + 1);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>
