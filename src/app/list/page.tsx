@@ -14,6 +14,7 @@ import PersonCard, { PersonCardProps } from "./components/PersonCard";
 export default function ListPage() {
   const [users, setUsers] = useState<PersonCardProps[]>([]);
   const [clickedUserId, setClickedUserId] = useState<string | null>(null);
+  const [hoveredUserId, setHoveredUserId] = useState<string | null>(null);
   const router = useRouter();
 
   const getUserData = useCallback(() => {
@@ -48,9 +49,20 @@ export default function ListPage() {
           users.map((user, idx) => (
             <div
               key={user.uniqueId}
-              // onMouseEnter={() => setHoveredUserId(user.uniqueId || null)}
-              // onMouseLeave={() => setHoveredUserId(null)}
-              onClick={() => setClickedUserId(user.uniqueId || null)}
+              onMouseEnter={() => {
+                if (!clickedUserId) {
+                  setHoveredUserId(user.uniqueId || null);
+                }
+              }}
+              onMouseLeave={() => {
+                if (!clickedUserId) {
+                  setHoveredUserId(null);
+                }
+              }}
+              onClick={() => {
+                setHoveredUserId(null);
+                setClickedUserId(user.uniqueId || null);
+              }}
               className="px-0"
             >
               <PersonCard
@@ -60,7 +72,8 @@ export default function ListPage() {
                 date={user.date}
                 img={user.img}
               />
-              {clickedUserId === user.uniqueId && (
+              {(clickedUserId === user.uniqueId ||
+                hoveredUserId === user.uniqueId) && (
                 <div
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                   onClick={(e) => {
