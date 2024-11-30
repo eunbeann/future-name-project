@@ -14,7 +14,7 @@ export default function Archive1() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setArchiveStep((step) => step + 1);
-    }, 20000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
