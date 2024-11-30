@@ -8,14 +8,6 @@ import { archiveNumber } from "../atoms/atom";
 export default function Archive3() {
   const setArchiveStep = useSetRecoilState(archiveNumber);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setArchiveStep((step) => step + 1);
-  //   }, 2000);
-
-  //   return () => clearTimeout(timer);
-  // }, []);
-
   return (
     <>
       <div className="h-full w-full flex justify-end items-center">
