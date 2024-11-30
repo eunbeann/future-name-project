@@ -74,10 +74,10 @@ export default function NeonDialog({
     } else if (storyStep === 0 && step === 0) {
       router.back();
     }
-    if (step > 1) {
+    if (step > 0) {
       setStep(step - 1);
-    } else if (step === 0) {
-      router.push("lobby");
+    } else {
+      router.push("/lobby");
     }
     if (getCard) {
       router.push("/person");
