@@ -118,7 +118,7 @@ export const fakePeople: FakePerson[] = [
     img: person11,
   },
   {
-    name: "이혜진",
+    name: "이유진",
     intelligence: 2,
     number: 12,
     date: "2050. 12. 04",
