@@ -20,11 +20,11 @@ export default function DeniedPage() {
   const uniLastName = convertToUnicode(name.lastName);
 
   const shakeAnimation = {
-    initial: { rotate: 0 },
+    initial: { opacity: 1 },
     animate: {
-      rotate: [0, 2, -2, 1, -1, 0.5, -0.5, 0],
+      opacity: [1, 0.5, 1],
       transition: {
-        duration: 1.2,
+        duration: 2,
         repeat: Infinity,
         ease: "easeInOut",
       },
@@ -36,7 +36,7 @@ export default function DeniedPage() {
     animate: {
       scale: [1, 1.05, 1],
       transition: {
-        duration: 0.4,
+        duration: 1.5,
         repeat: Infinity,
         ease: "easeInOut",
       },
@@ -67,34 +67,66 @@ export default function DeniedPage() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []); // 의존성 배열을 빈 배열로 설정
+  }, []);
 
-  useEffect(() => {
-    if (complete) {
-      const timeout = setTimeout(() => {
-        router.push("/ending");
-      }, 3000);
+  // useEffect(() => {
+  //   if (complete) {
+  //     const timeout = setTimeout(() => {
+  //       router.push("/ending");
+  //     }, 3000);
 
-      return () => clearTimeout(timeout);
-    }
-  }, [complete, router]);
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, [complete, router]);
 
   return (
     <>
       {complete && (
         <motion.div
           className="absolute -top-[200px] -left-[200px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50 flex justify-center items-center"
-          {...fastShakeAnimation} // 불필요한 조건문 제거
+          {...fastShakeAnimation}
         >
-          <div
-            className="text-[#FFF] font-dunggeunmo text-[200px] border-[7px] border-[#ff0000] px-[5rem] bg-[#000000]"
-            style={{
-              WebkitTextStrokeWidth: "8px",
-              WebkitTextStrokeColor: "#ff0000",
-              boxShadow: "0px 0px 26.115px 0px rgba(255, 0, 0, 0.35)",
-            }}
-          >
-            ACCESS DENIED
+          <div className="fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 650 130"
+              className="border-[7px] border-[#F00] bg-[rgba(255,0,0,0.23)] shadow-[0px_0px_26px_rgba(255,0,0,0.35)] rounded-lg"
+              style={{
+                width: "50%",
+                height: "auto",
+              }}
+            >
+              {/* border */}
+              <text
+                x="50%"
+                y="50%"
+                text-anchor="middle"
+                dominant-baseline="middle"
+                font-family="DungGeunMo, sans-serif"
+                font-size="80"
+                fill="none"
+                stroke="#ff0000"
+                stroke-width="8"
+                letter-spacing="-2"
+              >
+                ACCESS DENIED
+              </text>
+
+              {/* text */}
+              <text
+                x="50%"
+                y="50%"
+                text-anchor="middle"
+                dominant-baseline="middle"
+                font-family="DungGeunMo, sans-serif"
+                font-size="80"
+                fill="#FFF"
+                letter-spacing="-2"
+                font-weight="400"
+              >
+                ACCESS DENIED
+              </text>
+            </svg>
           </div>
         </motion.div>
       )}
