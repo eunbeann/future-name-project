@@ -69,15 +69,15 @@ export default function DeniedPage() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (complete) {
-  //     const timeout = setTimeout(() => {
-  //       router.push("/ending");
-  //     }, 3000);
+  useEffect(() => {
+    if (complete) {
+      const timeout = setTimeout(() => {
+        router.push("/ending");
+      }, 3000);
 
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, [complete, router]);
+      return () => clearTimeout(timeout);
+    }
+  }, [complete, router]);
 
   return (
     <>
