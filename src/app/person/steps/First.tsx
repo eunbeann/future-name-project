@@ -1,9 +1,22 @@
 "use client";
 
 import NeonDialog from "@/app/common/NeonDialog";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
+import { useSetRecoilState } from "recoil";
+import { stepNumbers } from "../atoms/atoms";
 
 export default function First() {
+  const setStep = useSetRecoilState(stepNumbers);
+  const searchParams = useSearchParams();
+  const from = searchParams?.get("from");
+
+  useEffect(() => {
+    if (from === "card") {
+      setStep(8);
+    }
+  });
   return (
     <NeonDialog>
       <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">

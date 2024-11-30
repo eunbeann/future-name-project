@@ -10,6 +10,7 @@ export default function Fourth() {
   const setUser = useSetRecoilState(userName);
   const [newLastName, setNewLastName] = useState("");
   const setStep = useSetRecoilState(stepNumbers);
+  // const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewLastName(e.target.value);
@@ -29,10 +30,15 @@ export default function Fourth() {
   };
 
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    e.stopPropagation();
     if (e.key === "Enter") {
       handleUpdate();
     }
   };
+
+  // useEffect(() => {
+  //   inputRef.current?.focus();
+  // }, []);
 
   return (
     <NeonDialog action={handleUpdate}>
@@ -50,6 +56,7 @@ export default function Fourth() {
       </p>
 
       <input
+        // ref={inputRef}
         value={newLastName}
         onChange={handleChange}
         onKeyDown={handleEnter}

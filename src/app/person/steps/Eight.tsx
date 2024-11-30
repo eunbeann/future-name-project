@@ -2,6 +2,7 @@ import NeonDialog from "@/app/common/NeonDialog";
 import CertificationCard from "@/app/list/components/CertificationCard";
 import { PersonCardProps } from "@/app/list/components/PersonCard";
 import { onValue, ref } from "firebase/database";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { db } from "../../../../firebase/firebasedb";
@@ -11,6 +12,9 @@ export default function Eight() {
   const [userArray, setUserArray] = useState<PersonCardProps[]>([]);
   const [user, setUser] = useState<PersonCardProps | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const searchParams = useSearchParams();
+  const from = searchParams?.get("from");
 
   const getUserData = useCallback(() => {
     const reference = ref(db, "users/");
@@ -61,19 +65,19 @@ export default function Eight() {
           />
         </p>
       </NeonDialog>
-      {showCertification && user && (
+      {(showCertification && user) || from === "card" ? (
         <>
           <CertificationCard
             id={userArray.length}
-            uniqueId={user.uniqueId}
-            date={user.date}
-            firstName={user.firstName || ""}
-            lastName={user.lastName || ""}
-            newFirstName={user.futureFirstName}
-            newLastName={user.futureLastName}
+            uniqueId={user?.uniqueId ?? ""}
+            date={user?.date ?? ""}
+            firstName={user?.firstName || ""}
+            lastName={user?.lastName || ""}
+            newFirstName={user?.futureFirstName ?? ""}
+            newLastName={user?.futureLastName ?? ""}
           />
         </>
-      )}
+      ) : null}
     </>
   );
 }

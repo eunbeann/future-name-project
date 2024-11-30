@@ -1,7 +1,7 @@
 "use client";
 
 import NeonDialog from "@/app/common/NeonDialog";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { stepNumbers, userName } from "../atoms/atoms";
@@ -10,6 +10,7 @@ export default function Fifth() {
   const [user, setUser] = useRecoilState(userName);
   const [newFirstName, setNewFirstName] = useState("");
   const setStep = useSetRecoilState(stepNumbers);
+  const nameRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewFirstName(e.target.value);
@@ -27,12 +28,16 @@ export default function Fifth() {
       setStep((prevStep) => prevStep + 1);
     }
   };
-
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    e.stopPropagation();
     if (e.key === "Enter") {
       handleUpdate();
     }
   };
+
+  useEffect(() => {
+    nameRef.current?.focus();
+  }, []);
 
   return (
     <NeonDialog action={handleUpdate}>
@@ -50,6 +55,7 @@ export default function Fifth() {
       </p>
 
       <input
+        ref={nameRef}
         value={newFirstName}
         onChange={handleChange}
         onKeyDown={handleEnter}
