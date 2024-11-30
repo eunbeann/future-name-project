@@ -11,32 +11,9 @@ import MainContainer from "../common/MainContainer";
 import IdentifyCard from "./components/IdentifyCard";
 import PersonCard, { PersonCardProps } from "./components/PersonCard";
 
-const mockUsers: PersonCardProps[] = [
-  {
-    uniqueId: "1",
-    id: 1,
-    firstName: "은빈",
-    lastName: "권",
-    futureFirstName: "C740 BE48",
-    futureLastName: "AD8C",
-    date: "2024-10-16T21:23:39.018Z",
-    img: "https://randomuser.me/api/portraits",
-  },
-  {
-    uniqueId: "2",
-    id: 2,
-    firstName: "민수",
-    lastName: "김",
-    futureFirstName: "A123 B456",
-    futureLastName: "C789",
-    date: "2024-10-20T18:45:12.345Z",
-    img: "https://randomuser.me/api/portraits",
-  },
-];
-
 export default function ListPage() {
   const [users, setUsers] = useState<PersonCardProps[]>([]);
-  const [hoveredUserId, setHoveredUserId] = useState<string | null>(null);
+  const [clickedUserId, setClickedUserId] = useState<string | null>(null);
   const router = useRouter();
 
   const getUserData = useCallback(() => {
@@ -71,8 +48,9 @@ export default function ListPage() {
           users.map((user, idx) => (
             <div
               key={user.uniqueId}
-              onMouseEnter={() => setHoveredUserId(user.uniqueId || null)}
-              onMouseLeave={() => setHoveredUserId(null)}
+              // onMouseEnter={() => setHoveredUserId(user.uniqueId || null)}
+              // onMouseLeave={() => setHoveredUserId(null)}
+              onClick={() => setClickedUserId(user.uniqueId || null)}
               className="px-0"
             >
               <PersonCard
@@ -82,8 +60,14 @@ export default function ListPage() {
                 date={user.date}
                 img={user.img}
               />
-              {hoveredUserId === user.uniqueId && (
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              {clickedUserId === user.uniqueId && (
+                <div
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setClickedUserId(null);
+                  }}
+                >
                   <IdentifyCard
                     isList
                     id={idx + 1}

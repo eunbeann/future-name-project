@@ -89,7 +89,7 @@ export default function DeniedPage() {
           <div className="fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 650 130"
+              viewBox="0 0 620 120"
               className="border-[7px] border-[#F00] bg-[rgba(255,0,0,0.23)] shadow-[0px_0px_26px_rgba(255,0,0,0.35)] rounded-lg"
               style={{
                 width: "50%",

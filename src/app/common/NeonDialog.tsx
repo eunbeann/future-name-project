@@ -16,11 +16,13 @@ export default function NeonDialog({
   action,
   story,
   sending,
+  getCard,
 }: {
   children?: React.ReactNode;
   action?: () => void;
   story?: boolean;
   sending?: boolean;
+  getCard?: boolean;
 }) {
   const [step, setStep] = useRecoilState(stepNumbers);
   const [storyStep, setStoryStep] = useRecoilState(storyNumbers);
@@ -76,6 +78,9 @@ export default function NeonDialog({
       setStep(step - 1);
     } else if (step === 0) {
       router.push("lobby");
+    }
+    if (getCard) {
+      router.push("/person");
     }
   };
 

@@ -97,7 +97,7 @@ export default function GetCardPage() {
                     alt="arrow"
                   />
                 </Link>
-                <button onClick={() => router.back}>
+                <button onClick={() => router.back()}>
                   <Image
                     className="absolute left-[420px] top-[520px] xl:w-[98px]"
                     src={arrow}
@@ -116,7 +116,7 @@ export default function GetCardPage() {
             출력하기
           </button>
         ) : (
-          <NeonDialog action={handlePrintButton}>
+          <NeonDialog action={handlePrintButton} getCard>
             <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
               <TypeAnimation
                 sequence={[
