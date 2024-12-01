@@ -3,11 +3,11 @@ import CertificationCard from "@/app/list/components/CertificationCard";
 import { PersonCardProps } from "@/app/list/components/PersonCard";
 import { onValue, ref } from "firebase/database";
 import { useSearchParams } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { db } from "../../../../firebase/firebasedb";
 
-export default function Eight() {
+function EightContent() {
   const [showCertification, setShowCertification] = useState(false);
   const [userArray, setUserArray] = useState<PersonCardProps[]>([]);
   const [user, setUser] = useState<PersonCardProps | null>(null);
@@ -79,5 +79,13 @@ export default function Eight() {
         </>
       ) : null}
     </>
+  );
+}
+
+export default function EightPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <EightContent />
+    </Suspense>
   );
 }

@@ -2,12 +2,12 @@
 
 import NeonDialog from "@/app/common/NeonDialog";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { useSetRecoilState } from "recoil";
 import { stepNumbers } from "../atoms/atoms";
 
-export default function First() {
+function FirstContent() {
   const setStep = useSetRecoilState(stepNumbers);
   const searchParams = useSearchParams();
   const from = searchParams?.get("from");
@@ -16,7 +16,8 @@ export default function First() {
     if (from === "card") {
       setStep(8);
     }
-  });
+  }, [from, setStep]);
+
   return (
     <NeonDialog>
       <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
@@ -34,5 +35,13 @@ export default function First() {
         />
       </p>
     </NeonDialog>
+  );
+}
+
+export default function FirstPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FirstContent />
+    </Suspense>
   );
 }
