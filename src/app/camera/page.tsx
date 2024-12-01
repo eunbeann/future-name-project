@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import CertificationCard from "../list/components/CertificationCard";
 
 export default function CameraPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,23 +28,23 @@ export default function CameraPage() {
 
   return (
     <>
-      <div className="w-full h-full flex justify-center items-center bg-violet6">
-        {/* {Array(18)
+      {/* <div className="w-full h-full flex justify-center items-center bg-violet6"> */}
+      {/* {Array(18)
           .fill(0)
           .map((_, index) => ( */}
-        {/* <ProfileBack /> */}
-        {/* <ProfileChip />
+      {/* <ProfileBack /> */}
+      {/* <ProfileChip />
         <ProfileBack /> */}
-        {/* ))} */}
-      </div>
-      {/* <CertificationCard
+      {/* ))} */}
+      {/* </div> */}
+      <CertificationCard
         id={1}
         date={"2021-10-10"}
         firstName={"John"}
         lastName={"Doe"}
         newFirstName={"C544 C9C1"}
         newLastName={"AC15"}
-      /> */}
+      />
 
       {/* <div>testPage</div>
       <h1>GRID TEST</h1>

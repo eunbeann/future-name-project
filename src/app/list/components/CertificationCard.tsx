@@ -89,9 +89,12 @@ export default function CertificationCard({
 
   return (
     <>
+      {/* deem */}
       <div className="fixed -top-[150px] -left-[180px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
-      <div className="z-50 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-dunggeunmo bg-">
-        <div className="absolute top-[300px] left-[119px] xl:top-[473px] xl:left-[201px]">
+      {/* 컨테이너 */}
+      <div className="z-50 absolute left-1/2 transform -translate-x-1/2 font-dunggeunmo mb-[50px]">
+        {/* 카메라 영역 */}
+        <div className="absolute top-[100px] left-[113px] xl:top-[456px] xl:left-[194px]">
           {loading && (
             <div className="bg-[#f1b0b0] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px]">
               <h1 className="text-[#ffffff] xl:text-[20px]">로딩중..</h1>
@@ -100,7 +103,7 @@ export default function CertificationCard({
           {!url && (
             <>
               <Webcam
-                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
+                className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[212px] xl:h-[310px] object-cover"
                 audio={false}
                 ref={webcamRef}
                 screenshotFormat="image/jpeg"
@@ -114,7 +117,7 @@ export default function CertificationCard({
                 }}
               />
               <button
-                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[36px] xl:bottom-[12px]"
+                className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[31px] xl:bottom-[15px]"
                 onClick={capture}
               >
                 사진 촬영
@@ -124,10 +127,10 @@ export default function CertificationCard({
         </div>
         <div ref={captureRef}>
           {url && (
-            <div className="absolute top-[300px] left-[115px] xl:top-[473px] xl:left-[202px]">
+            <div className="absolute top-[300px] left-[115px] xl:top-[456px] xl:left-[194px]">
               <div>
                 <Image
-                  className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[223px] xl:h-[322px] object-cover"
+                  className="scale-x-[-1] w-[132px] h-[204px] text-center xl:w-[212px] xl:h-[310px] object-cover"
                   width={132}
                   height={140}
                   src={url}
@@ -136,7 +139,7 @@ export default function CertificationCard({
               </div>
               {!isCapturing && (
                 <button
-                  className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[36px] xl:bottom-[12px]"
+                  className="absolute bottom-[0px] ml-[11px] bg-[#ffffff] text-[14px] px-[24px] xl:text-[24px] xl:ml-[31px] xl:bottom-[15px]"
                   onClick={() => setUrl(null)}
                 >
                   다시 찍기
@@ -144,20 +147,20 @@ export default function CertificationCard({
               )}
             </div>
           )}
-          <p className="absolute top-[294px] right-[145px] xl:top-[466px] xl:right-[199px] xl:text-[19px] xl:w-[88px] text-center text-xs leading-0">
+          <p className="absolute top-[294px] right-[145px] xl:top-[450px] xl:right-[199px] xl:text-[19px] xl:w-[88px] text-center text-xs leading-0">
             {id}
           </p>
-          <p className="absolute top-[322px] right-[125px] text-xs xl:top-[509px] xl:right-[200px] xl:text-[19px] xl:w-[118px] text-center">
+          <p className="absolute top-[322px] right-[125px] text-xs xl:top-[492px] xl:right-[192px] xl:text-[19px] xl:w-[118px] text-center">
             2050.{formattedDate}
           </p>
-          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[650px] xl:right-[205px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
+          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[623px] xl:right-[192px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
             {lastName} {firstName}
           </p>
-          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[762px] xl:right-[205px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
+          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[730px] xl:right-[192px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
             {`${newLastName} ${newFirstName}`}
           </p>
           <Image
-            className="w-[580px] h-[855px] xl:w-[980px] xl:h-auto"
+            className="w-[580px] h-[855px] xl:w-[940px] xl:h-auto"
             src={certification}
             alt="certification"
           />
@@ -171,13 +174,13 @@ export default function CertificationCard({
         </button>
         <div className="flex gap-[8px] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[34px]">
           <button
-            className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+            className="w-[230px] xl:w-[340px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
             onClick={captureArea}
           >
             이미지 저장하기
           </button>
           <button
-            className="w-[230px] xl:w-[390px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+            className="w-[230px] xl:w-[340px] py-[16px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
             onClick={handleNextPage}
           >
             신분증 받기

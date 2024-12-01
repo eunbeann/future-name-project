@@ -1,9 +1,14 @@
 import React from "react";
+import ClientRecoilRoot from "../common/ClientRecoilRoot";
 
 export default function CameraLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="w-[100vw] h-[100vh]">{children}</div>;
+  return (
+    <ClientRecoilRoot>
+      <div className="w-[100vw] h-[100vh]">{children}</div>;
+    </ClientRecoilRoot>
+  );
 }
