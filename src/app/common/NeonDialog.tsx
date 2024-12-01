@@ -4,7 +4,7 @@ import playBtn from "@/app/assets/gif/playBtn.gif";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { archiveNumber } from "../archive/atoms/atom";
 import { stepNumbers } from "../person/atoms/atoms";
@@ -28,10 +28,6 @@ export default function NeonDialog({
   const [storyStep, setStoryStep] = useRecoilState(storyNumbers);
   const [sendingStep, setSendingStep] = useRecoilState(sendingNumber);
   const [archiveStep, setArchiveStep] = useRecoilState(archiveNumber);
-
-  useEffect(() => {
-    console.log(step, storyStep, sendingStep, archiveStep);
-  }, [step, storyStep, sendingStep, archiveStep]);
 
   const router = useRouter();
 
@@ -60,25 +56,32 @@ export default function NeonDialog({
   };
 
   const onCBackButton = () => {
+    // archiveStep
     if (archiveStep === 1) {
       setArchiveStep(archiveStep - 1);
     } else if (archiveStep === 3) {
       setArchiveStep(1);
     } else if (archiveStep === 5) {
       setArchiveStep(3);
-    } else if (archiveStep === 0 && step === 0) {
-      router.back();
     }
-    if (storyStep !== 0) {
+
+    // storyStep
+    if (storyStep > 0) {
       setStoryStep(storyStep - 1);
     } else if (storyStep === 0 && step === 0) {
       router.back();
+      return;
     }
-    if (step > 0) {
+
+    // step
+    if (step > 1) {
       setStep(step - 1);
-    } else {
+    } else if (step === 1) {
+      setStep(0);
       router.push("/lobby");
     }
+
+    // getCard
     if (getCard) {
       router.push("/person");
     }
