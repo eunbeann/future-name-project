@@ -55,23 +55,15 @@ export default function GetCardPage() {
       });
 
       const imgData = canvas.toDataURL("image/png");
-      const htmlContent = getPrintWindowHTML(imgData); // 미리 HTML 생성
-
       const printWindow = window.open("", "_blank", "width=800,height=600");
 
       if (printWindow) {
-        printWindow.document.open(); // 새 창의 문서를 열고
-        printWindow.document.write(htmlContent); // HTML 콘텐츠를 바로 작성
-        printWindow.document.close(); // 문서를 닫아 렌더링
-        printWindow.focus(); // 새 창으로 포커스
-        printWindow.print(); // 인쇄 실행
-
-        printWindow.onafterprint = () => {
-          printWindow.close(); // 인쇄 후 창 닫기
-        };
+        const htmlContent = getPrintWindowHTML(imgData);
+        printWindow.document.write(htmlContent);
+        printWindow.document.close();
       }
     } catch (error) {
-      console.error("Error printing card:", error);
+      console.error("Print failed:", error);
     }
   };
 

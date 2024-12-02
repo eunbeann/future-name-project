@@ -21,12 +21,13 @@ export const getPrintWindowHTML = (imgData: string): string => `
     <body>
       <img src="${imgData}" alt="Identify Card" />
       <script>
-        window.onload = function() {
-          window.print();
-          window.onafterprint = function() {
+        window.addEventListener('load', function() {
+          window.addEventListener('afterprint', function() {
             window.close();
-          };
-        };
+          });
+
+          window.print();
+        });
       </script>
     </body>
   </html>
