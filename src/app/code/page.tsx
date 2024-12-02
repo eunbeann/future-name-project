@@ -28,7 +28,7 @@ export default function CodePage() {
               className="flex flex-col justify-center items-center gap-[20px]"
             >
               <Image
-                className="xl:w-[140px] xl:h-[140px]"
+                className="xl:w-[160px] xl:h-[140px]"
                 src={project}
                 alt="projectIcon"
               />
@@ -41,12 +41,12 @@ export default function CodePage() {
               className="flex flex-col justify-center items-center gap-[20px]"
             >
               <Image
-                className="xl:w-[140px] xl:h-[140px]"
+                className="xl:w-[160px] xl:h-[140px]"
                 src={code}
                 alt="codeIcon"
               />
               <p className="font-dunggeunmo text-[#ffffff] xl:text-[36px]">
-                프로젝트 설명
+                웹사이트 구조설명
               </p>
             </Link>
             <Link
@@ -54,12 +54,12 @@ export default function CodePage() {
               className="flex flex-col justify-center items-center gap-[20px]"
             >
               <Image
-                className="xl:w-[140px] xl:h-[140px]"
+                className="xl:w-[160px] xl:h-[140px]"
                 src={aiList}
                 alt="AlListIcon"
               />
               <p className="font-dunggeunmo text-[#ffffff] xl:text-[36px]">
-                프로젝트 설명
+                실시간 아카이브
               </p>
             </Link>
           </div>
