@@ -99,7 +99,6 @@ export default function GetCardPage() {
                     alt="arrow"
                   />
                 </Link>
-                card
                 <button onClick={() => router.push("/person?from=card")}>
                   <Image
                     className="absolute left-[420px] top-[520px] xl:w-[98px]"

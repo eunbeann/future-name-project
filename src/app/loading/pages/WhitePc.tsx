@@ -14,11 +14,11 @@ export default function WhitePc() {
       />
       <ComputerMonitor color="white">
         <Image
-          className="w-[320px] xl:w-[600px]"
+          className="w-[320px] mb-[20px] xl:w-[600px]"
           src={loadingLogo}
           alt="movingLogo"
         />
-        <div className="flex gap-[10px] xl:gap-[20px] xl:text-[28px] text-center font-dunggeunmo">
+        <div className="flex gap-[15px] xl:gap-[20px] xl:text-[28px] text-center font-dunggeunmo">
           <Link href="/loading" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
             들어가기
           </Link>
