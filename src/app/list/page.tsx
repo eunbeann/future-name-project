@@ -44,7 +44,7 @@ export default function ListPage() {
       >
         <Image src={arrow} alt="arrow" />
       </button>
-      <div className="flex flex-col flex-wrap content-start max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[160px] xl:pt-[3rem]">
+      <div className="flex flex-col flex-wrap content-start max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[160px] xl:pt-[3rem] scrollbar-hide">
         {users.length > 0 ? (
           users.map((user, idx) => (
             <div
