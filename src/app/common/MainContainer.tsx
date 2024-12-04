@@ -29,7 +29,8 @@ export default function MainContainer({
               alt="fnc.com"
             />
           </div>
-          <div className="h-full rounded-b-[24px] border border-[#ffffff] relative">
+          <div className="rounded-b-[24px] border border-[#ffffff] relative">
+            <div className="absolute inset-0 rounded-b-[24px] ">{children}</div>
             {bgImage && (
               <Image
                 className="w-full h-full rounded-b-[24px]"
@@ -37,7 +38,6 @@ export default function MainContainer({
                 alt="lobbyBg"
               />
             )}
-            <div className="absolute inset-0 rounded-b-[24px] ">{children}</div>
           </div>
         </div>
         <div className="flex flex-col gap-[10px] ml-[9px]">

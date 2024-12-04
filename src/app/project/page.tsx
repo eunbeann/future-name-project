@@ -15,10 +15,10 @@ export default function ProjectPage() {
         <Image
           src={text}
           alt="FNC"
-          className="absolute top-[80px] w-[340px] h-auto xl:w-[45%] xl:h-auto xl:my-[10px] z-50"
+          className="absolute top-[80px] w-[340px] h-auto xl:w-[38%] xl:h-auto xl:my-[10px] z-50"
         />
-        <div className="absolute top-[240px] bg-[#000000] xl:pt-[85px] xl:px-[70px] xl:w-[68%] xl:pb-[155px]">
-          <p className="tracking-wide	xl:text-[30px] text-[#ffffff] whitespace-pre-wrap font-dunggeunmo text-center xl:mb-[28px]">
+        <div className="absolute top-[160px] bg-[#000000] xl:pt-[145px] xl:px-[70px] xl:w-[68%] xl:pb-[145px]">
+          <p className="tracking-wide	xl:text-[24px] text-[#ffffff] whitespace-pre-wrap font-dunggeunmo text-center xl:mb-[22px]">
             {`2050년의 세상은 인공지능이 인간의 삶을 모든 측면에서 지배하는 시대입니다.
 정부, 경제, 교육, 모든 시스템이 AI에 의해 운영되며,
 인간은 그 안에서 효율적인 단위로 변환되었습니다.

@@ -8,7 +8,7 @@ export default function ProjectLayout({
 }) {
   return (
     <>
-      <Image className="w-full h-full absolute" alt="" src={mainBg} />
+      <Image className="w-full h-full absolute" alt="mainBg" src={mainBg} />
       <div>{children}</div>
     </>
   );

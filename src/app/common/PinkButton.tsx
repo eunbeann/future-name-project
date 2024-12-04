@@ -7,7 +7,7 @@ export default function PinkButton({ text, onClick }: PinkButtonProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="320"
+      width="220"
       height="90"
       viewBox="0 0 180 45"
       fill="none"
@@ -26,17 +26,17 @@ export default function PinkButton({ text, onClick }: PinkButtonProps) {
       />
       <text
         x="50%"
-        y="50%"
+        y="55%"
         dominantBaseline="middle"
         textAnchor="middle"
         fontFamily="var(--font-dunggeunmo)"
-        fontSize="24"
+        fontSize="22"
         fill="white"
         stroke="black"
         strokeWidth="4"
         paintOrder="stroke"
         style={{
-          letterSpacing: "-0.5px",
+          letterSpacing: "0.5px",
         }}
       >
         {text}
