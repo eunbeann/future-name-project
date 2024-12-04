@@ -26,7 +26,7 @@ export default function ProfileChip({
 }: ProfileChipProps) {
   return (
     <div
-      className="relative w-[224px] h-[320px] cursor-pointer"
+      className="relative w-[204px] h-[300px] cursor-pointer"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

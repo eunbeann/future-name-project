@@ -8,7 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 export default function Story1() {
   return (
     <div className="relative flex justify-center items-center">
-      <div className="relative w-[90%] rounded-lg overflow-hidden">
+      <div className="relative w-[93%] rounded-lg overflow-hidden">
         <Image
           className="w-full h-auto rounded-lg"
           src={story1}
@@ -24,7 +24,7 @@ export default function Story1() {
         />
       </div>
 
-      <div className="absolute -bottom-[65px] flex justify-center w-[100%]">
+      <div className="absolute -bottom-[76px] flex justify-center w-[100%]">
         <NeonDialog story>
           <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
             <TypeAnimation

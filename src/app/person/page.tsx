@@ -28,13 +28,13 @@ export default function PersonPage() {
   const step = useRecoilValue(stepNumbers) as keyof typeof stepComponents;
 
   return (
-    <div className="flex flex-col items-center justify-center gap-[40px]">
+    <div className="flex flex-col items-center justify-center gap-[40px] py-[50px] rounded-b-[24px]">
       <Image
-        className="h-[90%] w-[95%]"
+        className="h-[80%] w-[90%]"
         src={movingPerson}
         alt="movingPerson"
       />
-      {stepComponents[step]}
+      <div className="ml-[400px] w-full">{stepComponents[step]}</div>
     </div>
   );
 }

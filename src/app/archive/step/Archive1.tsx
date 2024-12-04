@@ -24,9 +24,9 @@ export default function Archive1() {
       <Image
         alt="bg"
         src={denied}
-        className="absolute w-full h-full  rounded-b-[24px]"
+        className="absolute w-full h-full rounded-b-[24px]"
       />
-      <div className="w-full h-full flex flex-col flex-wrap justify-center items-center content-center bg-mauve3 rounded-b-[24px] gap-x-[50px] gap-y-[32px] py-[20px]">
+      <div className="w-full h-full flex flex-wrap justify-center items-center gap-x-[50px] gap-y-[32px] py-[20px] overflow-auto">
         {fakePeople.map((data, index) => (
           <ProfileChip
             name={data.name}

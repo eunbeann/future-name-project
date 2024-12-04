@@ -18,15 +18,13 @@ export default function Story0() {
   }, [setStoryNumber]);
 
   return (
-    <>
-      <Image className="w-full h-full" src={story0} alt="story0" priority />
-      {/* <div className="flex w-full justify-center"> */}
-      {/* <Image
-          className="absolute top-[80px] w-[600px] opacity-40"
-          src={countDown}
-          alt="countDown"
-        /> */}
-      {/* </div> */}
-    </>
+    <div className="w-full h-[79vh] relative rounded-b-[32px]">
+      <Image
+        className="w-full h-full object-cover"
+        src={story0}
+        alt="story0"
+        priority
+      />
+    </div>
   );
 }

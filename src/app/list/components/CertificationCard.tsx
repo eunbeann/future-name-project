@@ -90,9 +90,9 @@ export default function CertificationCard({
   return (
     <>
       {/* deem */}
-      <div className="fixed w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
+      <div className="fixed -left-[80px] -top-[200px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50" />
       {/* 컨테이너 */}
-      <div className="z-50 absolute left-1/2 transform -translate-x-1/2 font-dunggeunmo mb-[50px]">
+      <div className="z-50 absolute -top-[120px] left-1/2 transform -translate-x-1/2 font-dunggeunmo mb-[50px]">
         {/* 카메라 영역 */}
         <div className="absolute top-[100px] left-[113px] xl:top-[398px] xl:left-[168px]">
           {loading && (

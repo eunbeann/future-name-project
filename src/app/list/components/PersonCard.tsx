@@ -17,7 +17,7 @@ export default function PersonCard({
   futureLastName,
   date,
 }: PersonCardProps) {
-  const time = useFormattedTime(date.toString());
+  const time = useFormattedTime(date?.toString());
   const padId = String(id).padStart(3, "0");
 
   return (

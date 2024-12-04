@@ -9,9 +9,9 @@ export default function EndingPage() {
     <div className="w-[100vw] h-[100vh]">
       <Image className="w-full h-full" src={endingBg} alt="background" />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-50">
+      <div className="absolute top-[400px] left-[610px] inset-0 flex flex-col items-center justify-center z-50 w-[800px] h-[600px]">
         <Image
-          className="w-[320px] xl:w-[800px] z-50 -mt-[200px]"
+          className="w-[320px] xl:w-[600px] z-50"
           src={loadingLogo}
           alt="movingLogo"
         />

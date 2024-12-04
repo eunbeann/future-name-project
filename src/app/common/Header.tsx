@@ -21,14 +21,24 @@ export default function Header() {
 
   const DAY = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
-  const thisMonth = new Date().getMonth();
-  const thisDate = new Date().getDate();
-  const thisHour = new Date().getHours();
-  const thisMinute = new Date().getMinutes();
-  const thisDay = new Date().getDay();
+  const formatTime = () => {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const meridiem = hours >= 12 ? "PM" : "AM";
+    const hours12 = hours % 12 || 12;
 
-  const hours12 = thisHour % 12 || 12;
-  const meridiem = thisHour >= 12 ? "PM" : "AM";
+    return {
+      day: DAY[now.getDay()],
+      month: MONTH[now.getMonth()],
+      date: now.getDate(),
+      hours: hours12,
+      minutes: String(minutes).padStart(2, "0"),
+      meridiem,
+    };
+  };
+
+  const { day, month, date, hours, minutes, meridiem } = formatTime();
 
   return (
     <div className="absolute top-0 flex justify-between w-[100vw] bg-[#000000] z-40 px-[29px] py-[12px] text-[#ffffff] xl:text-[25px]">
@@ -39,11 +49,10 @@ export default function Header() {
       <div className="flex items-center gap-[26px] ">
         <p>2050</p>
         <p>
-          {DAY[thisDay]} {MONTH[thisMonth]} {thisDate}
+          {day} {month} {date}
         </p>
         <p>
-          {hours12}:{thisMinute}
-          {meridiem}
+          {hours}:{minutes} {meridiem}
         </p>
         <Link href="/">
           <Image className="w-[6rem] xl:w-[10rem]" src={exit} alt="exit" />

@@ -83,7 +83,7 @@ export default function DeniedPage() {
     <>
       {complete && (
         <motion.div
-          className="absolute -top-[200px] -left-[200px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50 flex justify-center items-center"
+          className="absolute -top-[200px] -left-[100px] w-[100vw] h-[100vh] bg-[#000000] bg-opacity-60 z-50 flex justify-center items-center"
           {...fastShakeAnimation}
         >
           <div className="fixed inset-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)]">

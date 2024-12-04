@@ -77,7 +77,7 @@ export default function NeonDialog({
     // step
     if (step > 1) {
       setStep(step - 1);
-    } else if (step === 1) {
+    } else if (step === 1 && storyStep === 0 && archiveStep === 0) {
       setStep(0);
       router.push("/lobby");
     }

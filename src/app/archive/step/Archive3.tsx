@@ -14,7 +14,7 @@ export default function Archive3() {
         <Image
           alt="fakeList"
           src={fakeList}
-          className="w-[90%] h-[90%] mr-[120px] z-50"
+          className="w-[90%] h-[100%] mr-[90px] z-50 pt-[40px]"
         />
         <Image
           alt="bg"
@@ -23,7 +23,7 @@ export default function Archive3() {
         />
       </div>
       <button
-        className="absolute right-[65px] bottom-1/2 w-[50px] h-[50px] xl:h-[72px] xl:w-[72px] scale-x-[-1]"
+        className="absolute right-[65px] bottom-1/2 w-[50px] h-[50px] xl:h-[72px] xl:w-[62px] scale-x-[-1]"
         onClick={() => setArchiveStep((prev) => prev + 1)}
       >
         <Image src={arrow} alt="arrow" />

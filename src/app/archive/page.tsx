@@ -21,5 +21,5 @@ const stepComponents = {
 export default function ArchivePage() {
   const step = useRecoilValue(archiveNumber) as keyof typeof stepComponents;
 
-  return <div className="h-full">{stepComponents[step]}</div>;
+  return <>{stepComponents[step]}</>;
 }

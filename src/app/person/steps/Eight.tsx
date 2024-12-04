@@ -65,19 +65,19 @@ function EightContent() {
           />
         </p>
       </NeonDialog>
-      {/* {(showCertification && user) || from === "card" ? ( */}
-      <>
-        <CertificationCard
-          id={userArray.length}
-          uniqueId={user?.uniqueId ?? ""}
-          date={user?.date ?? ""}
-          firstName={user?.firstName || ""}
-          lastName={user?.lastName || ""}
-          newFirstName={user?.futureFirstName ?? ""}
-          newLastName={user?.futureLastName ?? ""}
-        />
-      </>
-      {/* ) : null} */}
+      {(showCertification && user) || from === "card" ? (
+        <>
+          <CertificationCard
+            id={userArray.length}
+            uniqueId={user?.uniqueId ?? ""}
+            date={user?.date ?? ""}
+            firstName={user?.firstName || ""}
+            lastName={user?.lastName || ""}
+            newFirstName={user?.futureFirstName ?? ""}
+            newLastName={user?.futureLastName ?? ""}
+          />
+        </>
+      ) : null}
     </>
   );
 }

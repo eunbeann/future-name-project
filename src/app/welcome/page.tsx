@@ -18,7 +18,7 @@ export default function WelcomePage() {
         }}
       >
         <Image
-          className="absolute left-[54px] bottom-[37px] xl:w-[98px] "
+          className="absolute left-[54px] bottom-[37px] xl:w-[86px]"
           src={arrow}
           alt="arrow"
         />

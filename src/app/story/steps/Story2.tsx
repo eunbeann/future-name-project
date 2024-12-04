@@ -8,7 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 export default function Story2() {
   return (
     <div className="relative flex justify-center items-center">
-      <div className="relative w-[90%] rounded-lg overflow-hidden">
+      <div className="relative w-[93%] rounded-lg overflow-hidden">
         <Image
           className="w-full h-auto rounded-lg"
           src={story2}
