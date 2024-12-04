@@ -31,7 +31,8 @@ export default function NeonDialog({
 
   const router = useRouter();
 
-  const onClickButton = () => {
+  const onClickButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (e.detail === 0) return; // 마우스 클릭이 아닌 이벤트는 무시
     if (action) {
       action();
     } else {
@@ -42,7 +43,7 @@ export default function NeonDialog({
           router.push("/lobby?from=story");
         }
       } else if (sending) {
-        if (storyStep !== 4) {
+        if (sendingStep !== 4) {
           setSendingStep((prevStep) => prevStep + 1);
         } else if (sendingStep === 4) {
           router.push("/archive");
@@ -105,6 +106,7 @@ export default function NeonDialog({
       >
         <div className="font-dunggeunmo whitespace-pre-wrap">{children}</div>
         <button
+          type="button" // 버튼 타입 명시
           className="absolute right-3 bottom-5 w-fit h-fit p-2"
           onClick={onClickButton}
         >
