@@ -16,7 +16,7 @@ export default function Archive4() {
             setNext((prev) => prev + 1);
           }}
         >
-          <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
             <TypeAnimation
               sequence={[
                 `여기서도 익숙한 이름이 보인다. 이건… 내가 아는 사람들이 아닌가?\n그들도 다 이 시스템의 일부가 되어버린 건가? 이게 정말 가상 세계가 맞나?`,

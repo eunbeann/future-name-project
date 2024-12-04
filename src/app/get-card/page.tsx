@@ -119,7 +119,7 @@ export default function GetCardPage() {
           </button>
         ) : (
           <NeonDialog action={handlePrintButton} getCard>
-            <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+            <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
               <TypeAnimation
                 sequence={[
                   `새 신분증이 발급된다. 그 위엔 내가 알던 이름 대신 낯선 코드만이 새겨져 있다.\n이게… 정말 나의 정체성인가?`,

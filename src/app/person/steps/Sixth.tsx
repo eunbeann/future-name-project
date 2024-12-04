@@ -32,7 +32,7 @@ export default function Sixth() {
 
   return (
     <NeonDialog action={saveNameInArray}>
-      <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+      <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
         <TypeAnimation
           sequence={["이름 분석 중... 데이터를 분석 중 입니다."]}
           wrapper="span"

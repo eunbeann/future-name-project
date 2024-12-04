@@ -32,7 +32,7 @@ export default function Sending3() {
             router.push("/archive");
           }}
         >
-          <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000] absolute right-[98px] bottom-[28px]">
+          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000] absolute right-[98px] bottom-[28px]">
             아카이브센터로 가기
           </p>
         </NeonDialog>

@@ -36,13 +36,13 @@ export default function Archive2() {
           />
         ))}
       </div>
-      <div className="absolute bottom-[105px] flex  justify-center xl:w-[100%] z-50">
+      <div className="absolute bottom-[105px] flex justify-center xl:w-[100%] z-50">
         <NeonDialog
           action={() => {
             setArchiveStep((prev) => prev + 1);
           }}
         >
-          <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
             <TypeAnimation
               sequence={[
                 `각자의 데이터가 칩 속에 보관되어 있다. 그들의 과거, 이름, 정체성…\n모두가 이 차가운 칩 안에 담겨 있다.`,

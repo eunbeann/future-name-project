@@ -101,7 +101,7 @@ export default function NeonDialog({
         animate="visible"
         exit="exit"
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative bg-[#02FE00] w-[90%] h-[130px] xl:h-[240px] z-50 flex justify-center items-center rounded-[24px] py-[20px] text-center xl:w-[76%]"
+        className="relative bg-[#02FE00] w-[90%] h-[130px] xl:h-[190px] z-50 flex justify-center items-center rounded-[24px] py-[20px] text-center xl:w-[76%]"
       >
         <div className="font-dunggeunmo whitespace-pre-wrap">{children}</div>
         <button
@@ -109,7 +109,7 @@ export default function NeonDialog({
           onClick={onClickButton}
         >
           <Image
-            className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
+            className="w-[35px] h-[35px] xl:w-[40px] xl:h-[40px]"
             src={playBtn}
             alt="Play Button"
             priority
@@ -122,7 +122,7 @@ export default function NeonDialog({
               onClick={onCBackButton}
             >
               <Image
-                className="w-[35px] h-[35px] xl:w-[60px] xl:h-[60px]"
+                className="w-[35px] h-[35px] xl:w-[40px] xl:h-[40px]"
                 src={playBtn}
                 alt="Back Button"
                 priority
@@ -132,7 +132,7 @@ export default function NeonDialog({
         {story && (
           <button
             onClick={() => router.push("lobby")}
-            className="font-dunggeunmo absolute right-0 -bottom-[65px] w-fit h-fit p-2 text-[30px] text-[#02FE00]"
+            className="font-dunggeunmo absolute right-0 xl:-bottom-[55px] w-fit h-fit p-2 xl:text-[24px] text-[#02FE00]"
           >
             대화 스킵
           </button>

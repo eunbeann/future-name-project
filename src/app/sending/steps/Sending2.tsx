@@ -24,7 +24,7 @@ export default function Sending2() {
 
       <div className="absolute -bottom-[76px] flex justify-center xl:w-[100%]">
         <NeonDialog sending>
-          <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
             <TypeAnimation
               sequence={[
                 "과거에 이름을 코드로 바꾼 인간들의 데이터가 보관된 곳에 오게되다.\n끝없이 이어진 데이터들이 차갑게 날 쳐다보는 듯하다.",

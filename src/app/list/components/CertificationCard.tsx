@@ -153,10 +153,10 @@ export default function CertificationCard({
           <p className="absolute top-[322px] right-[125px] text-xs xl:top-[492px] xl:right-[192px] xl:text-[19px] xl:w-[118px] text-center">
             2050.{formattedDate}
           </p>
-          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[623px] xl:right-[192px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
+          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[623px] xl:right-[192px] xl:h-[45px] xl:w-[290px] xl:text-[26px] text-center">
             {lastName} {firstName}
           </p>
-          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[730px] xl:right-[192px] xl:h-[45px] xl:w-[290px] xl:text-[28px] text-center">
+          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[730px] xl:right-[192px] xl:h-[45px] xl:w-[290px] xl:text-[26px] text-center">
             {`${newLastName} ${newFirstName}`}
           </p>
           <Image

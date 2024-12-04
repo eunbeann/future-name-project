@@ -41,7 +41,7 @@ export default function Fifth() {
 
   return (
     <NeonDialog action={handleUpdate}>
-      <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+      <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
         <TypeAnimation
           sequence={["이름을 입력하십시오."]}
           wrapper="span"
@@ -59,7 +59,7 @@ export default function Fifth() {
         value={newFirstName}
         onChange={handleChange}
         onKeyDown={handleEnter}
-        className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00] w-[245px] my-2 py-2 mt-[12px] xl:w-[490px] xl:h-[60px] xl:text-[32px] xl:mt-[24px]"
+        className="bg-[#000] rounded-[8px] text-center text-[18px] font-dunggeunmo text-[#02FE00] w-[245px] my-2 py-2 mt-[12px] xl:w-[490px] xl:h-[60px] xl:text-[26px] xl:mt-[24px]"
       />
     </NeonDialog>
   );

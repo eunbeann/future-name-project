@@ -15,7 +15,7 @@ export default function Archive6() {
             router.push("/lobby?from=archive");
           }}
         >
-          <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
             <TypeAnimation
               sequence={[
                 `화면에는 개인의 정보가 가득하다. 마치 내가 그들의 삶을 훔쳐보는 것만 같다.\n이곳은 가상이 아니야 … 이건 현실이야`,

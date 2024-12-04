@@ -55,7 +55,7 @@ export default function IdentifyCard({
         <div className="w-full text-center font-dunggeunmo">
           <Link
             href={"/sending"}
-            className="inline-block w-[500px] xl:w-[700px] py-[16px] xl:text-[28px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
+            className="inline-block w-[500px] xl:w-[700px] py-[16px] xl:text-[26px] bg-[#02FE00] rounded-[22px] border border-[#ffffff] "
           >
             데이터 전송하기
           </Link>

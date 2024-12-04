@@ -26,7 +26,7 @@ export default function Story3() {
 
       <div className="absolute -bottom-[76px] flex justify-center xl:w-[100%]">
         <NeonDialog story>
-          <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
             <TypeAnimation
               sequence={[
                 "그때, 내 앞을 막는 거대 스크린에 뉴스가 흐른다.\n'인간의 정체성은 이제 코드로 정의된다.'\n코드? 내 정체성이 코드로?",

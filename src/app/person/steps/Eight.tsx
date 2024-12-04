@@ -52,7 +52,7 @@ function EightContent() {
   return (
     <>
       <NeonDialog action={handleCertification}>
-        <p className="font-dunggeunmo text-[18px] xl:text-[32px] text-[#000000]">
+        <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
           <TypeAnimation
             sequence={["개명신청서를 발급 받으세요."]}
             wrapper="span"
