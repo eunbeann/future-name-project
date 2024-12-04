@@ -39,12 +39,12 @@ export default function ListPage() {
   return (
     <MainContainer bgImage={listBackground}>
       <button
-        className="absolute left-[45px] bottom-1/2 w-[50px] h-[50px] xl:h-[72px] xl:w-[72px]"
+        className="absolute left-[35px] bottom-1/2 w-[50px] h-[50px] xl:h-[72px] xl:w-[62px]"
         onClick={() => router.back()}
       >
         <Image src={arrow} alt="arrow" />
       </button>
-      <div className="flex flex-col flex-wrap content-start max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[160px] xl:pt-[3rem] scrollbar-hide">
+      <div className="flex flex-col flex-wrap content-start max-w-[93%] h-full overflow-y-hidden py-[23px] ml-[80px] xl:ml-[140px] xl:pt-[3rem] scrollbar-hide">
         {users.length > 0 ? (
           users.map((user, idx) => (
             <div

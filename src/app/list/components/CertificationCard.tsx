@@ -150,13 +150,13 @@ export default function CertificationCard({
           <p className="absolute top-[294px] right-[145px] xl:top-[392px] xl:right-[167px] xl:text-[19px] xl:w-[82px] text-center text-xs leading-0">
             {id}
           </p>
-          <p className="absolute top-[322px] right-[125px] text-xs xl:top-[429px] xl:right-[164px] xl:text-[17px] xl:w-[110px] text-center">
+          <p className="absolute top-[322px] right-[125px] text-xs xl:top-[427px] xl:right-[164px] xl:text-[17px] xl:w-[110px] text-center">
             2050.{formattedDate}
           </p>
-          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[542px] xl:right-[170px] xl:h-[45px] xl:w-[247px] xl:text-[26px] text-center">
+          <p className="absolute top-[413px] right-[125px] w-[168px] xl:top-[544px] xl:right-[170px] xl:h-[45px] xl:w-[247px] xl:text-[26px] text-center">
             {lastName} {firstName}
           </p>
-          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[632px] xl:right-[170px] xl:h-[45px] xl:w-[247px] xl:text-[26px] text-center">
+          <p className="absolute top-[485px] right-[122px] w-[168px] xl:top-[637px] xl:right-[170px] xl:h-[45px] xl:w-[247px] xl:text-[26px] text-center">
             {`${newLastName} ${newFirstName}`}
           </p>
           <Image
@@ -172,7 +172,7 @@ export default function CertificationCard({
             alt="arrow"
           />
         </button>
-        <div className="flex gap-[16px] fixed bottom-[0px] left-1/2 transform -translate-x-1/2 xl:text-[25px]">
+        <div className="flex gap-[16px] fixed bottom-[23px] left-1/2 transform -translate-x-1/2 xl:text-[25px]">
           <button
             className="w-[230px] xl:w-[260px] py-[8px] bg-[#02FE00] rounded-[12px] border border-[#ffffff] "
             onClick={captureArea}

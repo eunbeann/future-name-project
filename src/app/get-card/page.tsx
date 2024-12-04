@@ -94,14 +94,14 @@ export default function GetCardPage() {
               <>
                 <Link href="/list">
                   <Image
-                    className="absolute left-[1530px] top-[520px] scale-x-[-1] xl:w-[98px]"
+                    className="absolute left-[1430px] top-[520px] scale-x-[-1] xl:w-[78px]"
                     src={arrow}
                     alt="arrow"
                   />
                 </Link>
                 <button onClick={() => router.push("/person?from=card")}>
                   <Image
-                    className="absolute left-[420px] top-[520px] xl:w-[98px]"
+                    className="absolute left-[210px] top-[520px] xl:w-[78px]"
                     src={arrow}
                     alt="arrow"
                   />
@@ -112,7 +112,7 @@ export default function GetCardPage() {
         )}
         {showPrintButton ? (
           <button
-            className="w-[460px] xl:w-[800px] py-[8px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] font-dunggeunmo text-[18px] xl:text-[42px] text-[#000000]"
+            className="w-[460px] xl:w-[720px] py-[8px] bg-[#02FE00] rounded-[8px] border border-[#ffffff] font-dunggeunmo text-[18px] xl:text-[34px] text-[#000000]"
             onClick={openPrintWindow}
           >
             출력하기
