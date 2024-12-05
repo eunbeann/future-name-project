@@ -18,23 +18,26 @@ export default function Archive2() {
       <Image
         alt="bg"
         src={denied}
-        className="absolute w-full h-full rounded-b-[24px]"
+        className="absolute w-full h-[79.5vh] rounded-b-[24px]"
       />
-      <div className="w-full h-full flex flex-wrap justify-center items-center gap-x-[50px] gap-y-[32px] py-[20px] overflow-auto">
-        {fakePeople.map((data, index) => (
-          <ProfileChip
-            name={data.name}
-            intelligence={data.intelligence}
-            number={data.number}
-            date={data.date}
-            futureName={data.futureName}
-            img={data.img}
-            key={index}
-            isHovered={hoveredCardIndex === index}
-            onMouseEnter={() => setHoveredCardIndex(index)}
-            onMouseLeave={() => setHoveredCardIndex(null)}
-          />
-        ))}
+
+      <div className="flex justify-center items-center w-full h-full">
+        <div className="grid grid-cols-6 gap-x-[50px] gap-y-[32px] pt-[60px] px-[120px]">
+          {fakePeople.map((data, index) => (
+            <ProfileChip
+              name={data.name}
+              intelligence={data.intelligence}
+              number={data.number}
+              date={data.date}
+              futureName={data.futureName}
+              img={data.img}
+              key={index}
+              isHovered={hoveredCardIndex === index}
+              onMouseEnter={() => setHoveredCardIndex(index)}
+              onMouseLeave={() => setHoveredCardIndex(null)}
+            />
+          ))}
+        </div>
       </div>
       <div className="absolute bottom-[76px] flex justify-center xl:w-[100%] z-50">
         <NeonDialog
