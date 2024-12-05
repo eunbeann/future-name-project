@@ -31,7 +31,7 @@ export default function Archive6() {
           </p>
         </NeonDialog>
       </div>
-      <div className="flex h-[82vh] justify-center content-center px-[160px] py-[60px]">
+      <div className="flex h-[82vh] justify-center content-center px-[190px] py-[60px]">
         <Image src={dashboard} alt="background" />;
       </div>
     </>
