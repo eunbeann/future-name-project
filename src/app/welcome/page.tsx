@@ -11,7 +11,7 @@ export default function WelcomePage() {
   const router = useRouter();
   return (
     <MainContainer bgImage={bg}>
-      <Image className="w-[100%] h-[100%] object-cover" src={text} alt="text" />
+      <Image className="w-[100%] h-[100%]" src={text} alt="text" />
       <button
         onClick={() => {
           router.back();

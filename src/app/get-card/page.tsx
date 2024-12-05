@@ -94,14 +94,14 @@ export default function GetCardPage() {
               <>
                 <Link href="/list">
                   <Image
-                    className="absolute left-[1430px] top-[520px] scale-x-[-1] xl:w-[78px]"
+                    className="absolute left-[1630px] top-[520px] scale-x-[-1] xl:w-[78px]"
                     src={arrow}
                     alt="arrow"
                   />
                 </Link>
                 <button onClick={() => router.push("/person?from=card")}>
                   <Image
-                    className="absolute left-[210px] top-[520px] xl:w-[78px]"
+                    className="absolute left-[470px] top-[520px] xl:w-[78px]"
                     src={arrow}
                     alt="arrow"
                   />

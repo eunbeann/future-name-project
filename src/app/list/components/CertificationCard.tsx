@@ -167,7 +167,7 @@ export default function CertificationCard({
         </div>
         <button onClick={() => setStep(step - 1)}>
           <Image
-            className="absolute -left-[40px] top-[720px] xl:w-[78px] z-50"
+            className="absolute -left-[40px] top-[620px] xl:w-[78px] z-50"
             src={arrow}
             alt="arrow"
           />
