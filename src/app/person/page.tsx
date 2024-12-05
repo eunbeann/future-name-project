@@ -30,7 +30,7 @@ export default function PersonPage() {
   return (
     <div className="flex flex-col items-center justify-center gap-[40px] py-[50px] rounded-b-[24px]">
       <Image
-        className="h-[80%] w-[90%]"
+        className="h-[80%] w-[75%]"
         src={movingPerson}
         alt="movingPerson"
       />
