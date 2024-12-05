@@ -10,11 +10,11 @@ export default function Archive3() {
 
   return (
     <>
-      <div className="h-full w-full flex justify-end items-center">
+      <div className="h-full w-full flex justify-center items-center">
         <Image
           alt="fakeList"
           src={fakeList}
-          className="w-[90%] h-[100%] mr-[90px] z-50 pt-[40px]"
+          className="w-[84%] h-[100%] ml-[20px] z-50 pt-[40px]"
         />
         <Image
           alt="bg"

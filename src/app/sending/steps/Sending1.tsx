@@ -25,7 +25,7 @@ export default function Sending1() {
           ></div>
         </div>
       </div>
-      <Image className="w-full h-full" src={bg} alt="story0" priority />
+      <Image className="w-full h-[79.5vh]" src={bg} alt="story0" priority />
     </>
   );
 }

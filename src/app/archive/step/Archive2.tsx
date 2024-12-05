@@ -36,7 +36,7 @@ export default function Archive2() {
           />
         ))}
       </div>
-      <div className="absolute bottom-[105px] flex justify-center xl:w-[100%] z-50">
+      <div className="absolute bottom-[76px] flex justify-center xl:w-[100%] z-50">
         <NeonDialog
           action={() => {
             setArchiveStep((prev) => prev + 1);

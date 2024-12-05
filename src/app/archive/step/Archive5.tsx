@@ -15,5 +15,11 @@ export default function Archive5() {
     return () => clearTimeout(timer);
   }, []);
 
-  return <Image height={1130} src={hackerText} alt="background" />;
+  return (
+    <Image
+      className="w-full h-[79.5vh] rounded-b-[24px]"
+      src={hackerText}
+      alt="background"
+    />
+  );
 }

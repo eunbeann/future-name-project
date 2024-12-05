@@ -8,7 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 export default function Sending2() {
   return (
     <div className="relative flex justify-center items-center">
-      <div className="relative xl:w-[90%] rounded-lg overflow-hidden">
+      <div className="relative xl:w-[78%] rounded-lg overflow-hidden">
         <Image
           className="w-full h-auto rounded-lg"
           src={sending}

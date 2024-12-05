@@ -10,7 +10,7 @@ export default function Archive4() {
 
   return (
     <>
-      <div className="absolute bottom-[65px] flex justify-center xl:w-[100%] z-50">
+      <div className="absolute bottom-[125px] flex justify-center xl:w-[100%] z-50">
         <NeonDialog
           action={() => {
             setNext((prev) => prev + 1);
@@ -33,7 +33,7 @@ export default function Archive4() {
         </NeonDialog>
       </div>
       <Image
-        className="w-[100vw] h-[100%] z-30"
+        className="w-[90vw] h-[79.8vh] z-30"
         src={archive2}
         alt="background"
       />
