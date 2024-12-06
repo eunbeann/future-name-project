@@ -35,7 +35,7 @@ export default function IdentifyCard({
               alt="X"
               className="absolute top-[80px] right-[70px] h-[170px] w-[117px] xl:h-[320px] xl:w-[220px] xl:top-[155px] xl:right-[136px] scale-x-[-1]"
             />
-            <p className="absolute text-center w-[240px] right-[215px] top-[105px] xl:w-[480px] xl:top-[200px] xl:left-[120px] text-[32px] text-[#ffffff] xl:text-[48px]">
+            <p className="absolute text-center w-[220px] right-[215px] top-[105px] xl:w-[480px] xl:top-[200px] xl:left-[120px] text-[32px] text-[#ffffff] xl:text-[48px]">
               {`${futureLastName} ${futureFirstName}`}
             </p>
             <p className="absolute text-center w-[230px] right-[220px] top-[148px] text-xl xl:w-[420px] xl:top-[275px] xl:left-[150px] xl:text-[40px] text-[#ffffff] ">
