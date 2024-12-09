@@ -33,19 +33,19 @@ export default function IdentifyCard({
               height={203}
               src={img}
               alt="X"
-              className="absolute top-[80px] right-[70px] h-[170px] w-[117px] xl:h-[320px] xl:w-[220px] xl:top-[155px] xl:right-[136px] scale-x-[-1]"
+              className="absolute top-[77px] right-[68px] h-[163px] w-[112px] xl:h-[320px] xl:w-[220px] xl:top-[155px] xl:right-[136px] scale-x-[-1]"
             />
-            <p className="absolute text-center w-[290px] right-[205px] top-[105px] xl:w-[480px] xl:top-[200px] xl:left-[120px] text-[32px] text-[#ffffff] xl:text-[48px]">
+            <p className="absolute text-center w-[290px] right-[180px] top-[97px] xl:w-[480px] xl:top-[200px] xl:left-[120px] text-[32px] text-[#ffffff] xl:text-[48px]">
               {`${futureLastName} ${futureFirstName}`}
             </p>
-            <p className="absolute text-center w-[230px] right-[235px] top-[148px] text-xl xl:w-[420px] xl:top-[275px] xl:left-[150px] xl:text-[40px] text-[#ffffff] ">
+            <p className="absolute text-center w-[290px] right-[180px] top-[138px] text-xl xl:w-[420px] xl:top-[275px] xl:left-[150px] xl:text-[40px] text-[#ffffff] ">
               {lastName}
               {firstName}
             </p>
-            <p className="absolute text-center w-[56px] bottom-[123px] right-[250px] xl:text-[24px] xl:bottom-[236px] xl:right-[494px] text-[#ffffff]">
+            <p className="absolute text-center w-[56px] bottom-[116px] right-[239px] xl:text-[24px] xl:bottom-[236px] xl:right-[494px] text-[#ffffff]">
               {id}
             </p>
-            <p className="absolute text-center bottom-[93px] right-[237px] text-[14px] xl:text-[24px] w-[92px] xl:w-[128px] xl:bottom-[183px] xl:right-[474px] text-[#ffffff]">
+            <p className="absolute text-center bottom-[93px] right-[227px] text-[14px] xl:text-[24px] w-[92px] xl:w-[128px] xl:bottom-[183px] xl:right-[474px] text-[#ffffff]">
               2050.{formattedDate}
             </p>
           </>
