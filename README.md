@@ -1,4 +1,4 @@
-[![ko](https://img.shields.io/badge/lang-ko-red.svg)](https://github.com/eunbeann/)
+[![ko](https://img.shields.io/badge/lang-ko-red.svg)](https://github.com/eunbeann/future-name-project/blob/main/README.ko.md)
 
 ### Future Naming Center
 
