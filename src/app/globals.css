@@ -17,8 +17,12 @@ img {
   font-display: swap;
 }
 
+html,
 body {
-  /* @apply Pixter-Display; */
+  background-color: #0a1628;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .backface-hidden {
