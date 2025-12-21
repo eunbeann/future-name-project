@@ -41,7 +41,7 @@ export default function Header() {
   const { day, month, date, hours, minutes, meridiem } = formatTime();
 
   return (
-    <div className="absolute top-0 flex justify-between w-[100vw] bg-[#000000] z-40 px-[29px] py-[12px] text-[#ffffff] xl:text-[25px]">
+    <div className="absolute top-0 flex justify-between w-[2560px] bg-[#000000] z-40 px-[29px] py-[12px] text-[#ffffff] text-[25px]">
       <div className="flex gap-[20px] items-center">
         <Image src={HeaderLogo} alt="HeaderLogo" />
         <div>FUTURE NAMING CENTER</div>

@@ -16,15 +16,15 @@ export default function MainContainer({
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <div className="flex">
-        <div className="w-[85vw] h-[80vh] relative">
-          <div className="flex gap-[15px] rounded-t-[12px] bg-[#ffffff] h-[42px] xl:h-[64px] pl-[30px] items-center">
+        <div className="w-[2176px] h-[1066px] relative">
+          <div className="flex gap-[15px] rounded-t-[12px] bg-[#ffffff] h-[64px] pl-[30px] items-center">
             <Image
-              className="h-[29px] xl:h-[48px] w-auto"
+              className="h-[48px] w-auto"
               src={headerLogo}
               alt="logo"
             />
             <Image
-              className="h-[14px] xl:h-[23px] w-auto"
+              className="h-[23px] w-auto"
               src={headerName}
               alt="fnc.com"
             />
@@ -43,19 +43,19 @@ export default function MainContainer({
         <div className="flex flex-col gap-[10px] ml-[9px]">
           <Link
             href={"/project"}
-            className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
+            className="w-[120px] h-[120px]"
           >
             <Image src={project} alt="projectIcon" />
           </Link>
           <Link
             href={"/code"}
-            className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
+            className="w-[120px] h-[120px]"
           >
             <Image src={code} alt="codeIcon" />
           </Link>
           <Link
             href={"/list"}
-            className="w-[78px] h-[78px] xl:w-[120px] xl:h-[120px]"
+            className="w-[120px] h-[120px]"
           >
             <Image src={aiList} alt="AlListIcon" />
           </Link>

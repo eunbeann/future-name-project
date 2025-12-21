@@ -18,11 +18,11 @@ export default function ComputerMonitor({
 }) {
   return (
     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-      <div className="flex flex-col items-center justify-center absolute top-[10%] left-[10%] w-[80%] h-[52%] xl:top-[130px] xl:left-[120px] xl:w-[770px] xl:h-[590px]">
+      <div className="flex flex-col items-center justify-center absolute top-[130px] left-[120px] w-[770px] h-[590px]">
         {children}
       </div>
       <Image
-        className="h-[80%] w-full xl:h-[90vh] xl:w-full"
+        className="h-[1200px] w-auto"
         src={monitorColor[color]}
         alt="kMonitor"
       />

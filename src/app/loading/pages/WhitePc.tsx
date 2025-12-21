@@ -6,27 +6,27 @@ import Link from "next/link";
 
 export default function WhitePc() {
   return (
-    <>
+    <div className="absolute inset-0 w-[2560px] h-[1333px]">
       <Image
-        className="w-[100vw] h-[100vh]"
+        className="w-full h-full object-cover"
         src={blueWorldBg}
         alt="background"
       />
       <ComputerMonitor color="white">
         <Image
-          className="w-[320px] mb-[20px] xl:w-[570px]"
+          className="w-[570px] mb-[30px]"
           src={loadingLogo}
           alt="movingLogo"
         />
-        <div className="flex gap-[15px] xl:gap-[20px] xl:text-[26px] text-center font-dunggeunmo">
-          <Link href="/loading" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
+        <div className="flex gap-[20px] text-[26px] text-center font-dunggeunmo">
+          <Link href="/loading" className="px-[36px] bg-[#ffffff]">
             들어가기
           </Link>
-          <Link href="/person" className="xl:px-[36px] px-[12px] bg-[#ffffff]">
+          <Link href="/person" className="px-[36px] bg-[#ffffff]">
             개명하기
           </Link>
         </div>
       </ComputerMonitor>
-    </>
+    </div>
   );
 }
