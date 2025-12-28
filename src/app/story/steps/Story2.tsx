@@ -2,6 +2,7 @@
 
 import story2 from "@/app/assets/gif/storyImg2.gif";
 import NeonDialog from "@/app/common/NeonDialog";
+import { STORY_TEXTS } from "@/constants/storyTexts";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
@@ -26,11 +27,9 @@ export default function Story2() {
 
       <div className="absolute -bottom-[76px] flex justify-center w-[100%]">
         <NeonDialog story>
-          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
+          <p className="font-dunggeunmo text-[26px] text-[#000000]">
             <TypeAnimation
-              sequence={[
-                "주변을 둘러보니 사람들은… 사람들 같지 않다. 무표정한 얼굴로 움직이는\n이들은 어딘가 기계처럼 보인다. 설마, 이들이 다 기계인 건가?",
-              ]}
+              sequence={[STORY_TEXTS.story2]}
               wrapper="span"
               speed={5}
               style={{

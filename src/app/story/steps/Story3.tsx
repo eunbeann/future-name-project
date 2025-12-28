@@ -2,6 +2,7 @@
 
 import story3 from "@/app/assets/gif/storyImg3.gif";
 import NeonDialog from "@/app/common/NeonDialog";
+import { STORY_TEXTS } from "@/constants/storyTexts";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 
@@ -24,13 +25,11 @@ export default function Story3() {
         />
       </div>
 
-      <div className="absolute -bottom-[76px] flex justify-center xl:w-[100%]">
+      <div className="absolute -bottom-[76px] flex justify-center w-[100%]">
         <NeonDialog story>
-          <p className="font-dunggeunmo text-[18px] xl:text-[26px] text-[#000000]">
+          <p className="font-dunggeunmo text-[26px] text-[#000000]">
             <TypeAnimation
-              sequence={[
-                "그때, 내 앞을 막는 거대 스크린에 뉴스가 흐른다.\n'인간의 정체성은 이제 코드로 정의된다.'\n코드? 내 정체성이 코드로?",
-              ]}
+              sequence={[STORY_TEXTS.story3]}
               wrapper="span"
               speed={5}
               style={{
