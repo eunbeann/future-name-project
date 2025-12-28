@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 // Design resolution
 const DESIGN_WIDTH = 2560;
 const DESIGN_HEIGHT = 1333;
+const HEADER_HEIGHT = 36;
 
 interface ScaleInfo {
   scale: number;
@@ -23,17 +24,21 @@ export function useScale(): ScaleInfo {
 
   useEffect(() => {
     const updateScale = () => {
-      // Scale based on height only (width may be clipped)
-      const scale = window.innerHeight / DESIGN_HEIGHT;
+      const availableHeight = window.innerHeight - HEADER_HEIGHT;
+      const scaleX = window.innerWidth / DESIGN_WIDTH;
+      const scaleY = availableHeight / DESIGN_HEIGHT;
+      // Use larger scale to always fill the screen (cover mode)
+      const scale = Math.max(scaleX, scaleY);
 
       const scaledWidth = DESIGN_WIDTH * scale;
       const scaledHeight = DESIGN_HEIGHT * scale;
 
       setScaleInfo({
         scale,
-        // Center horizontally (negative = clipped on sides)
+        // Center content horizontally (negative when content wider than screen)
         offsetX: (window.innerWidth - scaledWidth) / 2,
-        offsetY: 0,
+        // Center content vertically
+        offsetY: (availableHeight - scaledHeight) / 2,
         isReady: true,
       });
     };
@@ -47,4 +52,3 @@ export function useScale(): ScaleInfo {
 }
 
 export { DESIGN_WIDTH, DESIGN_HEIGHT };
-

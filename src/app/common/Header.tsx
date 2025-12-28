@@ -4,49 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
-  const MONTH = [
-    "JAN",
-    "FEB",
-    "MAR",
-    "APR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AUG",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DEC",
-  ];
+  const now = new Date();
 
-  const DAY = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-
-  const formatTime = () => {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const meridiem = hours >= 12 ? "PM" : "AM";
-    const hours12 = hours % 12 || 12;
-
-    return {
-      day: DAY[now.getDay()],
-      month: MONTH[now.getMonth()],
-      date: now.getDate(),
-      hours: hours12,
-      minutes: String(minutes).padStart(2, "0"),
-      meridiem,
-    };
-  };
-
-  const { day, month, date, hours, minutes, meridiem } = formatTime();
+  const day = now.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
+  const month = now.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
+  const date = now.getDate();
+  const hours = now.getHours() % 12 || 12;
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const meridiem = now.getHours() >= 12 ? "PM" : "AM";
 
   return (
-    <div className="absolute top-0 flex justify-between w-[2560px] bg-[#000000] z-40 px-[29px] py-[12px] text-[#ffffff] text-[25px]">
-      <div className="flex gap-[20px] items-center">
-        <Image src={HeaderLogo} alt="HeaderLogo" />
+    <div className="fixed top-0 left-0 right-0 flex justify-between bg-[#000000] z-50 px-[16px] py-[8px] text-[#ffffff] text-[14px]">
+      <div className="flex gap-[12px] items-center">
+        <Image src={HeaderLogo} alt="HeaderLogo" className="h-[20px] w-auto" />
         <div>FUTURE NAMING CENTER</div>
       </div>
-      <div className="flex items-center gap-[26px] ">
+      <div className="flex items-center gap-[16px]">
         <p>2050</p>
         <p>
           {day} {month} {date}
@@ -55,7 +28,7 @@ export default function Header() {
           {hours}:{minutes} {meridiem}
         </p>
         <Link href="/">
-          <Image className="w-[6rem] xl:w-[10rem]" src={exit} alt="exit" />
+          <Image className="w-[80px]" src={exit} alt="exit" />
         </Link>
       </div>
     </div>

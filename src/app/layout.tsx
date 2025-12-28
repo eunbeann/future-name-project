@@ -43,8 +43,8 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${pixardisplay.variable} ${dunggeunmo.variable} `}
       >
+        <Header />
         <ScaledContainer>
-          <Header />
           {children}
         </ScaledContainer>
       </body>
