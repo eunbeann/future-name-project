@@ -23,19 +23,17 @@ export function useScale(): ScaleInfo {
 
   useEffect(() => {
     const updateScale = () => {
-      const scaleX = window.innerWidth / DESIGN_WIDTH;
-      const scaleY = window.innerHeight / DESIGN_HEIGHT;
-      // Math.min to maintain aspect ratio (allows margins)
-      const scale = Math.min(scaleX, scaleY);
+      // Scale based on height only (width may be clipped)
+      const scale = window.innerHeight / DESIGN_HEIGHT;
 
       const scaledWidth = DESIGN_WIDTH * scale;
       const scaledHeight = DESIGN_HEIGHT * scale;
 
       setScaleInfo({
         scale,
-        // Center alignment (can be negative for clipping effect)
+        // Center horizontally (negative = clipped on sides)
         offsetX: (window.innerWidth - scaledWidth) / 2,
-        offsetY: (window.innerHeight - scaledHeight) / 2,
+        offsetY: 0,
         isReady: true,
       });
     };

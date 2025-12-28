@@ -13,7 +13,7 @@ export default function ScaledContainer({
 }: ScaledContainerProps) {
   const { scale, offsetX, offsetY, isReady } = useScale();
 
-  // Don't render until ready
+// Don't render until ready
   if (!isReady) {
     return <div className="w-screen h-screen bg-[#0a1628]" />;
   }
