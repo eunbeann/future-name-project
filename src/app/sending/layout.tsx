@@ -10,7 +10,7 @@ export default function SendingLayout({
 }) {
   return (
     <ClientRecoilRoot>
-      <div className="relative min-h-screen flex justify-center items-center bg-[#000000]">
+      <div className="absolute inset-0 w-[2560px] h-[1333px] flex justify-center items-center bg-[#0a1628]">
         <MainContainer>
           <div className="relative">{children}</div>
         </MainContainer>

@@ -13,12 +13,14 @@ export default function DeniedLayout({
 }) {
   return (
     <ClientRecoilRoot>
-      <Image
-        alt="bg"
-        src={denied}
-        className="relative min-h-screen flex justify-center items-center "
-      />
-      <MainContainer bgImage={deniedLayout}>{children}</MainContainer>
+      <div className="absolute inset-0 w-[2560px] h-[1333px] flex justify-center items-center bg-[#0a1628]">
+        <Image
+          alt="bg"
+          src={denied}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <MainContainer bgImage={deniedLayout}>{children}</MainContainer>
+      </div>
     </ClientRecoilRoot>
   );
 }
