@@ -17,11 +17,12 @@ export default function BlackPc2() {
         <h1 className="font-pixardisplay text-[#ffffff] xl:text-[52px] mb-[20px]">
           Loading......
         </h1>
-        <div className="flex px-[20px] py-[14px] items-center xl:h-[56px] xl:w-[650px] border-[5px] border-[#ffffff]">
+        <div className="relative px-[20px] py-[14px] xl:h-[56px] xl:w-[650px] border-[5px] border-[#ffffff]">
           <div
-            className="h-full bg-[#02FE00] animate-expand"
+            className="absolute inset-y-[14px] left-[20px] right-[20px] bg-[#02FE00] animate-expand origin-left"
+            style={{ width: 0 }}
             onAnimationEnd={handleAnimationEnd}
-          ></div>
+          />
         </div>
       </ComputerMonitor>
     </>
